@@ -58,9 +58,18 @@
     </div>
 
     <div class="form-group">
-      {!! Form::submit('Submit', ['class' => 'btn btn-info pull-right']) !!}
+      {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
     </div>
 
   {!! Form::close() !!}
+
+  {{-- ERRORS --}}
+  @if ($errors->any())
+    <ul class="alert alert-danger">
+      @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  @endif
 
 @endsection

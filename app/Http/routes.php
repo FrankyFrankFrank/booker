@@ -24,3 +24,5 @@ Route::get('/timeslots/create', 'TimeslotsController@create');
 Route::get('/timeslots/{id}', 'TimeslotsController@show');
 
 Route::put('/timeslots/{id}', 'TimeslotsController@update');
+
+Route::get('/timeslots/{id}/edit', 'TimeslotsController@edit');
