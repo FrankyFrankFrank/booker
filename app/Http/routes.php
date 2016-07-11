@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::patch('timeslots/assign/{id}', 'TimeslotsController@assign')->name('assign');
+Route::group(['middleware' => 'auth'], function() {
 
-Route::resource('timeslots', 'TimeslotsController');
+  Route::patch('timeslots/assign/{id}', 'TimeslotsController@assign')->name('assign');
+
+  Route::resource('timeslots', 'TimeslotsController');
+
+});
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

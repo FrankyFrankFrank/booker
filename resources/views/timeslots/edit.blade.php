@@ -1,17 +1,23 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
 
-  <h1>Edit timeslot</h1>
+        <h1>Edit timeslot</h1>
 
-  {!! Form::model($timeslot, ['method' => 'patch', 'action' => ['TimeslotsController@update', $timeslot->id]]) !!}
+        {!! Form::model($timeslot, ['method' => 'patch', 'action' => ['TimeslotsController@update', $timeslot->id]]) !!}
 
-    @include('timeslots.form', ['submitButtonText' => 'Update'])
+          @include('timeslots.form', ['submitButtonText' => 'Update'])
 
-  {!! Form::close() !!}
+        {!! Form::close() !!}
 
-  @include('errors.list')
+        @include('errors.list')
+      </div>
+    </div>
+  </div>
 
 
 @endsection

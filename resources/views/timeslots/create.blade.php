@@ -1,15 +1,22 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 
-  <h1>Create Timeslot</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
 
-  {!! Form::open(['url' => 'timeslots']) !!}
+          <h1>Create Timeslot</h1>
 
-    @include('timeslots.form', ['submitButtonText' => 'Submit'])
+            {!! Form::open(['url' => 'timeslots']) !!}
 
-  {!! Form::close() !!}
+              @include('timeslots.form', ['submitButtonText' => 'Submit'])
 
-  @include('errors.list')
+            {!! Form::close() !!}
+
+            @include('errors.list')
+      </div>
+    </div>
+  </div>
 
 @endsection

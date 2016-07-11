@@ -11,9 +11,17 @@ use App\Http\Requests\TimeslotRequest;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 
 class TimeslotsController extends Controller
 {
+
+
+  // public function __construct()
+  // {
+  //   $this->middleware('auth');
+  // }
   //
   //
   //
@@ -40,6 +48,7 @@ class TimeslotsController extends Controller
   //
   public function create()
   {
+
     return view('timeslots.create');
   }
 
@@ -53,9 +62,9 @@ class TimeslotsController extends Controller
   public function store(TimeslotRequest $request)
   {
 
+    $timeslot = new Timeslot($request->all());
 
-
-    Timeslot::create($request->all());
+    Auth::user()->timeslots()->save($timeslot);
 
     return redirect('timeslots');
 
