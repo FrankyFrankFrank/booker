@@ -34,9 +34,17 @@ class TimeslotsController extends Controller
 
     $unavailableTimeslots = Timeslot::orderBy('time', 'asc')->assigned()->get();
 
+    $admin = false;
+    if (Auth::user()->admin())
+    {
+    $admin = true;
+    }
+
+
     return view('timeslots.index', [
       'availableTimeslots' => $availableTimeslots,
-      'unavailableTimeslots' => $unavailableTimeslots
+      'unavailableTimeslots' => $unavailableTimeslots,
+      'admin' => $admin,
     ]);
   }
 
@@ -48,7 +56,6 @@ class TimeslotsController extends Controller
   //
   public function create()
   {
-
     return view('timeslots.create');
   }
 

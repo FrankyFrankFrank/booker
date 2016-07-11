@@ -31,9 +31,9 @@ class User extends Authenticatable
     }
 
     // Is a Team Manager
-    public function isATeamManager()
+    public function admin()
     {
-      return false;
+      return true;
     }
 
 }

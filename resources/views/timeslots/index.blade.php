@@ -38,6 +38,12 @@
 
         @endforeach
 
+        @if ( $admin )
+
+          <a href="/timeslots/create" class="btn btn-primary">Create</a>
+
+        @endif
+
       </div>
     </div>
   </div>
