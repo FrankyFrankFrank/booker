@@ -8,7 +8,8 @@ class Timeslot extends Model
 {
     protected $fillable = [
       'time',
-      'agent'
+      'agent',
+      'user_id' //Temporary
     ];
 
     public function scopeAssigned($query)
@@ -19,6 +20,12 @@ class Timeslot extends Model
     public function scopeUnassigned($query)
     {
       $query->where('is_assigned', '=', '0');
+    }
+
+    // Timeslot belongs to agent
+    public function agent()
+    {
+      return $this->belongsTo('App\User');
     }
 
 }

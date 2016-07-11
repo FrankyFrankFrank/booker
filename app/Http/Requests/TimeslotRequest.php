@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateTimeslotRequest extends Request
+class TimeslotRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class CreateTimeslotRequest extends Request
     public function rules()
     {
         return [
-            'agent' => 'required',
-            'time' => 'required',
+            'agent' => 'required|filled',
+            'time' => 'required|filled',
         ];
     }
 }

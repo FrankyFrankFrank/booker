@@ -15,14 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/timeslots', 'TimeslotsController@index');
+Route::patch('timeslots/assign/{id}', 'TimeslotsController@assign')->name('assign');
 
-Route::post('/timeslots', 'TimeslotsController@store');
-
-Route::get('/timeslots/create', 'TimeslotsController@create');
-
-Route::get('/timeslots/{id}', 'TimeslotsController@show');
-
-Route::put('/timeslots/{id}', 'TimeslotsController@update');
-
-Route::get('/timeslots/{id}/edit', 'TimeslotsController@edit');
+Route::resource('timeslots', 'TimeslotsController');

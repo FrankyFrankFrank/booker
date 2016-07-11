@@ -14,11 +14,18 @@ class CreateTimeslotsTable extends Migration
     {
         Schema::create('timeslots', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->time('time');
             $table->boolean('is_assigned');
             $table->enum('agent', ['Lidia Adamska', 'Dan Elliot']);
             $table->timestamps();
             //Checkout carbon timestamps
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+                  
         });
     }
 

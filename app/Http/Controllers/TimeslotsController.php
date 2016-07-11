@@ -7,7 +7,7 @@ use App\Timeslot;
 
 use App\Http\Requests;
 
-use App\Http\Requests\CreateTimeslotRequest;
+use App\Http\Requests\TimeslotRequest;
 
 use Illuminate\Http\Request;
 
@@ -36,20 +36,6 @@ class TimeslotsController extends Controller
   //
   //
   //
-  // SHOW SELECTED TIMESLOT
-  //
-  public function show($id)
-  {
-    $timeslot = Timeslot::findOrFail($id);
-
-    return view('timeslots.show')->with('timeslot', $timeslot);
-  }
-
-
-  //
-  //
-  //
-  //
   // SHOW TIMESLOT CREATION VIEW
   //
   public function create()
@@ -64,8 +50,10 @@ class TimeslotsController extends Controller
   //
   // STORE CREATED TIMESLOT
   //
-  public function store(CreateTimeslotRequest $request)
+  public function store(TimeslotRequest $request)
   {
+
+
 
     Timeslot::create($request->all());
 
@@ -79,8 +67,9 @@ class TimeslotsController extends Controller
   //
   // ASSIGN TIMESLOT
   //
-  public function update($id)
+  public function assign($id)
   {
+
     $timeslot = Timeslot::find($id);
 
     $timeslot->is_assigned = 1;
@@ -88,6 +77,49 @@ class TimeslotsController extends Controller
     $timeslot->save();
 
     return redirect('timeslots');
+  }
+
+
+  //
+  //
+  //
+  //
+  // UPDATE TIMESLOT
+  //
+  public function update($id, TimeslotRequest $request)
+  {
+
+    $timeslot = Timeslot::findOrFail($id);
+
+    $timeslot->update($request->all());
+
+    return redirect('timeslots');
+  }
+
+  //
+  //
+  //
+  //
+  // SHOW SELECTED TIMESLOT
+  //
+  public function show($id)
+  {
+    $timeslot = Timeslot::findOrFail($id);
+
+    return view('timeslots.show')->with('timeslot', $timeslot);
+  }
+
+
+  //
+  //
+  //
+  // SHOW EDIT PAGE
+  //
+  public function edit($id)
+  {
+    $timeslot = Timeslot::findOrFail($id);
+
+    return view('timeslots.edit')->with('timeslot', $timeslot);
   }
 
 }
