@@ -29,5 +29,11 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Timeslot');
     }
-    
+
+    // Is a Team Manager
+    public function isATeamManager()
+    {
+      return false;
+    }
+
 }

@@ -26,3 +26,13 @@ Route::group(['middleware' => 'auth'], function() {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::group(['middleware' => 'web'], function() {
+
+  Route::get('/foo', ['middleware' => 'manager', function()
+  {
+    return 'This page may only be viewed by managers';
+  }]);
+
+});

@@ -9,12 +9,14 @@
 
                 <div class="panel-body">
                   @if (Auth::user())
-                    <a class="btn btn-primary" href="/timeslots">View Timeslots</a>
+                    <p class="text-center">
+                      <a class="btn btn-primary" href="/timeslots">View Timeslots</a>
+                    </p>
                   @else
                     <p class="text-center">
-                    <a class="btn btn-primary" href="/login">Log In and Book</a>
-                    OR
-                    <a class="btn btn-primary" href="/register">Register</a>
+                      <a class="btn btn-primary" href="/login">Log In and Book</a>
+                      OR
+                      <a class="btn btn-primary" href="/register">Register</a>
                     </p>
                   @endif
                 </div>
