@@ -44,7 +44,7 @@
 
               <a href="{{ url('/timeslots', [$timeslot->id] )}}">
                 <div class="col-md-4">
-                  <div class="timeslot booked">
+                  <div class="timeslot timeslot-booked">
                     <h1>
                       {{ $timeslot->time }}
                     </h1>

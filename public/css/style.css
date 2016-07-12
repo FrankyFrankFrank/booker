@@ -1,9 +1,9 @@
 .timeslot {
   border-radius:2px;
   border-top: 4px solid #2ecc71;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.24);
-  -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.24);
-  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.24);
+  -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.24);
+  -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.24);
+  box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.24);
   margin-bottom: 20px;
   padding:20px;
 }
@@ -12,8 +12,12 @@
   border-color:#27ae60;
 }
 
-.timeslot.booked {
-  border-top: 4px solid #d35400;
+.timeslot-booked {
+  border-top: 4px solid #e67e22;
+}
+
+.timeslot-booked:hover {
+  border-color:#d35400;
 }
 
 .navbar-default {
@@ -25,4 +29,12 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.welcome-message {
+  margin-top:130px;
+}
+
+.welcome-buttons {
+  margin-top:40px;
 }
