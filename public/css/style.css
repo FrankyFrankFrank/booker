@@ -1,4 +1,10 @@
+.navbar-inverse {
+  background-color: rgb(90, 52, 94);
+  color: #ffffff;
+}
+
 .timeslot {
+  background-color: #ffffff;
   border-radius:2px;
   border-top: 4px solid #2ecc71;
   -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.24);
@@ -20,11 +26,6 @@
   border-color:#d35400;
 }
 
-.navbar-default {
-  background-color: #ebecea;
-}
-
-
 .bot-right {
   position: absolute;
   bottom: 0;
@@ -37,4 +38,9 @@
 
 .welcome-buttons {
   margin-top:40px;
+}
+
+.logo {
+  padding: 3px 4px 3px 0;
+  max-width: 67px;
 }

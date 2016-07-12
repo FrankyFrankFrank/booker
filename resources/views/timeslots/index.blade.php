@@ -33,10 +33,10 @@
           @endforeach
         </div>
 
-        <hr>
 
         @if ($user->role == 'agent')
 
+          <hr>
           <h2>Booked Timeslots</h2>
 
           <div class="row">

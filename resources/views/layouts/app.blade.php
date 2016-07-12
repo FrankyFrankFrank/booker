@@ -20,7 +20,7 @@
 
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -33,8 +33,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Eby Estates
+                <a class="navbar-left" href="{{ url('/') }}">
+                    <img class="logo" src="/img/eby-estates-logo-header.png" alt="Eby Estates">
                 </a>
             </div>
 
