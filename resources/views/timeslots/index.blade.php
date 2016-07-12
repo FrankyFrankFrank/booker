@@ -6,41 +6,61 @@
     <div class="row">
       <div class="col-md-12">
 
-        <h1>Available Timeslots</h1>
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Available Timeslots</h1>
+            @if ($user->role == 'agent')
+              <a href="/timeslots/create" class="btn btn-primary">Create New Timeslot</a>
+            @endif
+          </div>
+        </div>
+        <br>
 
-        @foreach ($availableTimeslots as $timeslot)
+        <div class="row">
+          @foreach ($availableTimeslots as $timeslot)
 
-            <div class="row timeslot">
-              <div class="col-md-12">
-                <h1>
-                  <a href="{{ url('/timeslots', [$timeslot->id] )}}">{{ $timeslot->time }}</a>
-                </h1>
-                <p>{{ $timeslot->agent }}</p>
+            <a href="{{ url('/timeslots', [$timeslot->id] )}}">
+              <div class="col-md-4">
+                <div class="timeslot">
+                  <h1>
+                    {{ $timeslot->time }}
+                  </h1>
+                  <p>{{ $timeslot->agent }}</p>
+                </div>
               </div>
-            </div>
+            </a>
 
-        @endforeach
+          @endforeach
+        </div>
 
         <hr>
 
-        <h2>Booked Timeslots</h2>
+        @if ($user->role == 'agent')
 
-        @foreach ($unavailableTimeslots as $timeslot)
+          <h2>Booked Timeslots</h2>
 
-            <div class="row timeslot booked">
-              <div class="col-md-12">
-                <h1>
-                  <a href="{{ url('/timeslots', [$timeslot->id] )}}">{{ $timeslot->time }}</a>
-                </h1>
-                <p>{{ $timeslot->agent }}</p>
-              </div>
-            </div>
+          <div class="row">
+            @foreach ($unavailableTimeslots as $timeslot)
 
-        @endforeach
+              <a href="{{ url('/timeslots', [$timeslot->id] )}}">
+                <div class="col-md-4">
+                  <div class="timeslot booked">
+                    <h1>
+                      {{ $timeslot->time }}
+                    </h1>
+                    <p>{{ $timeslot->agent }} with: <br>
+                      John Doe<br>
+                      1-519-555-1048<br>
+                      john@example.com
+                    </p>
+                  </div>
+                </div>
+              </a>
 
-        @if ( $admin )
+            @endforeach
+          </div>
 
-          <a href="/timeslots/create" class="btn btn-primary">Create</a>
+
 
         @endif
 

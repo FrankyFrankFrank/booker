@@ -1,17 +1,28 @@
-body {
-  margin-top:60px;
-}
-
 .timeslot {
   border-radius:2px;
-  border: 1px solid #000000;
+  border-top: 4px solid #2ecc71;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.24);
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.24);
   margin-bottom: 20px;
+  padding:20px;
+}
+
+.timeslot:hover {
+  border-color:#27ae60;
 }
 
 .timeslot.booked {
-  border-color: red;
+  border-top: 4px solid #d35400;
 }
 
 .navbar-default {
   background-color: #ebecea;
+}
+
+
+.bot-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

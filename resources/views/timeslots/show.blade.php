@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -8,9 +8,7 @@
           <div class="col-md-6">
             <h1>{{ $timeslot->time }}</h1>
             <p>{{ $timeslot->agent }}</p>
-          </div>
 
-          <div class="col-md-6">
           @if ($timeslot->is_assigned == 0)
             {!! Form::model(
               $timeslot,
@@ -20,7 +18,7 @@
               ])
             !!}
 
-            <div class="btn-group pull-right">
+            <div class="btn-group">
                 {!! Form::submit(
                   "Book",
                   [
@@ -32,9 +30,9 @@
             {!! Form::close() !!}
 
           @elseif($timeslot->is_assigned == 1)
-            <p class="text-right">Booked</p>
+            <p>Booked</p>
           @endif
-          </div>
+
 
         </div>
 </div>

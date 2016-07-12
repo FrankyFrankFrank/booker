@@ -30,21 +30,17 @@ class TimeslotsController extends Controller
   //
   public function index()
   {
+
+    $user = Auth::user();
+
     $availableTimeslots = Timeslot::orderBy('time', 'asc')->unassigned()->get();
 
     $unavailableTimeslots = Timeslot::orderBy('time', 'asc')->assigned()->get();
 
-    $admin = false;
-    if (Auth::user()->admin())
-    {
-    $admin = true;
-    }
-
-
     return view('timeslots.index', [
       'availableTimeslots' => $availableTimeslots,
       'unavailableTimeslots' => $unavailableTimeslots,
-      'admin' => $admin,
+      'user' => $user,
     ]);
   }
 
