@@ -9,7 +9,7 @@
         <div class="timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
           <div class="row">
             <div class="col-md-6">
-              <h1>{{ $timeslot->time }}</h1>
+              <h1>{{ date("g:i a", strtotime($timeslot->time)) }}</h1>
               <p>{{ $timeslot->agent->name }}
 
                 @if (empty($timeslot->visitor_id) && auth()->user()->role == 'visitor')

@@ -23,7 +23,7 @@
               <div class="list-group-item">
 
                 <dt>Time:</dt>
-                <dd>{{ $timeslot->time }}</dd>
+                <dd>{{ date("g:i a", strtotime($timeslot->time)) }}</dd>
               </div>
               <div class="list-group-item">
                 <dt>Agent Email:</dt>
