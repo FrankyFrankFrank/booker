@@ -71,7 +71,9 @@ class TimeslotsController extends Controller
 
     $timeslot = new Timeslot($request->all());
 
+
     auth()->user()->timeslots()->save($timeslot);
+    // auth()->user()->timeslots()->save($timeslot);
 
     return redirect('timeslots');
 

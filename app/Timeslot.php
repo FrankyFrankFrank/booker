@@ -26,13 +26,11 @@ class Timeslot extends Model
     // Timeslot belongs to agent
     public function agent()
     {
-      // return $this->belongsTo('App\User')->where('role', '=', 'agent');
       return $this->belongsTo('App\User');
     }
 
     public function visitor()
     {
-      // return $this->belongsTo('App\User')->where('role', '=', 'visitor');
       return $this->belongsTo('App\User');
     }
 

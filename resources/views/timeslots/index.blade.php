@@ -55,7 +55,7 @@
                 <div class="col-md-4">
                   <div class="timeslot timeslot-booked">
                     <h1>
-                      {{ $timeslot->time }}
+                      {{ date("g:i a", strtotime($timeslot->time)) }}
                     </h1>
                     <p>{{ $timeslot->agent->name }} with: <br>
                       {{ $timeslot->visitor->name }}<br>
