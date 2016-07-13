@@ -31,8 +31,6 @@ class TimeslotsController extends Controller
   public function index()
   {
 
-    $user = Auth::user();
-
     $availableTimeslots = Timeslot::orderBy('time', 'asc')->unassigned()->get();
 
     $unavailableTimeslots = Timeslot::orderBy('time', 'asc')->assigned()->get();
@@ -40,7 +38,6 @@ class TimeslotsController extends Controller
     return view('timeslots.index', [
       'availableTimeslots' => $availableTimeslots,
       'unavailableTimeslots' => $unavailableTimeslots,
-      'user' => $user,
     ]);
   }
 
@@ -52,13 +49,13 @@ class TimeslotsController extends Controller
   //
   public function create()
   {
-    if (Auth::user()->role == 'agent')
+    if (auth()->user()->role == 'agent')
     {
       return view('timeslots.create');
     }
     else
     {
-      return redirect('login');
+      return redirect('timeslots');
     }
   }
 
@@ -74,7 +71,7 @@ class TimeslotsController extends Controller
 
     $timeslot = new Timeslot($request->all());
 
-    Auth::user()->timeslots()->save($timeslot);
+    auth()->user()->timeslots()->save($timeslot);
 
     return redirect('timeslots');
 
@@ -91,7 +88,7 @@ class TimeslotsController extends Controller
 
     $timeslot = Timeslot::find($id);
 
-    $timeslot->visitor_id = Auth::user()->id;
+    $timeslot->visitor_id = auth()->user()->id;
 
     $timeslot->save();
 
@@ -125,7 +122,7 @@ class TimeslotsController extends Controller
   {
     $timeslot = Timeslot::findOrFail($id);
 
-    return view('timeslots.show')->with('timeslot', $timeslot);
+    return view('timeslots.show', ['timeslot' => $timeslot]);
   }
 
 
@@ -144,13 +141,13 @@ class TimeslotsController extends Controller
 
   // DELETE timeslot
 
-  public function delete($id)
+  public function destroy($id)
   {
     $timeslot = Timeslot::findorFail($id);
 
     $timeslot->delete();
 
-    return view('timeslots');
+    return redirect('timeslots');
 
   }
 

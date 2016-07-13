@@ -18,8 +18,6 @@ class CreateTimeslotsTable extends Migration
             $table->integer('agent_id')->unsigned();
             $table->integer('visitor_id')->unsigned()->nullable();
             $table->time('time');
-            // $table->boolean('is_assigned');
-            // $table->enum('agent', ['Lidia Adamska', 'Dan Elliot']);
             $table->timestamps();
             //Checkout carbon timestamps
 

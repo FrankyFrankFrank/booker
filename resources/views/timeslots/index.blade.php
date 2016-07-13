@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-12">
             <h1>Available Timeslots</h1>
-            @if ($user->role == 'agent')
+            @if (Auth::user()->role == 'agent')
               <a href="/timeslots/create" class="btn btn-primary">Create New Timeslot</a>
             @endif
           </div>
@@ -40,7 +40,7 @@
         </div>
 
 
-        @if ($user->role == 'agent')
+        @if (Auth::user()->role == 'agent')
 
           <hr>
           <h2>Booked Timeslots</h2>
