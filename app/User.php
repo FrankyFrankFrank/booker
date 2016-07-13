@@ -27,7 +27,12 @@ class User extends Authenticatable
     // Has many timeslots
     public function timeslots()
     {
-      return $this->hasMany('App\Timeslot');
+      return $this->hasMany('App\Timeslot', 'agent_id');
+    }
+
+    public function visiting()
+    {
+      return $this->hasMany('App\Timeslot', 'visitor_id');
     }
 
 }

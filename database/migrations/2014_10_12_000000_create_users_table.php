@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('visitor');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

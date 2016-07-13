@@ -12,7 +12,7 @@
         <div class="welcome-buttons">
         @if (Auth::user())
           <p class="text-center">
-            <a class="btn btn-primary" href="/timeslots">View Timeslots</a>
+            <a class="btn btn-primary" href="/timeslots">View Time Slots</a>
           </p>
         @else
           <p class="text-center">

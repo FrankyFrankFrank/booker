@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-12">
             <nav class="navbar">
-            <h1 class="navbar-text">Available Timeslots</h1>
+            <h1 class="navbar-text">Available Time Slots</h1>
             @if (Auth::user()->role == 'agent')
               <a href="/timeslots/create" class="btn navbar-btn btn-primary navbar-right btn-create">Create New Timeslot</a>
             @endif
@@ -28,6 +28,7 @@
                     <h1>
                       {{ $timeslot->time }}
                     </h1>
+                    <p>1 Hour</p>
                     <p>{{ $timeslot->agent->name }}</p>
                   </div>
                 </div>

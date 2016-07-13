@@ -16,7 +16,7 @@
                 </p>
 
                 {!! Form::open(['route' => ['assign', $timeslot->id], 'method' => 'patch']) !!}
-                {!! Form::submit('Book This Timeslot Now', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Book This Time Slot Now', ['class' => 'btn btn-primary']) !!}
                 {!! Form::close() !!}
 
               @elseif (!empty($timeslot->visitor_id) && auth()->user()->role == 'agent')

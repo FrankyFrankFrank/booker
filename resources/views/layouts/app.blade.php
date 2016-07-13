@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/timeslots') }}">Timeslots</a></li>
+                    <li><a href="{{ url('/timeslots') }}">Time Slots</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
