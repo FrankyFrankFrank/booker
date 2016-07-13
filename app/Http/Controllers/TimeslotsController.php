@@ -95,7 +95,7 @@ class TimeslotsController extends Controller
 
     $timeslot->save();
 
-    return view('timeslots.success');
+    return view('timeslots.success')->with('timeslot', $timeslot);
   }
 
 
