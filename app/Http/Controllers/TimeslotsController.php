@@ -141,4 +141,17 @@ class TimeslotsController extends Controller
     return view('timeslots.edit')->with('timeslot', $timeslot);
   }
 
+
+  // DELETE timeslot
+
+  public function delete($id)
+  {
+    $timeslot = Timeslot::findorFail($id);
+
+    $timeslot->delete();
+
+    return view('timeslots');
+
+  }
+
 }

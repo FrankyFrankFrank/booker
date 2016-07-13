@@ -3,9 +3,9 @@
 @section('content')
 
   <div class="container">
-        <div class="row timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
+        <div class="row">
 
-          <div class="col-md-6">
+          <div class="col-md-12 timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif ">
             <h1>{{ $timeslot->time }}</h1>
             <p>{{ $timeslot->agent->name }}
 
@@ -17,10 +17,9 @@
             {!! Form::close() !!}
 
           @else
-              with: <br>
-              John Doe<br>
-              1-519-555-1048<br>
-              john@example.com
+            with: <br>
+            {{ $timeslot->visitor->name }}<br>
+            {{ $timeslot->visitor->email }}
             </p>
           @endif
 
