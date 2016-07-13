@@ -14,16 +14,21 @@ class Timeslot extends Model
 
     public function scopeAssigned($query)
     {
-      $query->where('is_assigned', '=', '1');
+      $query->whereNotNull('visitor_id');
     }
 
     public function scopeUnassigned($query)
     {
-      $query->where('is_assigned', '=', '0');
+      $query->whereNull('visitor_id');
     }
 
     // Timeslot belongs to agent
     public function agent()
+    {
+      return $this->belongsTo('App\User');
+    }
+
+    public function visitor()
     {
       return $this->belongsTo('App\User');
     }
