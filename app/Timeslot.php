@@ -8,8 +8,9 @@ class Timeslot extends Model
 {
     protected $fillable = [
       'time',
-      'agent',
-      'user_id' //Temporary
+      'agent_id',
+      'visitor_id',
+      'user_id',
     ];
 
     public function scopeAssigned($query)
@@ -25,11 +26,13 @@ class Timeslot extends Model
     // Timeslot belongs to agent
     public function agent()
     {
+      // return $this->belongsTo('App\User')->where('role', '=', 'agent');
       return $this->belongsTo('App\User');
     }
 
     public function visitor()
     {
+      // return $this->belongsTo('App\User')->where('role', '=', 'visitor');
       return $this->belongsTo('App\User');
     }
 

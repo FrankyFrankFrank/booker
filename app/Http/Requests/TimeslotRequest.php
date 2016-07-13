@@ -24,7 +24,6 @@ class TimeslotRequest extends Request
     public function rules()
     {
         return [
-            'agent' => 'required|filled',
             'time' => 'required|filled',
         ];
     }

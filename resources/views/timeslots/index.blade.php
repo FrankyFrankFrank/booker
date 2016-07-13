@@ -17,20 +17,26 @@
         <br>
 
         <div class="row">
-          @foreach ($availableTimeslots as $timeslot)
+          @if(!empty($availableTimeslots->all()))
+            @foreach ($availableTimeslots as $timeslot)
 
-            <a href="{{ url('/timeslots', [$timeslot->id] )}}">
-              <div class="col-md-4">
-                <div class="timeslot">
-                  <h1>
-                    {{ $timeslot->time }}
-                  </h1>
-                  <p>{{ $timeslot->agent }}</p>
+              <a href="{{ url('/timeslots', [$timeslot->id] )}}">
+                <div class="col-md-4">
+                  <div class="timeslot">
+                    <h1>
+                      {{ $timeslot->time }}
+                    </h1>
+                    <p>{{ $timeslot->agent->name }}</p>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
 
-          @endforeach
+            @endforeach
+          @else
+            <div class="col-md-12">
+              <h3>@if(Auth::user()->role == 'agent')All @else We're Sorry, all @endif timeslots are currently booked.</h3>
+            </div>
+          @endif
         </div>
 
 
@@ -48,10 +54,9 @@
                     <h1>
                       {{ $timeslot->time }}
                     </h1>
-                    <p>{{ $timeslot->agent }} with: <br>
-                      John Doe<br>
-                      1-519-555-1048<br>
-                      john@example.com
+                    <p>{{ $timeslot->agent->name }} with: <br>
+                      {{ $timeslot->visitor->name }}<br>
+                      {{ $timeslot->visitor->email }}
                     </p>
                   </div>
                 </div>

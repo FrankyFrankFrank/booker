@@ -52,7 +52,14 @@ class TimeslotsController extends Controller
   //
   public function create()
   {
-    return view('timeslots.create');
+    if (Auth::user()->role == 'agent')
+    {
+      return view('timeslots.create');
+    }
+    else
+    {
+      return redirect('login');
+    }
   }
 
 
@@ -84,11 +91,11 @@ class TimeslotsController extends Controller
 
     $timeslot = Timeslot::find($id);
 
-    $timeslot->is_assigned = 1;
+    $timeslot->visitor_id = Auth::user()->id;
 
     $timeslot->save();
 
-    return redirect('timeslots');
+    return view('timeslots.success');
   }
 
 

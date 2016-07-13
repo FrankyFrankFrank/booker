@@ -1,16 +1,6 @@
 {{-- Temporary --}}
 
-{!! Form::hidden('user_id', 1) !!}
-
-<div class="form-group">
-  {!! Form::label('agent', 'Agent:') !!}
-  {!! Form::select(
-    'agent',
-    ['Lidia Adamska' => 'Lidia Adamska', 'Dan Elliot' => 'Dan Elliot'],
-    null,
-    ['placeholder' => 'Choose an agent...', 'class' => 'form-control'])
-  !!}
-</div>
+{!! Form::hidden('agent_id', Auth::user()->id) !!}
 
 <div class="form-group">
   {!! Form::label('time', 'Timeslot:') !!}

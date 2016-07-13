@@ -3,36 +3,21 @@
 @section('content')
 
   <div class="container">
-        <div class="row timeslot @if ($timeslot->is_assigned) timeslot-booked @endif">
+        <div class="row timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
 
           <div class="col-md-6">
             <h1>{{ $timeslot->time }}</h1>
+            <p>{{ $timeslot->agent->name }}
 
-          @if ($timeslot->is_assigned == 0)
+          @if (empty($timeslot->visitor_id))
+            </p>
 
-            <p>{{ $timeslot->agent }}</p>
-            
-            {!! Form::model(
-              $timeslot,
-              [
-                'method' => 'PATCH',
-                'route' => ['assign', $timeslot->id],
-              ])
-            !!}
-
-            <div class="btn-group">
-                {!! Form::submit(
-                  "Book",
-                  [
-                    'class' => 'btn btn-success'
-                  ])
-                !!}
-            </div>
-
+            {!! Form::open(['route' => ['assign', $timeslot->id], 'method' => 'patch']) !!}
+            {!! Form::submit('Click Me!', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
 
-          @elseif($timeslot->is_assigned == 1)
-            <p>{{ $timeslot->agent }} with: <br>
+          @else
+              with: <br>
               John Doe<br>
               1-519-555-1048<br>
               john@example.com
