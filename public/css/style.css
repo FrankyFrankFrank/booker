@@ -1,12 +1,67 @@
+/*
+
+Purple: #5A345E;
+Light Carmine Pink: #EF6F6C;
+MEDIUM AQUAMARINE: #56e39F;
+EUCALYPTUS: #59C9A5;
+GRANITE GRAY: #5B6C5D;
+*/
+
+body {
+  color: #5B6C5D;
+  font-family: 'Lato', 'Sans-Serif';
+}
+
+a {
+  color: rgb(126, 72, 132);
+}
+
+a:hover {
+  color: #5A345E;
+}
+
+hr {
+  border-color: #b7c3b8;
+}
+
 .navbar-inverse {
-  background-color: rgb(90, 52, 94);
+  background-color: #5A345E;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  background-color: #59C9A5;
+}
+
+.btn {
+}
+
+.btn-primary {
+  background-color: #5A345E;
+  border-color: #452848;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
+  background-color: #6f4074;
+  border-color: #5A345E;
+}
+
+.btn-create {
+  margin-right: 0;
+}
+
+.navbar-inverse {
+  background-color: #5A345E;
   color: #ffffff;
 }
 
 .timeslot {
   background-color: #ffffff;
   border-radius:2px;
-  border-top: 4px solid #2ecc71;
+  border-top: 4px solid #59C9A5;
   -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.24);
   -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.24);
   box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.24);
@@ -15,15 +70,15 @@
 }
 
 .timeslot:hover {
-  border-color:#27ae60;
+  border-color:#37a985;
 }
 
 .timeslot-booked {
-  border-top: 4px solid #e67e22;
+  border-top: 4px solid #EF6F6C;
 }
 
 .timeslot-booked:hover {
-  border-color:#d35400;
+  border-color:#e72623;
 }
 
 .bot-right {
