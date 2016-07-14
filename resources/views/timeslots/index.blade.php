@@ -37,7 +37,7 @@
             @endforeach
           @else
             <div class="col-md-12">
-              <h3>@if(Auth::user()->role == 'agent')All @else We're Sorry, all @endif timeslots are currently booked.</h3>
+              <div class="alert alert-info">@if(Auth::user()->role == 'agent')All @else We're Sorry, all @endif timeslots are currently booked.</div>
             </div>
           @endif
         </div>

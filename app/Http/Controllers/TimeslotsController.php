@@ -31,6 +31,11 @@ class TimeslotsController extends Controller
   public function index()
   {
 
+    if (auth()->user()->visiting()->first() != NULL)
+    {
+      return redirect('/your_timeslot');
+    }
+
     $availableTimeslots = Timeslot::orderBy('time', 'asc')->unassigned()->get();
 
     $unavailableTimeslots = Timeslot::orderBy('time', 'asc')->assigned()->get();
@@ -154,7 +159,7 @@ class TimeslotsController extends Controller
   }
 
 
-  public function viewschedule(){
+  public function viewSchedule(){
     if (auth()->user()->role != 'agent')
     {
       return route('welcome');
@@ -165,6 +170,12 @@ class TimeslotsController extends Controller
       return view('timeslots.schedule', ['scheduled' => $scheduled]);
     }
 
+  }
+
+  public function viewVisitorTimeslot()
+  {
+    $timeslot = auth()->user()->visiting()->first();
+    return view('timeslots.yourtimeslot', ['timeslot' => $timeslot]);
   }
 
 }

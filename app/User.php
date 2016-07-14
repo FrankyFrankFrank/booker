@@ -32,7 +32,7 @@ class User extends Authenticatable
 
     public function visiting()
     {
-      return $this->hasMany('App\Timeslot', 'visitor_id');
+      return $this->hasOne('App\Timeslot', 'visitor_id');
     }
 
     public function scheduledTimeslots()

@@ -5,13 +5,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Success!</h1>
-        <div class="alert alert-warning">
-          <p>Your VIP Appointment has been booked.<br>
-            <strong>Please note this information below.</strong>
-          </p>
-        </div>
-        <hr>
+
+        <h1>You Have Already Booked an Appointment</h1>
+        <h6>Booked On: {{ $timeslot->updated_at }}</h6>
         <div class="panel panel-primary">
           <div class="panel-heading"><h2>Your Appointment:</h2></div>
           {{-- @foreach( auth()->user()->visiting->all() as $timeslot ) --}}
@@ -52,9 +48,9 @@
             </div>
           </dl>
         </div>
-        <a href="{{ url('/') }}" class="btn btn-primary pull-right">Finish</a>
+
       </div>
     </div>
-  </div>
+  </div>"
 
 @endsection

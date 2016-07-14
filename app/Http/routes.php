@@ -21,8 +21,10 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::resource('timeslots', 'TimeslotsController');
 
-  Route::get('schedule', 'TimeslotsController@viewschedule');
+  Route::get('schedule', 'TimeslotsController@viewSchedule');
 
+  Route::get('/your_timeslot', 'TimeslotsController@viewVisitorTimeslot')->name('yourtimeslot');
+  
 });
 
 Route::auth();
