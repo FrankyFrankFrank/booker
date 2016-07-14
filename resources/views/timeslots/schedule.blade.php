@@ -4,8 +4,10 @@
 
   <div class="container">
     <div class="row">
-      @foreach($scheduled as $timeslot)
       <div class="col-md-12">
+        <h1>Your Appointment Schedule</h1>
+      </div>
+      @foreach($scheduled as $timeslot)
         <a href="{{ url('/timeslots', [$timeslot->id] )}}">
           <div class="col-md-4">
             <div class="timeslot timeslot-booked">
@@ -19,7 +21,6 @@
             </div>
           </div>
         </a>
-      </div>
       @endforeach
     </div>
   </div>
