@@ -21,7 +21,7 @@
 
               @elseif (!empty($timeslot->visitor_id) && auth()->user()->role == 'agent')
                 with: <br>
-                {{ $timeslot->visitor->name }}<br>
+                <strong>{{ $timeslot->visitor->name }}</strong><br>
                 {{ $timeslot->visitor->email }}
                 </p>
                 @endif

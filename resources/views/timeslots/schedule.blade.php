@@ -15,7 +15,7 @@
                 {{ date("g:i a", strtotime($timeslot->time)) }}
               </h1>
               <p>
-                With {{ $timeslot->visitor->name }}<br>
+                With <strong>{{ $timeslot->visitor->name }}</strong><br>
                 {{ $timeslot->visitor->email }}
               </p>
             </div>
