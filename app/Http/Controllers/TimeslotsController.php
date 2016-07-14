@@ -18,16 +18,8 @@ class TimeslotsController extends Controller
 {
 
 
-  // public function __construct()
-  // {
-  //   $this->middleware('auth');
-  // }
-  //
-  //
-  //
-  //
   // SHOW ALL TIMESLOTS
-  //
+
   public function index()
   {
 
@@ -44,16 +36,15 @@ class TimeslotsController extends Controller
       'availableTimeslots' => $availableTimeslots,
       'unavailableTimeslots' => $unavailableTimeslots,
     ]);
+
   }
 
-  //
-  //
-  //
-  //
+
   // SHOW TIMESLOT CREATION VIEW
-  //
+
   public function create()
   {
+
     if (auth()->user()->role == 'agent')
     {
       return view('timeslots.create');
@@ -62,15 +53,12 @@ class TimeslotsController extends Controller
     {
       return redirect('timeslots');
     }
+
   }
 
 
-  //
-  //
-  //
-  //
   // STORE CREATED TIMESLOT
-  //
+
   public function store(TimeslotRequest $request)
   {
 
@@ -84,12 +72,9 @@ class TimeslotsController extends Controller
 
   }
 
-  //
-  //
-  //
-  //
+
   // ASSIGN TIMESLOT
-  //
+
   public function assign($id)
   {
 
@@ -100,15 +85,12 @@ class TimeslotsController extends Controller
     $timeslot->save();
 
     return view('timeslots.success')->with('timeslot', $timeslot);
+
   }
 
 
-  //
-  //
-  //
-  //
   // UPDATE TIMESLOT
-  //
+
   public function update($id, TimeslotRequest $request)
   {
 
@@ -117,29 +99,27 @@ class TimeslotsController extends Controller
     $timeslot->update($request->all());
 
     return redirect('timeslots');
+
   }
 
-  //
-  //
-  //
-  //
+
   // SHOW SELECTED TIMESLOT
-  //
+
   public function show($id)
   {
+
     $timeslot = Timeslot::findOrFail($id);
 
     return view('timeslots.show', ['timeslot' => $timeslot]);
+
   }
 
 
-  //
-  //
-  //
   // SHOW EDIT PAGE
-  //
+
   public function edit($id)
   {
+
     $timeslot = Timeslot::findOrFail($id);
 
     return view('timeslots.edit')->with('timeslot', $timeslot);
@@ -150,6 +130,7 @@ class TimeslotsController extends Controller
 
   public function destroy($id)
   {
+
     $timeslot = Timeslot::findorFail($id);
 
     $timeslot->delete();
@@ -159,18 +140,29 @@ class TimeslotsController extends Controller
   }
 
 
-  public function viewSchedule(){
+  // VIEW Schedule
+
+  public function viewSchedule()
+  {
+
     if (auth()->user()->role != 'agent')
     {
       return route('welcome');
     }
     else
     {
-      $scheduled = auth()->user()->scheduledTimeslots();
+      $agent = auth()->user();
+      $scheduled = Timeslot::where('agent_id', '=', $agent->id)
+        ->assigned()
+        ->orderBy('time', 'asc')
+        ->get();
       return view('timeslots.schedule', ['scheduled' => $scheduled]);
     }
 
   }
+
+
+  // VIEW Visitor Timeslot
 
   public function viewVisitorTimeslot()
   {
