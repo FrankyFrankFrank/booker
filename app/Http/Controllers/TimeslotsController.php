@@ -153,4 +153,18 @@ class TimeslotsController extends Controller
 
   }
 
+
+  public function viewschedule(){
+    if (auth()->user()->role != 'agent')
+    {
+      return route('welcome');
+    }
+    else
+    {
+      $scheduled = auth()->user()->scheduledTimeslots();
+      return view('timeslots.schedule', ['scheduled' => $scheduled]);
+    }
+
+  }
+
 }

@@ -43,6 +43,11 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/timeslots') }}">Time Slots</a></li>
+                    @if(auth()->user())
+                      @if(auth()->user()->isAgent())
+                      <li><a href="{{ url('/schedule') }}">View Scheduled Appointments</a></li>
+                      @endif
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

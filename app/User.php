@@ -35,4 +35,21 @@ class User extends Authenticatable
       return $this->hasMany('App\Timeslot', 'visitor_id');
     }
 
+    public function scheduledTimeslots()
+    {
+      return $this->timeslots()->assigned()->get();
+    }
+
+    public function isAgent()
+    {
+      if ($this->role == 'agent')
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
 }
