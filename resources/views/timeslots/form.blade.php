@@ -1,5 +1,3 @@
-{{-- Temporary --}}
-
 {!! Form::hidden('user_id', Auth::user()->id) !!}
 {!! Form::hidden('agent_id', Auth::user()->id) !!}
 
