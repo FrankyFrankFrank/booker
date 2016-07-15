@@ -8,14 +8,13 @@
 
       <div class="row">
         <div class="col-md-12">
-          <nav class="navbar">
-            <h1 class="navbar-text">Available Time Slots</h1>
-            @if (Auth::user()->role == 'agent')
-              <a href="/timeslots/create" class="btn navbar-btn btn-primary navbar-right btn-create">Create New Timeslot</a>
-            @endif
-          </nav>
+          <h1>Available Time Slots</h1>
+          @if (Auth::user()->role == 'agent')
+            <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
+          @endif
         </div>
       </div>
+
       <br>
 
       <div class="row">
@@ -41,19 +40,7 @@
         <div class="row">
           @foreach ($unavailableTimeslots as $timeslot)
 
-            <a href="{{ url('/timeslots', [$timeslot->id] )}}">
-              <div class="col-md-4">
-                <div class="timeslot timeslot-booked">
-                  <h1>
-                    {{ date("D, M d", strtotime($timeslot->date)) }} {{ date("g:i a", strtotime($timeslot->time)) }}
-                  </h1>
-                  <p>{{ $timeslot->agent->name }} with: <br>
-                    <strong>{{ $timeslot->visitor->name }}</strong><br>
-                    {{ $timeslot->visitor->email }}
-                  </p>
-                </div>
-              </div>
-            </a>
+            @include('timeslots.timeslot')
 
           @endforeach
         </div>
