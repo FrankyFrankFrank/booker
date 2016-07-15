@@ -2,6 +2,11 @@
 {!! Form::hidden('agent_id', Auth::user()->id) !!}
 
 <div class="form-group">
+  {!! Form::label('date', 'Date:') !!}
+  {!! Form::date('date', null, ['class' => 'form-control']); !!}
+</div>
+
+<div class="form-group">
   {!! Form::label('time', 'Timeslot:') !!}
   {!! Form::select(
     'time',
@@ -18,7 +23,7 @@
       '17:00:00' => '5:00',
     ],
     null,
-    ['placeholder' => 'Choose a timeslot...', 'class' => 'form-control'])
+    ['placeholder' => 'HH:MM', 'class' => 'form-control'])
   !!}
 </div>
 

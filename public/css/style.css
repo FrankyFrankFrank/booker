@@ -12,6 +12,10 @@ body {
   font-family: 'Lato', 'Sans-Serif';
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Droid Serif', serif;
+}
+
 a {
   color: rgb(126, 72, 132);
 }

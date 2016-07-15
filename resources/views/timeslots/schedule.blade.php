@@ -12,7 +12,7 @@
           <div class="col-md-4">
             <div class="timeslot timeslot-booked">
               <h1>
-                {{ date("g:i a", strtotime($timeslot->time)) }}
+                {{ date("D, M d", strtotime($timeslot->date)) }} {{ date("g:i a", strtotime($timeslot->time)) }}
               </h1>
               <p>
                 With <strong>{{ $timeslot->visitor->name }}</strong><br>

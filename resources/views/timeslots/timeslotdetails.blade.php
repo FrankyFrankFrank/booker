@@ -8,7 +8,10 @@
         <dd>{{ $timeslot->agent->name }}</dd>
       </div>
       <div class="list-group-item">
-
+        <dt>Date:</dt>
+        <dd>{{ date("D, M d", strtotime($timeslot->date)) }} </dd>
+      </div>
+      <div class="list-group-item">
         <dt>Time:</dt>
         <dd>{{ date("g:i a", strtotime($timeslot->time)) }}</dd>
       </div>

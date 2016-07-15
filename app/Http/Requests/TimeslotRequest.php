@@ -24,6 +24,7 @@ class TimeslotRequest extends Request
     public function rules()
     {
         return [
+            'date' => 'required',
             'time' => 'required|filled',
         ];
     }

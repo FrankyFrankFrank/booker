@@ -20,17 +20,9 @@
 
       <div class="row">
         @forelse ($availableTimeslots as $timeslot)
-          <a href="{{ url('/timeslots', [$timeslot->id] )}}">
-            <div class="col-md-4">
-              <div class="timeslot">
-                <h1>
-                  {{ date("g:i a", strtotime($timeslot->time)) }}
-                </h1>
-                <p>1 Hour</p>
-                <p>{{ $timeslot->agent->name }}</p>
-              </div>
-            </div>
-          </a>
+
+          @include('timeslots.timeslot')
+
         @empty
           <div class="col-md-12">
             <div class="alert alert-info">
@@ -53,7 +45,7 @@
               <div class="col-md-4">
                 <div class="timeslot timeslot-booked">
                   <h1>
-                    {{ date("g:i a", strtotime($timeslot->time)) }}
+                    {{ date("D, M d", strtotime($timeslot->date)) }} {{ date("g:i a", strtotime($timeslot->time)) }}
                   </h1>
                   <p>{{ $timeslot->agent->name }} with: <br>
                     <strong>{{ $timeslot->visitor->name }}</strong><br>

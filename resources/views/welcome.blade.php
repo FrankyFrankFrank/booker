@@ -17,6 +17,9 @@
           </p>
         @else
           <p class="text-center">
+            You Must be Registered to Book an Appointment.
+          </p>
+          <p class="text-center">
             <a class="btn btn-primary" href="/login">Log In and Book</a>
             OR
             <a class="btn btn-primary" href="/register">Register</a>

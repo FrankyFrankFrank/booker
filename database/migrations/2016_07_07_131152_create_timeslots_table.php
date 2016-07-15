@@ -17,6 +17,7 @@ class CreateTimeslotsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('agent_id')->unsigned();
             $table->integer('visitor_id')->unsigned()->nullable();
+            $table->date('date');
             $table->time('time');
             $table->timestamps();
             //Checkout carbon timestamps
