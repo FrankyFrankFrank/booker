@@ -28,9 +28,9 @@ class TimeslotsController extends Controller
       return redirect('/your_timeslot');
     }
 
-    $availableTimeslots = Timeslot::orderBy('time', 'asc')->unassigned()->get();
+    $availableTimeslots = Timeslot::orderBy('date', 'asc')->orderBy('time', 'asc')->unassigned()->get();
 
-    $unavailableTimeslots = Timeslot::orderBy('time', 'asc')->assigned()->get();
+    $unavailableTimeslots = Timeslot::orderBy('date', 'asc')->orderBy('time', 'asc')->assigned()->get();
 
     return view('timeslots.index', [
       'availableTimeslots' => $availableTimeslots,

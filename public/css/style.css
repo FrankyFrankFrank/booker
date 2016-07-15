@@ -85,6 +85,10 @@ hr {
   border-color:#e72623;
 }
 
+.timeslot h1 {
+  font-size: 2em;
+}
+
 .bot-right {
   position: absolute;
   bottom: 0;
