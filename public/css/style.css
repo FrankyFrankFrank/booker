@@ -28,6 +28,10 @@ hr {
   border-color: #b7c3b8;
 }
 
+.navbar-brand {
+  padding: 0 15px;
+}
+
 .navbar-inverse {
   background-color: #5A345E;
 }
