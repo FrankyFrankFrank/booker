@@ -3,6 +3,9 @@
 
 namespace App\Http\Controllers;
 
+
+use Mail;
+
 use App\Timeslot;
 
 use App\Http\Requests;
@@ -12,6 +15,7 @@ use App\Http\Requests\TimeslotRequest;
 use Illuminate\Http\Request;
 
 use Auth;
+
 
 
 class TimeslotsController extends Controller
@@ -129,9 +133,17 @@ class TimeslotsController extends Controller
 
     $timeslot = Timeslot::find($id);
 
+    $user = auth()->user();
+
     $timeslot->visitor_id = auth()->user()->id;
 
     $timeslot->save();
+
+
+    Mail::send('emails.assigned', ['user' => $user, 'timeslot' => $timeslot], function ($m) use ($user) {
+      $m->from('afrank@hawskviewhomes.com', 'Eby Estates');
+      $m->to($user->email, $user->name)->subject('Model Home Timeslot Booked');
+    });
 
     return view('timeslots.success')->with('timeslot', $timeslot);
 
