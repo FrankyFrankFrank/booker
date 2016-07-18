@@ -11,21 +11,19 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="welcome-buttons">
-        @if (Auth::user())
           <p class="text-center">
-            <a class="btn btn-primary" href="/timeslots">View Time Slots</a>
+            @if (auth()->user() && auth()->user()->visiting()->first() != NULL)
+              <a class="btn btn-primary" href="/timeslots">View Your Appointment</a>
+            @elseif(auth()->user())
+              <a class="btn btn-primary" href="/timeslots">View Time Slots</a>
+            @else
+              You Must be Registered to Book an Appointment.<br />
+              <a class="btn btn-primary" href="/login">Log In and Book</a>
+              OR
+              <a class="btn btn-primary" href="/register">Register</a>
+            @endif
           </p>
-        @else
-          <p class="text-center">
-            You Must be Registered to Book an Appointment.
-          </p>
-          <p class="text-center">
-            <a class="btn btn-primary" href="/login">Log In and Book</a>
-            OR
-            <a class="btn btn-primary" href="/register">Register</a>
-          </p>
-        @endif
-      </div>
+        </div>
       </div>
     </div>
 

@@ -19,12 +19,14 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::patch('timeslots/assign/{id}', 'TimeslotsController@assign')->name('assign');
 
+  Route::patch('timeslots/unassign/{id}', 'TimeslotsController@unassign')->name('unassign');
+
   Route::resource('timeslots', 'TimeslotsController');
 
   Route::get('schedule', 'TimeslotsController@viewSchedule');
 
   Route::get('/your_timeslot', 'TimeslotsController@viewVisitorTimeslot')->name('yourtimeslot');
-  
+
 });
 
 Route::auth();

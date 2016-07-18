@@ -72,23 +72,6 @@ class TimeslotsController extends Controller
 
   }
 
-
-  // ASSIGN TIMESLOT
-
-  public function assign($id)
-  {
-
-    $timeslot = Timeslot::find($id);
-
-    $timeslot->visitor_id = auth()->user()->id;
-
-    $timeslot->save();
-
-    return view('timeslots.success')->with('timeslot', $timeslot);
-
-  }
-
-
   // UPDATE TIMESLOT
 
   public function update($id, TimeslotRequest $request)
@@ -139,8 +122,37 @@ class TimeslotsController extends Controller
 
   }
 
+  // ASSIGN TIMESLOT
 
-  // VIEW Schedule
+  public function assign($id)
+  {
+
+    $timeslot = Timeslot::find($id);
+
+    $timeslot->visitor_id = auth()->user()->id;
+
+    $timeslot->save();
+
+    return view('timeslots.success')->with('timeslot', $timeslot);
+
+  }
+
+  // UNASSIGN TIMESLOT
+
+  public function unassign($id)
+  {
+
+    $timeslot = Timeslot::find($id);
+
+    $timeslot->visitor_id = null;
+
+    $timeslot->save();
+
+    return view('timeslots.cancelled')->with('timeslot', $timeslot);
+
+  }
+
+  // VIEW SCHEDULE
 
   public function viewSchedule()
   {
@@ -162,7 +174,7 @@ class TimeslotsController extends Controller
   }
 
 
-  // VIEW Visitor Timeslot
+  // VIEW VISITOR TIMESLOT
 
   public function viewVisitorTimeslot()
   {
