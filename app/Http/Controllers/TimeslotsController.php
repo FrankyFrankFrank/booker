@@ -156,9 +156,16 @@ class TimeslotsController extends Controller
 
     $timeslot = Timeslot::find($id);
 
+    $user = auth()->user();
+
     $timeslot->visitor_id = null;
 
     $timeslot->save();
+
+    Mail::send('emails.unassigned', ['user' => $user, 'timeslot' => $timeslot], function ($m) use ($user) {
+      $m->from('afrank@hawskviewhomes.com', 'Eby Estates');
+      $m->to($user->email, $user->name)->subject('Model Home Timeslot Cancelled');
+    });
 
     return view('timeslots.cancelled')->with('timeslot', $timeslot);
 
