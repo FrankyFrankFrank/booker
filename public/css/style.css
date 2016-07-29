@@ -44,8 +44,6 @@ hr {
   background-color: #59C9A5;
 }
 
-.btn {
-}
 
 .btn-primary {
   background-color: #5A345E;
@@ -90,7 +88,7 @@ hr {
 }
 
 .timeslot h1 {
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .bot-right {

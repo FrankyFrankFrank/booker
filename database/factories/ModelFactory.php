@@ -19,3 +19,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Timeslot::class, function (Faker\Generator $faker) {
+  return [
+    'time' => $faker->time($format = 'H:i:s', $max = 'now'),
+    'agent_id' => 1,
+    'visitor_id' => null,
+    'user_id' => 1,
+    'date' => $faker->date($format = 'Y-m-d', $max = '2016-09-30'),
+  ];
+});
