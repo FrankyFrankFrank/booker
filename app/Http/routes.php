@@ -38,4 +38,8 @@ Route::get('autologin/{token}', [
   'uses' => '\Watson\Autologin\AutologinController@autologin'
 ]);
 
-Route::get('generate_auto_login/{id}', 'AutologinGenerator@generate')->name('generatelogin');
+Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
+  ->name('generatelogin');
+
+Route::get('generate_auto_login/index', 'AutologinGenerator@index')
+  ->name('indexgeneratedlogins');
