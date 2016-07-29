@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SeedersTest extends TestCase
+class FactoriesTest extends TestCase
 {
 
     use DatabaseMigrations;
@@ -13,7 +13,7 @@ class SeedersTest extends TestCase
      *
      * @return void
      */
-    public function testTimeslotSeederWorks()
+    public function testTimeslotFactoryWorks()
     {
 
         $user = factory(App\User::class)->create(['role' => 'agent']);
