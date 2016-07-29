@@ -25,7 +25,7 @@
         @empty
           <div class="col-md-12">
             <div class="alert alert-info">
-              @if(Auth::user()->role == 'agent')All @else We're Sorry, all @endif timeslots are currently booked.
+              @if(Auth::user()->role == 'agent')All @else We're sorry. All @endif timeslots are currently booked.
             </div>
           </div>
         @endforelse
