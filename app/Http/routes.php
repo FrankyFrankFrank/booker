@@ -32,3 +32,10 @@ Route::group(['middleware' => 'auth'], function() {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('autologin/{token}', [
+  'as' => 'autologin',
+  'uses' => '\Watson\Autologin\AutologinController@autologin'
+]);
+
+Route::get('generate_auto_login/{id}', 'AutologinGenerator@generate')->name('generatelogin');
