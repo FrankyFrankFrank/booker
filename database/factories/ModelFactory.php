@@ -22,10 +22,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Timeslot::class, function (Faker\Generator $faker) {
   return [
-    'time' => $faker->time($format = 'H:i:s', $max = 'now'),
+    'time' => $faker->time($format = 'H:') . $faker->randomElement(['30','00']),
     'agent_id' => 1,
     'visitor_id' => null,
     'user_id' => 1,
-    'date' => $faker->date($format = 'Y-m-d', $max = '2016-09-30'),
+    'date' => $faker->dateTimeBetween('+1 days', '+4 days')->format('Y/m/d'),
   ];
 });
