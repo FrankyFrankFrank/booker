@@ -10,6 +10,7 @@
         "laravelcollective/html": "^5.2",
         "guzzlehttp/guzzle": "~4.0",
         "watson/autologin": "^0.4.1"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
