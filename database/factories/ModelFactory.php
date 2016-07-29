@@ -15,6 +15,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
+        'role' => 'visitor',
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
     ];
@@ -23,7 +24,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Timeslot::class, function (Faker\Generator $faker) {
   return [
     'time' => $faker->time($format = 'H:') . $faker->randomElement(['30','00']),
-    'agent_id' => 1,
+    'agent_id' => $faker->randomElement(['1','2']),
     'visitor_id' => null,
     'user_id' => 1,
     'date' => $faker->dateTimeBetween('+1 days', '+4 days')->format('Y/m/d'),
