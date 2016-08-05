@@ -7,6 +7,7 @@ EUCALYPTUS: #59C9A5;
 GRANITE GRAY: #5B6C5D;
 */
 
+
 body {
   color: #5B6C5D;
   font-family: 'Lato', 'Sans-Serif';
@@ -30,10 +31,6 @@ hr {
 
 .navbar-brand {
   padding: 0 15px;
-}
-
-.navbar-inverse {
-  background-color: #5A345E;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -60,8 +57,16 @@ hr {
 }
 
 .navbar-inverse {
-  background-color: #5A345E;
+  background-color: #007f67;
+  border: none;
   color: #ffffff;
+  -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.23);
+  -moz-box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.23);
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.23);
+}
+
+.navbar-inverse .navbar-toggle {
+    border:none;
 }
 
 .timeslot {

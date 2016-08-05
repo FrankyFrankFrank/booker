@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 
 use Mail;
 
+use App\User;
+
 use App\Timeslot;
 
 use App\Http\Requests;
@@ -24,6 +26,11 @@ class TimeslotsController extends Controller
 
   // SHOW ALL TIMESLOTS
 
+  public function groupTimeslotsByDate($timeslots)
+  {
+    return $timeslots->groupBy('date');
+  }
+
   public function index()
   {
 
@@ -32,13 +39,13 @@ class TimeslotsController extends Controller
       return redirect('/your_timeslot');
     }
 
-    $availableTimeslots = Timeslot::orderBy('date', 'asc')->orderBy('time', 'asc')->unassigned()->get();
+    $availableTimeslotsByDay = $this->groupTimeslotsByDate(Timeslot::orderBy('date', 'asc')->orderBy('time', 'asc')->unassigned()->get());
 
-    $unavailableTimeslots = Timeslot::orderBy('date', 'asc')->orderBy('time', 'asc')->assigned()->get();
+    $unavailableTimeslotsByDay = $this->groupTimeslotsByDate(Timeslot::orderBy('date', 'asc')->orderBy('time', 'asc')->assigned()->get());
 
     return view('timeslots.index', [
-      'availableTimeslots' => $availableTimeslots,
-      'unavailableTimeslots' => $unavailableTimeslots,
+      'availableTimeslotsByDay' => $availableTimeslotsByDay,
+      'unavailableTimeslotsByDay' => $unavailableTimeslotsByDay,
     ]);
 
   }
