@@ -13,8 +13,8 @@
 
         {!! Form::open(['route' => ['unassign', $timeslot->id], 'method' => 'patch']) !!}
         <button type="submit" class="btn btn-danger">
-          <span class="glyphicon glyphicon-remove"></span> Cancel Your Appointment
-        </button> (Cannot be Undone)
+          <span class="glyphicon glyphicon-remove"></span> Cancel Your Appointment (Cannot be Undone)
+        </button>
         {!! Form::close() !!}
 
       </div>

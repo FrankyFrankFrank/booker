@@ -6,24 +6,33 @@
     <div class="row">
       <div class="col-md-12">
 
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Available Time Slots</h1>
-            @if (Auth::user()->role == 'agent')
-              <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
-            @endif
-          </div>
-        </div>
+        @if (Auth::user()->role == 'agent')
 
+          <h2>Booked Timeslots</h2>
+
+          @foreach ($unavailableTimeslotsByDay as $day => $timeslots)
+            <div class="timeslot-day-row row">
+              <h3>{{ date('l, F j', strtotime($day)) }}</h3>
+              @foreach($timeslots as $timeslot)
+
+                @include('timeslots.timeslot')
+
+              @endforeach
+
+            </div>
+          @endforeach
+          <hr>
+        @endif
+
+        <h1>Available Time Slots</h1>
+        @if (Auth::user()->role == 'agent')
+          <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
+        @endif
         <br>
 
         @forelse ($availableTimeslotsByDay as $day => $timeslots)
-          <div class="row">
-
-            <div class="col-md-12">
-              <h3>{{ date('l, F j', strtotime($day)) }}</h3>
-            </div>
-
+          <div class="timeslot-day-row row">
+            <h3>{{ date('l, F j', strtotime($day)) }}</h3>
             @foreach($timeslots as $timeslot)
 
               @include('timeslots.timeslot')
@@ -41,26 +50,7 @@
           @endforelse
 
 
-          @if (Auth::user()->role == 'agent')
 
-            <hr>
-            <h2>Booked Timeslots</h2>
-
-            @foreach ($availableTimeslotsByDay as $day => $timeslots)
-              <div class="row">
-                <div class="col-md-12">
-                  <h3>{{ date('l, F j', strtotime($day)) }}</h3>
-                </div>
-                @foreach($timeslots as $timeslot)
-
-                  @include('timeslots.timeslot')
-
-                @endforeach
-
-              </div>
-            @endforeach
-
-          @endif
 
         </div>
       </div>
