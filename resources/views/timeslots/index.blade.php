@@ -19,7 +19,7 @@
 
       <div class="row">
         @forelse ($availableTimeslots as $timeslot)
-
+          {{-- group into days --}}
           @include('timeslots.timeslot')
 
         @empty
