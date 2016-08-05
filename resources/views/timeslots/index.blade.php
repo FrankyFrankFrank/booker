@@ -13,15 +13,13 @@
           @foreach ($unavailableTimeslotsByDay as $day => $timeslots)
             <div class="timeslot-day-row row">
 
-              <h3 data-target="#booked-day-{{ date('lFj', strtotime($day)) }}"" data-toggle="collapse">{{ date('l, F j', strtotime($day)) }}</h3>
-              <div id="booked-day-{{ date('lFj', strtotime($day)) }}" class="collapse in">
+              <h3>{{ date('l, F j', strtotime($day)) }}</h3>
 
               @foreach($timeslots as $timeslot)
 
                 @include('timeslots.timeslot')
 
               @endforeach
-              </div>
 
             </div>
           @endforeach
@@ -37,14 +35,13 @@
         @forelse ($availableTimeslotsByDay as $day => $timeslots)
           <div class="timeslot-day-row row">
 
-            <h3 data-toggle="collapse" data-target="#available-day-{{ date('lFj', strtotime($day)) }}">{{ date('l, F j', strtotime($day)) }}</h3>
-            <div id="available-day-{{ date('lFj', strtotime($day)) }}" class="collapse in">
+            <h3>{{ date('l, F j', strtotime($day)) }}</h3>
+
             @foreach($timeslots as $timeslot)
 
               @include('timeslots.timeslot')
 
             @endforeach
-          </div>
           </div>
         @empty
           <div class="row">
