@@ -30,3 +30,12 @@ $factory->define(App\Timeslot::class, function (Faker\Generator $faker) {
     'date' => $faker->dateTimeBetween('+1 days', '+4 days')->format('Y/m/d'),
   ];
 });
+
+$factory->define(App\Project::class, function (Faker\Generator $faker) {
+  return [
+    'name' => $faker->city,
+    'logo' => 'logo.png',
+    'main_color' => $faker->hexcolor,
+    'alt_color' => $faker->hexcolor,
+  ];
+});
