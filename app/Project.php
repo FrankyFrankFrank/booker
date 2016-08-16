@@ -12,4 +12,9 @@ class Project extends Model
       'main_color',
       'alt_color',
     ];
+
+    public function agents()
+    {
+      return $this->belongsToMany('App\User');
+    }
 }

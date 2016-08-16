@@ -15,18 +15,16 @@ class CreateProjectTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('agents')->unsigned()->nullable();
+            $table->integer('user')->unsigned()->nullable();
             $table->string('logo');
             $table->string('main_color');
             $table->string('alt_color');
             $table->timestamps();
+
+            $table->foreign('user')->references('id')->on('users');
         });
     }
 
-    public function agents()
-    {
-      return $this->hasMany('App\User');
-    }
 
     /**
      * Reverse the migrations.

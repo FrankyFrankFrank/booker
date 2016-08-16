@@ -12,7 +12,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'project_id',
     ];
 
     /**
@@ -28,6 +31,11 @@ class User extends Authenticatable
     public function timeslots()
     {
       return $this->hasMany('App\Timeslot', 'agent_id');
+    }
+
+    public function projects()
+    {
+      return $this->belongsToMany('App\Project');
     }
 
     public function visiting()

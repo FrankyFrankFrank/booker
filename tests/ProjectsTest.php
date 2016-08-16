@@ -21,7 +21,7 @@ class ProjectsTest extends TestCase
           'agents' => factory(App\User::class)->create(['name' => 'Lidia', 'role' => 'agent'])->id,
           'logo' => 'logo.png',
           'main_color' => '#cdcdcd',
-          'alt_color' => '#3d0bac'
+          'alt_color' => '#3d0bac',
         ]);
 
         $this->seeInDatabase('projects', ['name' => 'eby estates', 'logo' => 'logo.png', 'agents' => App\User::find('Lidia')->id, 'main_color' => '#cdcdcd', 'alt_color' => '#3d0bac']);
