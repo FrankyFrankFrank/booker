@@ -13,9 +13,6 @@ class AddProjectsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('project_id')->unsigned()->nullable();
-
-            $table->foreign('project_id')->references('id')->on('projects');
         });
     }
 

@@ -27,27 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // Has many timeslots
-    public function timeslots()
-    {
-      return $this->hasMany('App\Timeslot', 'agent_id');
-    }
-
-    public function projects()
-    {
-      return $this->belongsToMany('App\Project');
-    }
-
-    public function visiting()
-    {
-      return $this->hasOne('App\Timeslot', 'visitor_id');
-    }
-
-    public function scheduledTimeslots()
-    {
-      return $this->timeslots()->assigned()->get();
-    }
-
+    // Check if User is an Agent
     public function isAgent()
     {
       if ($this->role == 'agent')
@@ -59,5 +39,31 @@ class User extends Authenticatable
         return false;
       }
     }
+
+    // Has many timeslots
+    public function timeslots()
+    {
+      return $this->hasMany('App\Timeslot', 'agent_id');
+    }
+
+    // Get Users' Scheduled Timeslots
+    public function scheduledTimeslots()
+    {
+      return $this->timeslots()->assigned()->get();
+    }
+
+    // User Belongs to Projects
+    public function projects()
+    {
+      return $this->belongsToMany('App\Project')->withTimestamps();
+    }
+
+    // Get Timeslot that User is Visiting
+    public function visiting()
+    {
+      return $this->hasOne('App\Timeslot', 'visitor_id');
+    }
+
+
 
 }

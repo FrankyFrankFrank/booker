@@ -15,6 +15,6 @@ class Project extends Model
 
     public function agents()
     {
-      return $this->belongsToMany('App\User');
+      return $this->belongsToMany('App\User')->withTimestamps();
     }
 }
