@@ -39,3 +39,9 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
     'alt_color' => $faker->hexcolor,
   ];
 });
+
+$factory->define(App\Role::class, function (Faker\Generator $faker) {
+  return [
+    'name' => 'visitor',
+  ];
+});

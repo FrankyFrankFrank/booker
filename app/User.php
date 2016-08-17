@@ -27,6 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // User belongs to many roles
+
+    public function roles()
+    {
+      return $this->belongsToMany('App\Role')->withTimestamps();
+    }
+
     // Check if User is an Agent
     public function isAgent()
     {
