@@ -13,10 +13,17 @@ class FactoriesTest extends TestCase
      *
      * @return void
      */
-    public function testTimeslotFactoryWorks()
+    public function testTimeslotFactoryCreatesTimeslots()
     {
 
-        $user = factory(App\User::class, 5)->create(['role' => 'agent']);
+        $role = factory(App\Role::class)->create([
+          'name' => 'Admin',
+        ]);
+
+        $user = factory(App\User::class, 5)->create()
+        ->each(function ($user) {
+          $user->roles()->attach(1);
+        });
 
         $timeslots = factory(App\Timeslot::class, 6)->create();
 

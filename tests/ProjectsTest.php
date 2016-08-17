@@ -29,6 +29,7 @@ class ProjectsTest extends TestCase
 
     public function testCanAttachAgentToProject()
     {
+
       $project = factory(App\Project::class)->create([
         'name' => 'eby estates',
         'logo' => 'logo.png',
@@ -38,7 +39,6 @@ class ProjectsTest extends TestCase
 
       $agent = factory(App\User::class)->create([
         'name' => 'Test Agent',
-        'role' => 'agent',
       ]);
 
       $project->agents()->attach($agent->id);

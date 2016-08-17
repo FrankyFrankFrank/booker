@@ -14,22 +14,25 @@ class UsersTableSeeder extends Seeder
     {
       factory(App\User::class)->create([
         'name' => 'Adam Frank',
-        'role' => 'visitor',
         'email' => 'adam@example.com',
         'password' => Hash::make('password'),
-      ]);
+      ])->roles()->attach([1,3]);
+
       factory(App\User::class)->create([
         'name' => 'Lidia Adamska',
-        'role' => 'agent',
         'email' => 'lidia@example.com',
         'password' => Hash::make('password'),
-      ]);
+      ])->roles()->attach(1);
+
       factory(App\User::class)->create([
         'name' => 'Dan Elliott',
-        'role' => 'agent',
         'email' => 'dan@example.com',
         'password' => Hash::make('password'),
-      ]);
-      factory(App\User::class, 40)->create();
+      ])->roles()->attach(1);
+
+      factory(App\User::class, 40)->create()
+      ->each(function ($user) {
+        $user->roles()->attach(2);
+      });
     }
 }
