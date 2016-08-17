@@ -16,11 +16,11 @@ class FactoriesTest extends TestCase
     public function testTimeslotFactoryWorks()
     {
 
-        $user = factory(App\User::class)->create(['role' => 'agent']);
+        $user = factory(App\User::class, 5)->create(['role' => 'agent']);
 
-        $timeslots = factory(App\Timeslot::class, 20)->create();
+        $timeslots = factory(App\Timeslot::class, 6)->create();
 
-        $this->seeInDatabase('timeslots', ['id' => '19']);
+        $this->seeInDatabase('timeslots', ['id' => '6']);
 
     }
 }

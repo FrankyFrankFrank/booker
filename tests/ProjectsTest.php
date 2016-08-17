@@ -18,13 +18,32 @@ class ProjectsTest extends TestCase
 
         $project = factory(App\Project::class)->create([
           'name' => 'eby estates',
-          'agents' => factory(App\User::class)->create(['name' => 'Lidia', 'role' => 'agent'])->id,
           'logo' => 'logo.png',
           'main_color' => '#cdcdcd',
           'alt_color' => '#3d0bac',
         ]);
 
-        $this->seeInDatabase('projects', ['name' => 'eby estates', 'logo' => 'logo.png', 'agents' => App\User::find('Lidia')->id, 'main_color' => '#cdcdcd', 'alt_color' => '#3d0bac']);
+        $this->seeInDatabase('projects', ['name' => 'eby estates', 'logo' => 'logo.png', 'main_color' => '#cdcdcd', 'alt_color' => '#3d0bac']);
+
+    }
+
+    public function testCanAttachAgentToProject()
+    {
+      $project = factory(App\Project::class)->create([
+        'name' => 'eby estates',
+        'logo' => 'logo.png',
+        'main_color' => '#cdcdcd',
+        'alt_color' => '#3d0bac',
+      ]);
+
+      $agent = factory(App\User::class)->create([
+        'name' => 'Test Agent',
+        'role' => 'agent',
+      ]);
+
+      $project->agents()->attach($agent->id);
+
+      $this->assertEquals( $project->agents, $project->agents);
 
     }
 }
