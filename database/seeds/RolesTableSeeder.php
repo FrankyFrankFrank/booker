@@ -19,5 +19,9 @@ class RolesTableSeeder extends Seeder
           'name' => 'Visitor',
         ]);
 
+        factory(App\Role::class)->create([
+          'name' => 'Admin',
+        ]);
+
     }
 }
