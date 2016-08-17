@@ -24,12 +24,13 @@ class Timeslot extends Model
       $query->whereNull('visitor_id');
     }
 
-    // Timeslot belongs to agent
+    // Timeslot belongs to agents
     public function agent()
     {
       return $this->belongsTo('App\User');
     }
 
+    // Timeslot belongs to visitor
     public function visitor()
     {
       return $this->belongsTo('App\User');

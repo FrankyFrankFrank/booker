@@ -12,6 +12,9 @@ class TimeslotsTableSeeder extends Seeder
      */
     public function run()
     {
-      factory(App\Timeslot::class, 16)->create();
+      factory(App\Timeslot::class, 12)->create();
+      factory(App\Timeslot::class, 6)->create([
+        'visitor_id' => 10,
+      ]);
     }
 }

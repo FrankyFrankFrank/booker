@@ -182,19 +182,18 @@ class TimeslotsController extends Controller
 
   public function viewSchedule()
   {
-
-    if (auth()->user()->role != 'agent')
-    {
-      return route('welcome');
-    }
-    else
+    if (auth()->user()->roles->pluck('name')->contains('Agent'))
     {
       $agent = auth()->user();
-      $scheduled = Timeslot::where('agent_id', '=', $agent->id)
+      $scheduled = Timeslot::where('agent_id', $agent->id)
         ->assigned()
         ->orderBy('time', 'asc')
         ->get();
       return view('timeslots.schedule', ['scheduled' => $scheduled]);
+    }
+    else
+    {
+      return view('welcome');
     }
 
   }

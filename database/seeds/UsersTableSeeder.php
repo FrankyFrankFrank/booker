@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
         'password' => Hash::make('password'),
       ])->roles()->attach(1);
 
-      factory(App\User::class, 40)->create()
+      factory(App\User::class, 10)->create()
       ->each(function ($user) {
         $user->roles()->attach(2);
       });
