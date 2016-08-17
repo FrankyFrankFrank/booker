@@ -3,7 +3,7 @@
     <div class="timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
       <h1>
         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-        {{ date("D, M j", strtotime($timeslot->date)) }}
+        {{-- {{ date("D, M j", strtotime($timeslot->date)) }} --}}
         {{ date("g:i a", strtotime($timeslot->time)) }}
       </h1>
       <p>
@@ -12,14 +12,14 @@
       <p>
         {{ $timeslot->agent->name }}
 
-      @if (empty($timeslot->visitor_id) && auth()->user()->role == 'visitor')
+      @if (empty($timeslot->visitor_id) && auth()->user()->roles->pluck('name')->contains('Visitor'))
       </p>
 
       {!! Form::open(['route' => ['assign', $timeslot->id], 'method' => 'patch']) !!}
       {!! Form::submit('Book This Time Slot Now', ['class' => 'btn btn-primary']) !!}
       {!! Form::close() !!}
 
-      @elseif (!empty($timeslot->visitor_id) && auth()->user()->role == 'agent')
+    @elseif (isset($timeslot->visitor_id) && auth()->user()->roles->pluck('name')->contains('Agent'))
 
         with:
         <br>

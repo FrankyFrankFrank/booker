@@ -101,7 +101,6 @@ class TimeslotsController extends Controller
 
   public function show($id)
   {
-
     $timeslot = Timeslot::findOrFail($id);
 
     return view('timeslots.show', ['timeslot' => $timeslot]);
