@@ -22,14 +22,14 @@
           <p>
             {{ $timeslot->agent->name }}
 
-          @if (empty($timeslot->visitor_id) && auth()->user()->role == 'visitor')
+          @if (empty($timeslot->visitor_id) && auth()->user()->hasRole('Visitor'))
           </p>
 
           {!! Form::open(['route' => ['assign', $timeslot->id], 'method' => 'patch']) !!}
           {!! Form::submit('Book This Time Slot Now', ['class' => 'btn btn-primary']) !!}
           {!! Form::close() !!}
 
-          @elseif (!empty($timeslot->visitor_id) && auth()->user()->role == 'agent')
+          @elseif (isset($timeslot->visitor_id) && auth()->user()->hasRole('Agent'))
 
             with:
             <br>
@@ -42,13 +42,9 @@
 
           @endif
 
-          @if (auth()->user()->role == 'agent')
-            {!! Form::open(['route' => ['timeslots.destroy', $timeslot->id], 'method' => 'delete']) !!}
-            {!! Form::submit('Delete This Booking (Can\'t Undo)', ['class' => 'btn btn-danger']) !!}
-            {!! Form::close() !!}
-          @endif
+
+        </div>
       </div>
-    </div>
   </div>
 </div>
 

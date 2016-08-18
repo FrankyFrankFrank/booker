@@ -19,7 +19,7 @@
       {!! Form::submit('Book This Time Slot Now', ['class' => 'btn btn-primary']) !!}
       {!! Form::close() !!}
 
-      @elseif (isset($timeslot->visitor_id) && auth()->user()->roles->pluck('name')->contains('Agent'))
+    @elseif (isset($timeslot->visitor_id) && auth()->user()->hasRole('Agent'))
 
         with:
         <br>
