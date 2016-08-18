@@ -27,8 +27,10 @@
         @endif
 
         <h1>Available Time Slots</h1>
-        @if (Auth::user()->role == 'agent')
-          <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
+        @if (auth()->user()->hasRole('Agent'))
+          <div>
+            <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
+          </div>
         @endif
         <br>
 
