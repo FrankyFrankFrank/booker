@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12">
 
-        @if (Auth::user()->role == 'agent')
+        @if (auth()->user()->hasRole('Agent'))
 
           <h2>Booked Timeslots</h2>
 
