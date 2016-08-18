@@ -13,11 +13,13 @@ class Project extends Model
       'alt_color',
     ];
 
+    // Timeslot Project Relationship
     public function agents()
     {
       return $this->belongsToMany('App\User')->withTimestamps();
     }
 
+    // Project has many timeslots
     public function timeslots()
     {
       return $this->hasMany('App\Timeslot');

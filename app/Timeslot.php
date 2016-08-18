@@ -11,6 +11,7 @@ class Timeslot extends Model
       'agent_id',
       'visitor_id',
       'user_id',
+      'project_id',
       'date',
     ];
 
