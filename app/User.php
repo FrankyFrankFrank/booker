@@ -34,22 +34,10 @@ class User extends Authenticatable
       return $this->belongsToMany('App\Role')->withTimestamps();
     }
 
+    // Check if User has a $role
     public function hasRole($role)
     {
       return $this->roles->pluck('name')->contains($role);
-    }
-
-    // Check if User is an Agent
-    public function isAgent()
-    {
-      if ($this->role == 'agent')
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
     }
 
     // Has many timeslots

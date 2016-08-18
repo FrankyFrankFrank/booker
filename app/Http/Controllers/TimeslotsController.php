@@ -56,7 +56,7 @@ class TimeslotsController extends Controller
   public function create()
   {
 
-    if (auth()->user()->role == 'agent')
+    if (auth()->user()->hasRole('Agent'))
     {
       return view('timeslots.create');
     }
@@ -181,7 +181,7 @@ class TimeslotsController extends Controller
 
   public function viewSchedule()
   {
-    if (auth()->user()->roles->pluck('name')->contains('Agent'))
+    if (auth()->user()->hasRole('Agent'))
     {
       $agent = auth()->user();
       $scheduled = Timeslot::where('agent_id', $agent->id)
