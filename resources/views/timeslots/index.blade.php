@@ -7,13 +7,18 @@
       <div class="col-md-12">
 
         @if (auth()->user()->hasRole('Agent'))
-
-          <h2>Booked Timeslots</h2>
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Booked Timeslots</h2>
+            </div>
+          </div>
 
           @foreach ($unavailableTimeslotsByDay as $day => $timeslots)
             <div class="timeslot-day-row row">
 
-              <h3>{{ date('l, F j', strtotime($day)) }}</h3>
+              <div class=" col-md-12">
+                <h3>{{ date('l, F j', strtotime($day)) }}</h3>
+              </div>
 
               @foreach($timeslots as $timeslot)
 
@@ -23,10 +28,14 @@
 
             </div>
           @endforeach
-          <hr>
         @endif
 
-        <h1>Available Time Slots</h1>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Available Time Slots</h2>
+          </div>
+        </div>
+
         @if (auth()->user()->hasRole('Agent'))
           <div>
             <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
@@ -37,7 +46,9 @@
         @forelse ($availableTimeslotsByDay as $day => $timeslots)
           <div class="timeslot-day-row row">
 
-            <h3>{{ date('l, F j', strtotime($day)) }}</h3>
+            <div class=" col-md-12">
+              <h3>{{ date('l, F j', strtotime($day)) }}</h3>
+            </div>
 
             @foreach($timeslots as $timeslot)
 
