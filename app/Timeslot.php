@@ -41,4 +41,10 @@ class Timeslot extends Model
       return $this->belongsTo('App\User');
     }
 
+    // Timeslot belongs to project
+    public function project()
+    {
+      return $this->belongsTo('App\Project');
+    }
+
 }

@@ -17,4 +17,9 @@ class Project extends Model
     {
       return $this->belongsToMany('App\User')->withTimestamps();
     }
+
+    public function timeslots()
+    {
+      return $this->hasMany('App\Timeslot');
+    }
 }
