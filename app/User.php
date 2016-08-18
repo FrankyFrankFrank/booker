@@ -52,6 +52,11 @@ class User extends Authenticatable
       return $this->timeslots()->assigned()->get();
     }
 
+    public function agentsTimeslots()
+    {
+      return $this->timeslots()->assigned()->scheduled()->get();
+    }
+
     // User Belongs to Projects
     public function projects()
     {

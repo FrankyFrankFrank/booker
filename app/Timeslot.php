@@ -24,6 +24,11 @@ class Timeslot extends Model
       $query->whereNull('visitor_id');
     }
 
+    public function scopeScheduled($query)
+    {
+      $query->where('agent_id', auth()->user()->id);
+    }
+
     // Timeslot belongs to agents
     public function agent()
     {

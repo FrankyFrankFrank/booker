@@ -34,7 +34,7 @@ class TimeslotsController extends Controller
   public function index()
   {
 
-    if (auth()->user()->visiting()->first() != NULL)
+    if (auth()->user()->visiting()->first())
     {
       return redirect('/your_timeslot');
     }
@@ -184,10 +184,9 @@ class TimeslotsController extends Controller
     if (auth()->user()->hasRole('Agent'))
     {
       $agent = auth()->user();
-      $scheduled = Timeslot::where('agent_id', $agent->id)
-        ->assigned()
-        ->orderBy('time', 'asc')
-        ->get();
+
+      $scheduled = $agent->agentsTimeslots()->sortBy('time');
+
       return view('timeslots.schedule', ['scheduled' => $scheduled]);
     }
     else
