@@ -112,7 +112,7 @@ hr {
   right: 0;
 }
 
-.welcome-message {
+.welcome-message, .cancelled-message {
   margin-top:130px;
 }
 
