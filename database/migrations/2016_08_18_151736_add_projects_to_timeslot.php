@@ -27,6 +27,7 @@ class AddProjectsToTimeslot extends Migration
     public function down()
     {
         Schema::table('timeslots', function (Blueprint $table) {
+            $table->dropForeign('timeslots_project_id_foreign');
             $table->dropColumn('project_id');
         });
     }
