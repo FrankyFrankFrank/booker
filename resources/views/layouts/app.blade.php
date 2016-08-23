@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
-  <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   {{-- jQuery --}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
 
         <!-- Branding Image -->
         <a class="navbar-brand" href="{{ url('/') }}">
-          <img class="logo" src="{{ secure_asset('img/eby-estates-logo-header.png') }}" alt="Eby Estates">
+          <img class="logo" src="{{ asset('img/eby-estates-logo-header.png') }}" alt="Eby Estates">
         </a>
       </div>
 
