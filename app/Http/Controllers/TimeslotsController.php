@@ -61,7 +61,7 @@ class TimeslotsController extends Controller
 
       $allAgentNames = User::whereHas('roles', function ($q) {
         $q->where('name', '=', 'Agent');
-      })->pluck('name');
+      })->pluck('name','name');
 
       return view('timeslots.create', ['agents' => $allAgentNames ]);
     }
@@ -81,7 +81,8 @@ class TimeslotsController extends Controller
     $timeslot = new Timeslot($request->all());
 
 
-    User::where('id', $request->input('agent_id'))->timeslots()->save($timeslot);
+    $agent = User::where('name', $request->input('agent_id'))->first();
+    $agent->timeslots()->save($timeslot);
     // auth()->user()->timeslots()->save($timeslot);
 
     return redirect('timeslots');
