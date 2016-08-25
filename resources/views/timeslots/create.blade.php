@@ -6,16 +6,16 @@
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
 
-          <h1>Create New Timeslot</h1
+          <h1>Create New Timeslot</h1>
 
-            @include('errors.list')
 
-            {!! Form::model( $agents, ['url' => 'timeslots']) !!}
+            {!! Form::open(['url' => 'timeslots']) !!}
 
               @include('timeslots.form', ['submitButtonText' => 'Submit'])
 
             {!! Form::close() !!}
 
+            @include('errors.list')
       </div>
     </div>
   </div>

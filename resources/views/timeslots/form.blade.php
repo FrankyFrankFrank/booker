@@ -1,11 +1,12 @@
 {!! Form::hidden('user_id', Auth::user()->id) !!}
-{!! Form::hidden('agent_id', Auth::user()->id) !!}
 
 @if(auth()->user()->hasRole('Admin'))
 <div class="form-group">
-  {!! Form::label('agent', 'Agent:') !!}
-  {!! Form::select('agent', $agents, null, ['placeholder' => 'Choose an agent', 'class' => 'form-control']) !!}
+  {!! Form::label('agent_id', 'Agent:') !!}
+  {!! Form::select('agent_id', $agents, null, ['placeholder' => 'Choose an agent', 'class' => 'form-control']) !!}
 </div>
+@else
+{!! Form::hidden('agent_id', Auth::user()->id) !!}
 @endif
 
 <div class="form-group">
