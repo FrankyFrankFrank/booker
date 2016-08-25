@@ -58,7 +58,12 @@ class TimeslotsController extends Controller
 
     if (auth()->user()->hasRole('Agent'))
     {
-      return view('timeslots.create');
+
+      $allAgentNames = User::whereHas('roles', function ($q) {
+        $q->where('name', '=', 'Agent');
+      })->pluck('name');
+
+      return view('timeslots.create', ['agents' => $allAgentNames ]);
     }
     else
     {

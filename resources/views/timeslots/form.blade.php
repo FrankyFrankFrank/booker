@@ -1,9 +1,16 @@
 {!! Form::hidden('user_id', Auth::user()->id) !!}
 {!! Form::hidden('agent_id', Auth::user()->id) !!}
 
+@if(auth()->user()->hasRole('Admin'))
+<div class="form-group">
+  {!! Form::label('agent', 'Agent:') !!}
+  {!! Form::select('agent', $agents, null, ['placeholder' => 'Choose an agent', 'class' => 'form-control']) !!}
+</div>
+@endif
+
 <div class="form-group">
   {!! Form::label('date', 'Date:') !!}
-  {!! Form::date('date', null, ['class' => 'form-control']); !!}
+  {!! Form::date('date', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

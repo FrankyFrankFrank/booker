@@ -6,11 +6,11 @@
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
 
-          <h1>Create Timeslot</h1>
+          <h1>Create New Timeslot</h1
 
             @include('errors.list')
-            
-            {!! Form::open(['url' => 'timeslots']) !!}
+
+            {!! Form::model( $agents, ['url' => 'timeslots']) !!}
 
               @include('timeslots.form', ['submitButtonText' => 'Submit'])
 
