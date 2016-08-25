@@ -8,13 +8,14 @@
 
           <h1>Create Timeslot</h1>
 
+            @include('errors.list')
+            
             {!! Form::open(['url' => 'timeslots']) !!}
 
               @include('timeslots.form', ['submitButtonText' => 'Submit'])
 
             {!! Form::close() !!}
 
-            @include('errors.list')
       </div>
     </div>
   </div>
