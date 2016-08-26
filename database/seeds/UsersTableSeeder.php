@@ -22,17 +22,17 @@ class UsersTableSeeder extends Seeder
         'name' => 'Lidia Adamska',
         'email' => 'lidia@example.com',
         'password' => Hash::make('password'),
-      ])->roles()->attach(1);
+      ])->roles()->attach(2);
 
       factory(App\User::class)->create([
         'name' => 'Dan Elliott',
         'email' => 'dan@example.com',
         'password' => Hash::make('password'),
-      ])->roles()->attach(1);
+      ])->roles()->attach(2);
 
       factory(App\User::class, 10)->create()
       ->each(function ($user) {
-        $user->roles()->attach(2);
+        $user->roles()->attach(3);
       });
     }
 }
