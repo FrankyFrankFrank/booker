@@ -1,8 +1,8 @@
   <div class="col-md-4">
     <div class="timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
-      <a href="{{ url('/timeslots', [$timeslot->id] )}}">
       <h1>
         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+        {{ date("D, M j", strtotime($timeslot->date)) }} |
         {{ date("g:i a", strtotime($timeslot->time)) }}
       </h1>
       <p>
@@ -13,9 +13,15 @@
 
       @if (empty($timeslot->visitor_id) && auth()->user()->hasRole('Visitor'))
       </p>
-      </a>
 
-      <button href="#confirm" class="btn btn-primary" data-toggle="modal" data-target="#confirm-book{{$timeslot->id}}">Book This Time Slot Now</button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#confirm-book{{$timeslot->id}}">Book This Time Slot Now</button>
+
+      @if(Request::path() != 'timeslots/'.$timeslot->id)
+
+      <a class="btn btn-primary" href="{{ url('/timeslots', [$timeslot->id] )}}">More Details</a>
+
+      @endif
+
 
       @include('modals.confirmbook')
 
@@ -29,10 +35,8 @@
         <br>
         {{ $timeslot->visitor->email }}
       </p>
-      </a>
 
       @endif
-
 
     </div>
   </div>
