@@ -25,9 +25,9 @@
           @if (empty($timeslot->visitor_id) && auth()->user()->hasRole('Visitor'))
           </p>
 
-          {!! Form::open(['route' => ['assign', $timeslot->id], 'method' => 'patch']) !!}
-          {!! Form::submit('Book This Time Slot Now', ['class' => 'btn btn-primary']) !!}
-          {!! Form::close() !!}
+          <button class="btn btn-primary" data-toggle="modal" data-target="#confirm-book">Book This Time Slot Now</button>
+
+          @include('modals.confirmbook')
 
           @elseif (isset($timeslot->visitor_id) && auth()->user()->hasRole('Agent'))
 

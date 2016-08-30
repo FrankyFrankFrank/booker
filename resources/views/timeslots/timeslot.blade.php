@@ -1,6 +1,6 @@
-<a href="{{ url('/timeslots', [$timeslot->id] )}}">
   <div class="col-md-4">
     <div class="timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
+      <a href="{{ url('/timeslots', [$timeslot->id] )}}">
       <h1>
         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
         {{-- {{ date("D, M j", strtotime($timeslot->date)) }} --}}
@@ -14,10 +14,11 @@
 
       @if (empty($timeslot->visitor_id) && auth()->user()->hasRole('Visitor'))
       </p>
+      </a>
 
-      {!! Form::open(['route' => ['assign', $timeslot->id], 'method' => 'patch']) !!}
-      {!! Form::submit('Book This Time Slot Now', ['class' => 'btn btn-primary']) !!}
-      {!! Form::close() !!}
+      <button href="#confirm" class="btn btn-primary" data-toggle="modal" data-target="#confirm-book">Book This Time Slot Now</button>
+
+      @include('modals.confirmbook')
 
       @elseif (isset($timeslot->visitor_id) && auth()->user()->hasRole('Agent'))
 
@@ -29,10 +30,10 @@
         <br>
         {{ $timeslot->visitor->email }}
       </p>
+      </a>
 
       @endif
 
 
     </div>
   </div>
-</a>
