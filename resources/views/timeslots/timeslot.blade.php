@@ -16,7 +16,7 @@
       </p>
       </a>
 
-      <button href="#confirm" class="btn btn-primary" data-toggle="modal" data-target="#confirm-book">Book This Time Slot Now</button>
+      <button href="#confirm" class="btn btn-primary" data-toggle="modal" data-target="#confirm-book{{$timeslot->id}}">Book This Time Slot Now</button>
 
       @include('modals.confirmbook')
 

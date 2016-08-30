@@ -1,5 +1,5 @@
 {!! Form::open(['route' => ['assign', $timeslot->id], 'method' => 'patch']) !!}
-<div class="modal fade" id="confirm-book" tabindex="-1" role="dialog" aria-labelledby="confirmBookLabel">
+<div class="modal fade" id="confirm-book{{$timeslot->id}}" tabindex="-1" role="dialog" aria-labelledby="confirmBookLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

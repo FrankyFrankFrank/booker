@@ -25,7 +25,7 @@
           @if (empty($timeslot->visitor_id) && auth()->user()->hasRole('Visitor'))
           </p>
 
-          <button class="btn btn-primary" data-toggle="modal" data-target="#confirm-book">Book This Time Slot Now</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#confirm-book{{$timeslot->id}}">Book This Time Slot Now</button>
 
           @include('modals.confirmbook')
 
