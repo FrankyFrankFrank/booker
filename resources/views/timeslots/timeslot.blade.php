@@ -3,7 +3,6 @@
       <a href="{{ url('/timeslots', [$timeslot->id] )}}">
       <h1>
         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-        {{-- {{ date("D, M j", strtotime($timeslot->date)) }} --}}
         {{ date("g:i a", strtotime($timeslot->time)) }}
       </h1>
       <p>

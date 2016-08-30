@@ -71,4 +71,7 @@
   @yield('content')
 
 </body>
+
+@yield('extra-scripts')
+
 </html>

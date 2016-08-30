@@ -14,6 +14,8 @@ use App\Http\Requests;
 
 use App\Http\Requests\TimeslotRequest;
 
+use App\Http\Requests\TimeslotAssignRequest;
+
 use Illuminate\Http\Request;
 
 use Auth;
@@ -140,7 +142,7 @@ class TimeslotsController extends Controller
 
   // ASSIGN TIMESLOT
 
-  public function assign($id)
+  public function assign($id, TimeslotAssignRequest $request)
   {
 
     $timeslot = Timeslot::find($id);
