@@ -4,8 +4,12 @@
         <title>Eastforest Homes Model Home Appointment</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700" rel="stylesheet" type="text/css">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+        <script src="{{ url('js/bootstrap.min.js')}}"></script>
+
+        <link rel="stylesheet" href="{{ url('css/app.css') }}">
 
         <link rel="stylesheet" href="{{ url('css/style.css') }}">
 
