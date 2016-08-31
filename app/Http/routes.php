@@ -49,5 +49,8 @@ Route::get('generate_auto_login/index', 'AutologinGenerator@index')
 View::composer(['projects.style', 'layouts.nav'], function($view)
 {
   $project = App\Project::first();
+  if($project)
   $view->with('project', $project);
+  else
+  $view;
 });
