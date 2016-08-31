@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::get('/your_timeslot', 'TimeslotsController@viewVisitorTimeslot')->name('yourtimeslot');
 
+  Route::resource('projects', 'ProjectsController');
+
 });
 
 Route::auth();
@@ -43,3 +45,9 @@ Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
 
 Route::get('generate_auto_login/index', 'AutologinGenerator@index')
   ->name('indexgeneratedlogins');
+
+View::composer(['projects.style', 'layouts.nav'], function($view)
+{
+  $project = App\Project::first();
+  $view->with('project', $project);
+});
