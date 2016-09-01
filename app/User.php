@@ -34,6 +34,11 @@ class User extends Authenticatable
       return $this->belongsToMany('App\Role')->withTimestamps();
     }
 
+    public function role()
+    {
+      return $this->roles->first()->name;
+    }
+
     // Check if User has a $role
     public function hasRole($role)
     {

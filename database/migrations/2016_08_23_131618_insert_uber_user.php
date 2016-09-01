@@ -21,7 +21,7 @@ class InsertUberUser extends Migration
       ]]);
 
       DB::table('users')->insert([
-        'name' => 'Admin',
+        'name' => 'Adam',
         'email' => 'afrank@hawksviewhomes.com',
         'password' => bcrypt('password'),
       ]);
