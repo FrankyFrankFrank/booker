@@ -40,7 +40,10 @@
             </a>
 
             <ul class="dropdown-menu" role="menu">
-              <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+              @if (auth()->user()->hasRole('Admin'))
+              <li><a href="{{ route('projects.edit', ['id' => $project->id ]) }}"><span class="glyphicon glyphicon-pencil"></span> Edit Project Details</a></li>
+              @endif
+              <li><a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-remove"></span> Logout</a></li>
             </ul>
           </li>
         @endif
