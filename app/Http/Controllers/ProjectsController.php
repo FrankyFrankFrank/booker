@@ -38,7 +38,20 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = Project::find($request->project);
+
+        $project->fill([
+          'name' => $request->name,
+          'main_color' => $request->main_color,
+          'alt_color' => $request->alt_color,
+        ])->save();
+
+        if ($request->file('logo'))
+        {
+          $file = $request->file('logo');
+          $file->move(public_path() . '/img/', 'project-logo.jpg');
+        }
+        return back();
     }
 
     /**
