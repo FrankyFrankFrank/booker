@@ -12,17 +12,13 @@ class InsertUberUser extends Migration
      */
     public function up()
     {
-      DB::table('roles')->insert([
+      DB::table('roles')->insert([[
         'name' => 'Admin'
-      ]);
-
-      DB::table('roles')->insert([
+      ],[
         'name' => 'Agent'
-      ]);
-
-      DB::table('roles')->insert([
+      ],[
         'name' => 'Visitor'
-      ]);
+      ]]);
 
       DB::table('users')->insert([
         'name' => 'Admin',
@@ -30,15 +26,13 @@ class InsertUberUser extends Migration
         'password' => bcrypt('password'),
       ]);
 
-      DB::table('role_user')->insert([
+      DB::table('role_user')->insert([[
         'role_id' => '1',
         'user_id' => '1',
-      ]);
-
-      DB::table('role_user')->insert([
+      ],[
         'role_id' => '2',
         'user_id' => '1',
-      ]);
+      ]]);
     }
 
     /**
