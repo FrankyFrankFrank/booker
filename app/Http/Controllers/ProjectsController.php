@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Requests\EditProjectRequest;
+
 use App\Project;
 
 class ProjectsController extends Controller
@@ -36,20 +38,23 @@ class ProjectsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EditProjectRequest $request)
     {
-        $project = Project::find($request->project);
+      $project = Project::find($request->project);
 
-        $project->fill([
-          'name' => $request->name,
-          'main_color' => $request->main_color,
-          'alt_color' => $request->alt_color,
+      $project->fill([
+        'name' => $request->name,
+        'main_color' => $request->main_color,
+        'alt_color' => $request->alt_color,
         ])->save();
 
         if ($request->file('logo'))
         {
           $file = $request->file('logo');
-          $file->move(public_path() . '/img/', 'project-logo.jpg');
+          $name = 'project-logo.png';
+          $file->move(public_path() . '/img/', $name);
+
+          $project->fill([ 'logo' => '/img/' . $name ])->save();
         }
         return back();
     }
@@ -73,8 +78,15 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
+      if(auth()->user()->hasRole('Admin'))
+      {
         $project = Project::find($id);
         return view('projects.edit', ['project' => $project]);
+      }
+      else
+      {
+        return back();
+      }
     }
 
     /**

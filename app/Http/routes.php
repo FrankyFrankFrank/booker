@@ -46,7 +46,7 @@ Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
 Route::get('generate_auto_login/index', 'AutologinGenerator@index')
   ->name('indexgeneratedlogins');
 
-View::composer(['projects.style', 'layouts.nav'], function($view)
+View::composer(['layouts.app'], function($view)
 {
   $project = App\Project::first();
   $view->with('project', $project);

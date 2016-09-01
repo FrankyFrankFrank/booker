@@ -14,7 +14,7 @@ class CreateInitialProject extends Migration
     {
       DB::table('projects')->insert([
         'name' => 'Eby Estates',
-        'logo' => 'img/eby-estates-logo-header.png',
+        'logo' => 'img/project-logo-default.png',
         'main_color' => '#007f67',
         'alt_color' => '#59C9A5',
       ]);

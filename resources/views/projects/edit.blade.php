@@ -10,7 +10,7 @@
       {{ Form::hidden('project', $project->id )}}
       <div class="form-group">
         {{ Form::label('name', 'Name:') }}
-        {{ Form::text('name', $project->name, ['class' => 'form-control']) }}
+        {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => $project->name]) }}
       </div>
 
       <div class="form-group">
