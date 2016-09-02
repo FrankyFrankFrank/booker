@@ -46,3 +46,7 @@ Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
 
 Route::get('generate_auto_login/index', 'AutologinGenerator@index')
   ->name('indexgeneratedlogins');
+
+Route::get('/design', function() {
+  return view('design.swatch1');
+});

@@ -1,11 +1,11 @@
-/*
 
-Purple: #5A345E;
-Light Carmine Pink: #EF6F6C;
-MEDIUM AQUAMARINE: #56e39F;
-EUCALYPTUS: #59C9A5;
-GRANITE GRAY: #5B6C5D;
-*/
+$custom_primary: #5A345E;
+$custom_warning: #DE9151;
+$custom_danger: #F34213;
+$custom_info: #BC5D2E;
+// MEDIUM AQUAMARINE: #56e39F;
+// EUCALYPTUS: #59C9A5;
+// GRANITE GRAY: #5B6C5D;
 
 
 body {
@@ -22,7 +22,7 @@ a {
 }
 
 a:hover {
-  color: #5A345E;
+  color: $custom_primary;
 }
 
 hr {
@@ -49,17 +49,44 @@ hr {
   color: #ffffff;
 }
 
-.btn-primary {
-  background-color: #5A345E;
-  border-color: #452848;
+@mixin button-color($color) {
+  background-color: $color;
+  border-color: darken($color, 5%);
+  &:hover, &:focus, &:active, &:focus {
+  background-color: lighten($color, 5%);
+  border-color: $color;
+  }
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
-  background-color: #6f4074;
-  border-color: #5A345E;
+.btn {
+  border-radius: 0;
+}
+
+.btn-primary {
+  @include button-color($custom_primary);
+}
+
+.btn-warning {
+  @include button-color($custom_warning);
+}
+
+.btn-danger {
+  @include button-color($custom_danger);
+}
+
+.btn-info {
+  @include button-color($custom_info);
+}
+
+.btn-link {
+  color: $custom_primary;
+  &:hover, &:focus, &:active, &:focus {
+    color: darken($custom_primary, 10%);
+  }
 }
 
 .btn-create {
+  @extend .btn-primary;
   margin-right: 0;
 }
 
