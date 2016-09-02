@@ -10,7 +10,7 @@
       {{ Form::hidden('project', $project->id )}}
       <div class="form-group">
         {{ Form::label('name', 'Name:') }}
-        {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => $project->name]) }}
+        {{ Form::text('name', $project->name, ['class' => 'form-control']) }}
       </div>
 
       <div class="form-group">
@@ -18,14 +18,14 @@
         {{ Form::file('logo') }}
       </div>
 
-      <div class="form-group">
+      <div class="form-group colour-picker">
         {{ Form::label('main_color', 'Main Colour:') }}
-        {{ Form::input('color', 'main_color', $project->main_color, array('class' => 'input-big')) }}
+        {{ Form::input('color', 'main_color', $project->main_color) }}
       </div>
 
-      <div class="form-group">
+      <div class="form-group colour-picker">
         {{ Form::label('alt_color', 'Secondary Colour:') }}
-        {{ Form::input('color', 'alt_color', $project->alt_color, array('class' => 'input-big')) }}
+        {{ Form::input('color', 'alt_color', $project->alt_color) }}
       </div>
 
       <div class="form-group">
@@ -36,5 +36,15 @@
     </div>
   </div>
 </div>
+
+@endsection
+
+@section ('extra-scripts')
+
+  <script>
+  $(document).ready( function () {
+    $('.colour-picker').colorpicker();
+  });
+  </script>
 
 @endsection

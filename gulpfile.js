@@ -17,3 +17,7 @@ elixir(function(mix) {
     .copy(bootstrapPath + '/fonts', 'public/fonts')
     .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'public/js');
 });
+
+elixir(function(mix) {
+    mix.browserify('app.js');
+});

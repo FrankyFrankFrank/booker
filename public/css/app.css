@@ -5769,9 +5769,6 @@ hr {
 .navbar-inverse .navbar-nav > li > a {
   color: #ffffff; }
 
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
-  background-color: #59C9A5; }
-
 .btn-primary {
   background-color: #5A345E;
   border-color: #452848; }
