@@ -132,9 +132,12 @@ class TimeslotsController extends Controller
   public function destroy($id)
   {
 
-    $timeslot = Timeslot::findorFail($id);
+    if (auth()->user()->hasRole('Admin' || 'Agent'))
+    {
+      $timeslot = Timeslot::findorFail($id);
 
-    $timeslot->delete();
+      $timeslot->delete();
+    }
 
     return redirect('timeslots');
 
