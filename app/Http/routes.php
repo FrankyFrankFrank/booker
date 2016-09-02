@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+      $project = App\Project::first();
+      return view('pages.welcome', ['project' => $project]);
 });
 
 Route::group(['middleware' => 'auth'], function() {
@@ -45,9 +46,3 @@ Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
 
 Route::get('generate_auto_login/index', 'AutologinGenerator@index')
   ->name('indexgeneratedlogins');
-
-View::composer(['layouts.app'], function($view)
-{
-  $project = App\Project::first();
-  $view->with('project', $project);
-});

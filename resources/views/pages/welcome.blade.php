@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <h2 class="text-center welcome-message">Book your Eby Estates Model Home VIP Appointment</h2>
+        <h2 class="text-center welcome-message">Book your {{ $project->name }} Model Home Appointment</h2>
       </div>
     </div>
     <div class="row">
