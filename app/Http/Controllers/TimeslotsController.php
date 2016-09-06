@@ -16,8 +16,6 @@ use App\Http\Requests\TimeslotRequest;
 
 use App\Http\Requests\TimeslotAssignRequest;
 
-use App\Events\TimeslotGetsBooked;
-
 use Illuminate\Http\Request;
 
 use Auth;
@@ -154,11 +152,7 @@ class TimeslotsController extends Controller
 
     $user = auth()->user();
 
-    $timeslot->fill([
-      'visitor_id' => $user->id,
-    ])->save();
-
-    event(new TimeslotGetsBooked($timeslot, $user));
+    $timeslot->assign($user, $timeslot);
 
     return view('timeslots.success')->with('timeslot', $timeslot);
 

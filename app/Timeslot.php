@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Events\TimeslotGetsBooked;
+use App\Events\TimeslotGetsCancelled;
+
 class Timeslot extends Model
 {
     protected $fillable = [
@@ -23,6 +26,26 @@ class Timeslot extends Model
     public function scopeUnassigned($query)
     {
       $query->whereNull('visitor_id');
+    }
+
+    public function assign($visitor, $timeslot)
+    {
+      $timeslot->visitor_id = $visitor->id;
+
+      $timeslot->save();
+
+      event(new TimeslotGetsBooked($timeslot, $visitor));
+
+    }
+
+    public function cancel($visitor, $timeslot)
+    {
+      $timeslot->visitor_id = null;
+
+      $timeslot->save();
+
+      event(new TimeslotGetsCancelled($user, $timeslot));
+
     }
 
     public function scopeScheduled($query)

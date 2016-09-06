@@ -80,6 +80,4 @@ class User extends Authenticatable
       return $this->hasOne('App\Timeslot', 'visitor_id');
     }
 
-
-
 }
