@@ -16,4 +16,13 @@ class UserTest extends TestCase
 
       $this->seeInDatabase('users', ['name' => $user->name]);
   }
+
+  public function testNewUserHasVisitorRole()
+  {
+    $user = factory(App\User::class)->create([
+      'name' => 'Test User',
+    ]);
+
+    $this->assertEquals('Visitor', $user->role());
+  }
 }

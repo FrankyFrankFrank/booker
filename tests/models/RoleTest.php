@@ -19,9 +19,9 @@ class RoleTest extends TestCase
       'name' => 'Test User',
     ]);
 
-    $user->roles()->attach(1);
+    $user->addRole('Admin');
 
-    $this->assertEquals($user->role, $user->role);
+    $this->assertTrue($user->hasRole('Admin'));
 
   }
 
