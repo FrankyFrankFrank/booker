@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "^5.2",
         "guzzlehttp/guzzle": "~4.0",
-        "watson/autologin": "^0.4.1"
+        "watson/autologin": "^0.4.1",
+        "doctrine/dbal": "^2.5"
 
     },
     "require-dev": {
