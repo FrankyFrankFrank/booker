@@ -10,13 +10,10 @@ class ConfirmationEmailsTest extends TestCase
 
   public function testVisitorIsEmailedWhenBookingAppointment()
   {
-    $this->visit('/register')
-         ->type('Visitor', 'name')
-         ->type('tester@example.com', 'email')
-         ->type('password', 'password')
-         ->type('password', 'password_confirmation')
-         ->press('Register')
-         ->expectsEvents(App\Events\TimeslotGetsBooked::class);
+    $timeslot = factory(App\Timeslot::class)->create();
+    $user = factory(App\User::class)->create();
+    $this->expectsEvents(App\Events\TimeslotGetsBooked::class);
+    $timeslot->assign($user, $timeslot);
   }
 
   public function testAgentIsEmailedWhenAppointmentIsBooked()
