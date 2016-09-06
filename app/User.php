@@ -45,6 +45,12 @@ class User extends Authenticatable
       return $this->roles->pluck('name')->contains($role);
     }
 
+    public function addRole($name)
+    {
+      $role = Role::where('name', $name)->first();
+      return $this->roles()->save($role);
+    }
+
     // Has many timeslots
     public function timeslots()
     {

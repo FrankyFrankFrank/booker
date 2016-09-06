@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use App\Project;
+use App\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
         {
           $project = Project::first();
           $view->with('project', $project);
+        });
+
+        User::created(function ($user) {
+          $user->addRole('Visitor');
         });
     }
 
