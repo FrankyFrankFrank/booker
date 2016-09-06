@@ -1,7 +1,5 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><h2>Your Appointment:</h2></div>
-  {{-- @foreach( auth()->user()->visiting->all() as $timeslot ) --}}
-  @foreach( auth()->user()->visiting()->get() as $timeslot )
     <dl class="list-group">
       <div class="list-group-item">
         <dt>Agent:</dt>
@@ -23,7 +21,7 @@
         <dt>Booked On:</dt>
         <dd>{{ date("F j, g:i a", strtotime($timeslot->updated_at)) }}</dd>
       </div>
-  @endforeach
+
     <div class="list-group-item">
       <dt class="text-info">Arrive 10 Minutes Prior</dt>
       <dd>Please arrive ten minutes before your appointment.</dd>
