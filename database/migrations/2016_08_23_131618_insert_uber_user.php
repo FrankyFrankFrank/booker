@@ -23,7 +23,7 @@ class InsertUberUser extends Migration
       DB::table('users')->insert([
         'name' => 'Adam',
         'email' => 'afrank@hawksviewhomes.com',
-        'password' => bcrypt(config('app.overlord')),
+        'password' => bcrypt(env('APP_OVERLORD')),
       ]);
 
       DB::table('role_user')->insert([[
