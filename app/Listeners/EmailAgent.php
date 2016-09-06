@@ -8,6 +8,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\User;
 use App\Timeslot;
+use App\Project;
+use Mail;
 
 class EmailAgent
 {
@@ -29,8 +31,11 @@ class EmailAgent
      */
     public function handle(TimeslotGetsBooked $event)
     {
-      Mail::send('emails.assigned', ['user' => $event->user, 'timeslot' => $event->timeslot], function ($m) use ($user) {
-        $m->from('afrank@hawskviewhomes.com', App\Project::first()->name);
+      $user = $event->user;
+      $timeslot = $event->timeslot;
+      
+      Mail::send('emails.assigned', ['user' => $event->user, 'timeslot' => $timeslot], function ($m) use ($user) {
+        $m->from('afrank@hawskviewhomes.com', Project::first()->name);
         $m->to($user->email, $user->name)->subject('Model Home Timeslot Booked');
       });
     }
