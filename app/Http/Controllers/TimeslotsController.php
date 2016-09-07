@@ -83,9 +83,8 @@ class TimeslotsController extends Controller
     $timeslot = new Timeslot($request->all());
 
 
-    $agent = User::where('name', $request->input('agent_id'))->first();
+    $agent = User::find($request->agent_id);
     $agent->timeslots()->save($timeslot);
-    // auth()->user()->timeslots()->save($timeslot);
 
     return redirect('timeslots');
 
