@@ -36,7 +36,7 @@ class User extends Authenticatable
 
     public function role()
     {
-      return $this->roles->first()->name;
+      return $this->roles()->first()->name;
     }
 
     // Check if User has a $role

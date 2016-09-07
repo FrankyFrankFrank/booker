@@ -20,11 +20,19 @@ class InsertUberUser extends Migration
         'name' => 'Visitor'
       ]]);
 
-      DB::table('users')->insert([
+      DB::table('users')->insert([[
         'name' => 'Adam',
         'email' => 'afrank@hawksviewhomes.com',
         'password' => bcrypt(env('APP_OVERLORD')),
-      ]);
+      ],[
+        'name' => 'Test Visitor',
+        'email' => 'visitor@example.com',
+        'password' => Hash::make('password'),
+      ],[
+        'name' => 'Test Agent',
+        'email' => 'agent@example.com',
+        'password' => Hash::make('password'),
+      ]]);
 
       DB::table('role_user')->insert([[
         'role_id' => '1',
@@ -32,6 +40,12 @@ class InsertUberUser extends Migration
       ],[
         'role_id' => '2',
         'user_id' => '1',
+      ],[
+        'role_id' => '3',
+        'user_id' => '2',
+      ],[
+        'role_id' => '2',
+        'user_id' => '3',
       ]]);
     }
 
