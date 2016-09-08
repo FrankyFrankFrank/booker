@@ -86,7 +86,13 @@ class TimeslotsController extends Controller
     $agent = User::find($request->agent_id);
     $agent->timeslots()->save($timeslot);
 
-    return redirect('timeslots');
+    if ($request->input('save_and_create'))
+    {
+      return view('timeslots.create', ['timeslot' => $timeslot]);
+    }
+    else {
+      return redirect('timeslots');
+    }
 
   }
 

@@ -48,4 +48,5 @@
 
 <div class="form-group">
   {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary']) !!}
+  {!! Form::submit('Save and Create Another', ['class' => 'btn btn-primary', 'name' => 'save_and_create']) !!}
 </div>
