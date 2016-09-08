@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'afrank@hawskviewhomes.com', 'name' => 'Adam Frank'],
+    'from' => ['address' => 'afrank@hawksviewhomes.com', 'name' => 'Adam Frank'],
 
     /*
     |--------------------------------------------------------------------------
