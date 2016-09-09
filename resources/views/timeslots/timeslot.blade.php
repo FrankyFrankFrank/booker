@@ -40,7 +40,8 @@
 
       @endif
 
-      @if (empty($timeslot->visitor_id) && ( auth()->user()->hasRole('Agent') || auth()->user()->hasRole('Admin') ) )
+      @if( $timeslot->agent_id == auth()->user()->id )
+
         {{ Form::open(['action' => ['TimeslotsController@destroy', $timeslot->id], 'method' => 'delete']) }}
           <button type="submit" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete Timeslot</button>
         {{ Form::close() }}
