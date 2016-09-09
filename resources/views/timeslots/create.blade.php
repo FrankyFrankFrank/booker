@@ -17,7 +17,7 @@
             {!! Form::open(['url' => 'timeslots']) !!}
 
               @include('timeslots.form', ['submitButtonText' => 'Submit'])
-
+              
             {!! Form::close() !!}
 
             @include('errors.list')

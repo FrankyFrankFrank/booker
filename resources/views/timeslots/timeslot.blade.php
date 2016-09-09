@@ -1,5 +1,6 @@
   <div class="col-md-4">
     <div class="timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
+      <a href="{{ url('/timeslots', [$timeslot->id] )}}">
       <h1>
         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
         {{ date("D, M j", strtotime($timeslot->date)) }} |
@@ -8,7 +9,7 @@
       <p>
         <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 1 Hour
       </p>
-
+    </a>
       <p>
         {{ $timeslot->agent->name }}
 
