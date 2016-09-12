@@ -44,10 +44,18 @@ class Timeslot extends Model
       $query->where('date', '<' , Carbon::yesterday());
     }
 
-    // Scope where timeslot is past the latest cancellation time
-    public function scopePastCancellation($query)
+    // Timeslot Cancellation Eligibility
+    public function canCancel()
     {
-
+      // Last Cancellation Date
+      $x = Carbon::parse($this->date . " " . $this->time)->subHours(24);
+      // Run Check
+      if (Carbon::now() > $x)
+      {
+        return false;
+      } else {
+        return true;
+      }
     }
 
     // Scope where the timeslot belongs to the logged in agent
