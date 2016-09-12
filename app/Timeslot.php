@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Events\TimeslotGetsBooked;
 use App\Events\TimeslotGetsCancelled;
 
+use Carbon\Carbon;
+
 class Timeslot extends Model
 {
     protected $fillable = [
@@ -21,25 +23,25 @@ class Timeslot extends Model
     // Scope where the timeslot has a booked visitor
     public function scopeAssigned($query)
     {
-      $query->whereNotNull('visitor_id');
+      return $query->whereNotNull('visitor_id');
     }
 
     // Scope where the timeslot has no visitor
     public function scopeUnassigned($query)
     {
-      $query->whereNull('visitor_id');
+      return $query->whereNull('visitor_id');
     }
 
     // Scope where the timeslot is in the future
     public function scopeFuture($query)
     {
-
+      $query->where('date', '>' , Carbon::yesterday());
     }
 
     // Scope where the timeslot is in the past
     public function scopePast($query)
     {
-
+      $query->where('date', '<' , Carbon::yesterday());
     }
 
     // Scope where timeslot is past the latest cancellation time
@@ -75,10 +77,6 @@ class Timeslot extends Model
       event(new TimeslotGetsCancelled($user, $timeslot));
 
     }
-
-
-
-
 
     // Timeslot belongs to agents
     public function agent()
