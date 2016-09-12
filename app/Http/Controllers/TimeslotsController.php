@@ -198,9 +198,10 @@ class TimeslotsController extends Controller
     {
       $agent = auth()->user();
 
-      $scheduled = $agent->agentsTimeslots();
+      $upcoming = Timeslot::belongsToAgent($agent)->future()->assigned()->get();
+      $past = Timeslot::belongsToAgent($agent)->past()->assigned()->get();
 
-      return view('timeslots.schedule', ['scheduled' => $scheduled]);
+      return view('timeslots.schedule', ['upcoming' => $upcoming, 'past' => $past]);
     }
     else
     {

@@ -44,6 +44,12 @@ class Timeslot extends Model
       $query->where('date', '<' , Carbon::yesterday());
     }
 
+    // Scope where agent_id is the same as the given user
+    public function scopeBelongsToAgent($query, $user)
+    {
+      return $query->where('agent_id', $user->id);
+    }
+
     // Timeslot Cancellation Eligibility
     public function canCancel()
     {
