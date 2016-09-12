@@ -1,0 +1,18 @@
+  <div class="col-md-2 sidebar">
+
+    <div class="row top">
+      <div class="col-md-12">
+        <a href="{{ url('/') }}">
+          <img class="logo center-block" src="{{ asset($project->logo) }}" alt="{{ $project->name }}">
+        </a>
+        <h1 class="text-center">{{ $project->name }}</h1>
+      </div>
+    </div>
+
+    <div class="row bottom">
+      <div class="col-md-12">
+        TEST
+      </div>
+    </div>
+
+  </div>

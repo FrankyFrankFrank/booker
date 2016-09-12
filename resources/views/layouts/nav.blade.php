@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse navbar-static-top">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
 
       <!-- Collapsed Hamburger -->
@@ -10,10 +10,8 @@
         <span class="icon-bar"></span>
       </button>
 
-      <!-- Branding Image -->
-      <a class="navbar-brand" href="{{ url('/') }}">
-        <img class="logo" src="{{ asset($project->logo) }}" alt="{{ $project->name }}">
-      </a>
+      <span class="navbar-brand">it's BOOKED</span>
+
     </div>
 
     <div class="collapse navbar-collapse" id="app-navbar-collapse">

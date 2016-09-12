@@ -21,7 +21,14 @@
 
   @include('layouts.nav')
 
-  @yield('content')
+  <div class="container-fluid">
+    <div class="row">
+        @include('partials.sidebar')
+      <div class="col-md-10">
+        @yield('content')
+      </div>
+    </div>
+  </div>
 
 </body>
 

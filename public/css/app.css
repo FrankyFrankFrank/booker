@@ -5755,19 +5755,24 @@ a:hover {
 hr {
   border-color: #b7c3b8; }
 
-.navbar-brand {
-  padding: 0 15px; }
+.navbar {
+  margin-bottom: 0;
+  min-height: 30px; }
+  .navbar a {
+    padding: 0; }
 
 .navbar-inverse {
   border: none;
   color: #ffffff;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.23); }
+  .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+    color: #ffffff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: auto; }
 
 .navbar-inverse .navbar-toggle {
   border: none; }
-
-.navbar-inverse .navbar-nav > li > a {
-  color: #ffffff; }
 
 .btn {
   border-radius: 0; }
@@ -5850,5 +5855,29 @@ hr {
 .logo {
   padding: 3px 4px 3px 0;
   max-width: 67px; }
+
+.sidebar {
+  height: 100vh;
+  position: static;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  background-color: #222222; }
+  .sidebar .top {
+    color: #ffffff;
+    padding-top: 20px; }
+  .sidebar .bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white; }
+
+.sidebar-inner > div {
+  -ms-flex: 1;
+  flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1; }
 
 /*# sourceMappingURL=app.css.map */
