@@ -198,7 +198,7 @@ class TimeslotsController extends Controller
     {
       $agent = auth()->user();
 
-      $scheduled = $agent->agentsTimeslots()->sortBy('time');
+      $scheduled = $agent->agentsTimeslots();
 
       return view('timeslots.schedule', ['scheduled' => $scheduled]);
     }

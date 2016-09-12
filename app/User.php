@@ -65,7 +65,7 @@ class User extends Authenticatable
 
     public function agentsTimeslots()
     {
-      return $this->timeslots()->assigned()->scheduled()->get();
+      return $this->timeslots()->assigned()->scheduled()->get()->sortBy('time');
     }
 
     // User Belongs to Projects
