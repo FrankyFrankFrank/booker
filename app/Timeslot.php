@@ -18,16 +18,43 @@ class Timeslot extends Model
       'date',
     ];
 
+    // Scope where the timeslot has a booked visitor
     public function scopeAssigned($query)
     {
       $query->whereNotNull('visitor_id');
     }
 
+    // Scope where the timeslot has no visitor
     public function scopeUnassigned($query)
     {
       $query->whereNull('visitor_id');
     }
 
+    // Scope where the timeslot is in the future
+    public function scopeFuture($query)
+    {
+
+    }
+
+    // Scope where the timeslot is in the past
+    public function scopePast($query)
+    {
+
+    }
+
+    // Scope where timeslot is past the latest cancellation time
+    public function scopePastCancellation($query)
+    {
+
+    }
+
+    // Scope where the timeslot belongs to the logged in agent
+    public function scopeScheduled($query)
+    {
+      $query->where('agent_id', auth()->user()->id);
+    }
+
+    // Assign a timeslot
     public function assign($visitor, $timeslot)
     {
       $timeslot->visitor_id = $visitor->id;
@@ -38,6 +65,7 @@ class Timeslot extends Model
 
     }
 
+    // Cancel a timeslot
     public function cancel($visitor, $timeslot)
     {
       $timeslot->visitor_id = null;
@@ -48,10 +76,9 @@ class Timeslot extends Model
 
     }
 
-    public function scopeScheduled($query)
-    {
-      $query->where('agent_id', auth()->user()->id);
-    }
+
+
+
 
     // Timeslot belongs to agents
     public function agent()
