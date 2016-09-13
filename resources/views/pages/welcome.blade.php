@@ -2,14 +2,12 @@
 
 @section('content')
   <div class="container">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <h2 class="text-center welcome-message">Book your {{ $project->name }} Model Home Appointment</h2>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="welcome-buttons">
+          <img class="center-block welcome-message" src=" {{ $project->logo }} " />
+          <h2 class="text-center">Book your {{ $project->name }} Model Home Appointment</h2>
           <p class="text-center">
           @if (auth()->user() && auth()->user()->visiting()->first() != NULL)
             <a class="btn btn-primary" href="/timeslots">View Your Appointment</a>

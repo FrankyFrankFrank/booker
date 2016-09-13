@@ -5757,7 +5757,7 @@ hr {
 
 .navbar {
   margin-bottom: 0;
-  min-height: 30px; }
+  min-height: 5vh; }
   .navbar a {
     padding: 0; }
 
@@ -5767,7 +5767,7 @@ hr {
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.23); }
   .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
     color: #ffffff;
-    padding-top: 8px;
+    padding-top: 13px;
     padding-bottom: 8px;
     height: auto; }
 
@@ -5857,7 +5857,7 @@ hr {
   max-width: 67px; }
 
 .sidebar {
-  height: 100vh;
+  height: 95vh;
   position: static;
   display: -ms-flexbox;
   display: flex;
@@ -5881,13 +5881,14 @@ hr {
   flex-grow: 1; }
 
 .scroll-content {
-  height: 100vh;
+  height: 95vh;
   overflow: scroll; }
 
 @media (max-width: 992px) {
   .sidebar {
     height: auto; }
   .scroll-content {
-    height: auto; } }
+    height: auto;
+    overflow: visible; } }
 
 /*# sourceMappingURL=app.css.map */
