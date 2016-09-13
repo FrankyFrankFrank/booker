@@ -5884,7 +5884,7 @@ hr {
   height: 100vh;
   overflow: scroll; }
 
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .sidebar {
     height: auto; }
   .scroll-content {
