@@ -1,14 +1,11 @@
 <div class="col-md-4">
   <div class="timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
+    <div class="caretdown"></div>
     <a href="{{ url('/timeslots', [$timeslot->id] )}}">
-    <h1>
-      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-      {{ date("D, M j", strtotime($timeslot->date)) }} |
-      {{ date("g:i a", strtotime($timeslot->time)) }}
-    </h1>
-    <p>
-      <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 1 Hour
-    </p>
+    <h3>
+      {{ date("l, F j", strtotime($timeslot->date)) }}</br>
+      {{ date("g:i a", strtotime($timeslot->time)) }},  1 Hour
+    </h3>
   </a>
     <p>
       {{ $timeslot->agent->name }}
