@@ -216,7 +216,7 @@ class TimeslotsController extends Controller
   public function viewVisitorTimeslot()
   {
     $timeslot = auth()->user()->visiting()->first();
-    return view('timeslots.yourtimeslot', ['timeslot' => $timeslot]);
+    return view('timeslots.yourtimeslot', ['timeslot' => $timeslot, 'cancellable' => $timeslot->canCancel()]);
   }
 
 }

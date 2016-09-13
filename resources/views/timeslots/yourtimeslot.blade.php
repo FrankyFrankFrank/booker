@@ -2,23 +2,28 @@
 
 @section('content')
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
 
-        <h1>You Have Already Booked an Appointment</h1>
+  @include('timeslots.timeslotdetails')
 
+  @if($cancellable)
+    <section>
 
-        @include('timeslots.timeslotdetails')
-
-
-        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#confirm-cancel">
-          <span class="glyphicon glyphicon-remove"></span> Cancel Your Appointment (Cannot be Undone)
-        </button>
-
+      <div class="alert alert-warning clearfix">
+        <p>
+          <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#confirm-cancel">
+            <span class="glyphicon glyphicon-remove"></span> Cancel Your Appointment
+          </button>
+        </p>
+        <p><strong>Note:</strong> You cannot cancel your appointment later than 24 hours prior to your appointment.</p>
       </div>
-    </div>
-  </div>
+    </section>
+  @else
+    <section>
+      <div class="alert alert-warning">
+        <strong><span class="glyphicon glyphicon-time"></span> It is less than 24 Hours before your appointment.</strong> You can not reschedule until further notice.
+      </div>
+    </section>
+  @endif
 
   @include('modals.cancelappointment')
 
