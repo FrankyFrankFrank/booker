@@ -1,4 +1,4 @@
-  <div class="col-md-2 sidebar">
+  <div class="col-md-3 col-lg-2 sidebar">
 
     <div class="row top">
       <div class="col-md-12">
