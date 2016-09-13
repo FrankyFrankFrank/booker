@@ -11,7 +11,6 @@
 
     <div class="row bottom">
       <div class="col-md-12">
-        TEST
       </div>
     </div>
 

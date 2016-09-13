@@ -2,15 +2,19 @@
 
 @section('content')
 
+  {{-- If User is an agent show create new timeslot --}}
+  @if (auth()->user()->hasRole('Agent'))
+  <div class="toolbar row">
+    <div class="col-md-12">
+          <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
+    </div>
+  </div>
+  @endif
+
   <div class="row">
     <div class="col-md-12">
 
-      {{-- If User is an agent show create new timeslot --}}
-      @if (auth()->user()->hasRole('Agent'))
-      <div>
-        <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
-      </div>
-      @endif
+
 
       <div class="row">
         <div class="col-md-12">

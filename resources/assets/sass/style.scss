@@ -166,7 +166,6 @@ hr {
   .bottom {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: white;
   }
 }
 
@@ -181,6 +180,12 @@ hr {
   height: 95vh;
   overflow: scroll;
 }
+
+.toolbar {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
 
 // Small Screens
 @media (max-width: $screen-md) {

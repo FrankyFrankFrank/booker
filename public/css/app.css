@@ -5871,8 +5871,7 @@ hr {
     padding-top: 20px; }
   .sidebar .bottom {
     padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: white; }
+    padding-bottom: 20px; }
 
 .sidebar-inner > div {
   -ms-flex: 1;
@@ -5883,6 +5882,10 @@ hr {
 .scroll-content {
   height: 95vh;
   overflow: scroll; }
+
+.toolbar {
+  padding-top: 22px;
+  padding-bottom: 22px; }
 
 @media (max-width: 992px) {
   .sidebar {
