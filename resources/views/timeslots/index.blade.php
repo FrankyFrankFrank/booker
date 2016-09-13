@@ -27,17 +27,16 @@
 
       <div class="timeslot-day-row row">
 
-        {{-- Show the Date --}}
-        <div class=" col-md-12">
-          <h3>{{ date('l, F j', strtotime($day)) }}</h3>
-        </div>
-
         {{-- Include the timeslots --}}
         @foreach($timeslots as $id => $timeslot)
 
         @include('timeslots.timeslot')
 
         @endforeach
+
+        {{-- Delimits the Date Group --}}
+        <div class="datebreaker col-md-12">
+        </div>
 
       </div>
 

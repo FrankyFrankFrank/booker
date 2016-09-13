@@ -5887,6 +5887,9 @@ hr {
   padding-top: 22px;
   padding-bottom: 22px; }
 
+.datebreaker {
+  height: 100px; }
+
 @media (max-width: 992px) {
   .sidebar {
     height: auto; }
