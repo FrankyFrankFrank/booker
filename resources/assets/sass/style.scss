@@ -1,12 +1,11 @@
-
 $custom_primary: #5A345E;
 $custom_warning: #DE9151;
 $custom_danger: #F34213;
 $custom_info: #BC5D2E;
-// MEDIUM AQUAMARINE: #56e39F;
-// EUCALYPTUS: #59C9A5;
-// GRANITE GRAY: #5B6C5D;
 
+$medium_aquamarine: #56e39F;
+$eucalyptus: #59C9A5;
+$granite_grey: #5B6C5D;
 
 body {
   color: #5B6C5D;
@@ -175,5 +174,20 @@ hr {
   > div {
     flex: 1;
     flex-grow: 1;
+  }
+}
+
+.scroll-content {
+  height: 100vh;
+  overflow: scroll;
+}
+
+// Small Screens
+@media (max-width: $screen-lg) {
+  .sidebar {
+    height: auto;
+  }
+  .scroll-content {
+    height: auto;
   }
 }

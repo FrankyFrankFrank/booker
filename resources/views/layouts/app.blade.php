@@ -24,7 +24,7 @@
   <div class="container-fluid">
     <div class="row">
         @include('partials.sidebar')
-      <div class="col-md-10">
+      <div class="col-md-10 scroll-content">
         @yield('content')
       </div>
     </div>

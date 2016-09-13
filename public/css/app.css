@@ -5880,4 +5880,14 @@ hr {
   -ms-flex-positive: 1;
   flex-grow: 1; }
 
+.scroll-content {
+  height: 100vh;
+  overflow: scroll; }
+
+@media (max-width: 1200px) {
+  .sidebar {
+    height: auto; }
+  .scroll-content {
+    height: auto; } }
+
 /*# sourceMappingURL=app.css.map */
