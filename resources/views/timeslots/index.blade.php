@@ -28,9 +28,13 @@
       <div class="timeslot-day-row row">
 
         {{-- Include the timeslots --}}
-        @foreach($timeslots as $id => $timeslot)
+        @foreach($timeslots->chunk(3) as $timeslotChunk)
 
-        @include('timeslots.timeslot')
+          @foreach($timeslotChunk as $timeslot)
+            @include('timeslots.timeslot')
+          @endforeach
+
+          <div class="clearfix"></div>
 
         @endforeach
 

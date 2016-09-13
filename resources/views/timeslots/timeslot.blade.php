@@ -49,8 +49,3 @@
 
   </div>
 </div>
-
-@if($id % 3 == 2)
-<div class="clearfix">
-</div>
-@endif
