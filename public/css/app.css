@@ -5740,6 +5740,7 @@ button.close {
     display: none !important; } }
 
 body {
+  background-color: #f1f2f2;
   color: #5B6C5D;
   font-family: 'Lato', 'Sans-Serif'; }
 
@@ -5814,24 +5815,25 @@ hr {
   margin-right: 0; }
 
 .timeslot {
-  background-color: #ffffff;
-  border-radius: 2px;
-  border-top: 4px solid #59C9A5;
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.24);
-  margin-bottom: 20px;
-  padding: 20px; }
-
-.timeslot:hover {
-  border-color: #37a985; }
+  background-color: #e6e7e8;
+  border-top: 10px solid #59C9A5;
+  padding: 20px;
+  padding-top: 0;
+  text-align: center; }
+  .timeslot h1 {
+    font-size: 1.8em; }
+  .timeslot .caretdown {
+    width: 80px;
+    height: 20px;
+    border-top: 20px solid #59C9A5;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    margin: 0px auto 20px; }
 
 .timeslot-booked {
-  border-top: 4px solid #EF6F6C; }
-
-.timeslot-booked:hover {
-  border-color: #e72623; }
-
-.timeslot h1 {
-  font-size: 1.8em; }
+  border-top: 10px solid #EF6F6C; }
+  .timeslot-booked .caretdown {
+    border-top: 20px solid #EF6F6C; }
 
 .timeslot-day-row {
   margin-bottom: 3em; }
@@ -5889,7 +5891,7 @@ hr {
   padding-bottom: 22px; }
 
 .datebreaker {
-  height: 24px; }
+  height: 12px; }
 
 @media (max-width: 992px) {
   .sidebar {

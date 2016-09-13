@@ -76,15 +76,14 @@
 
         <div class="timeslot-day-row row">
 
-          {{-- Show the Date --}}
-          <div class=" col-md-12">
-            <h3>{{ date('l, F j', strtotime($day)) }}</h3>
-          </div>
+          @foreach($timeslots->chunk(3) as $timeslotChunk)
 
           {{-- Include the timeslots --}}
-          @foreach($timeslots as $timeslot)
+          @foreach($timeslotChunk as $timeslot)
+            @include('timeslots.timeslot')
+          @endforeach
 
-          @include('timeslots.timeslot')
+          <div class="clearfix"></div>
 
           @endforeach
 
