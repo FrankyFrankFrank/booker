@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="container">
   <div class="row">
     <div class="col-sm-12">
       <h1>Heading 1: Epsum factorial non deposit quid.</h1>
@@ -47,6 +46,6 @@
       </p>
     </div>
   </div>
-</div>
+
 
 @endsection
