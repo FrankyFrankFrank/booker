@@ -37,17 +37,21 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('autologin/{token}', [
-  'as' => 'autologin',
-  'uses' => '\Watson\Autologin\AutologinController@autologin'
-]);
+Route::group(['middleware' => ['auth', 'hasrole:Admin']], function() {
 
-Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
+  Route::get('autologin/{token}', [
+    'as' => 'autologin',
+    'uses' => '\Watson\Autologin\AutologinController@autologin'
+  ]);
+
+  Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
   ->name('generatelogin');
 
-Route::get('generate_auto_login/index', 'AutologinGenerator@index')
+  Route::get('generate_auto_login/index', 'AutologinGenerator@index')
   ->name('indexgeneratedlogins');
 
-Route::get('/design', function() {
-  return view('design.swatch1');
+  Route::get('/design', function() {
+    return view('design.swatch1');
+  });
+
 });
