@@ -13,6 +13,19 @@ use App\User;
 class AutoLoginGenerator extends Controller
 {
 
+  public function autoLogins($users)
+  {
+    $autoLogins = collect([]);
+
+    foreach ($users as $user) {
+      $link = Autologin::to($user, '/timeslots');
+      $autoLogins->push(['email' => $user->email, 'name' => $user->name, 'link' => $link]);
+    }
+
+    return $autoLogins;
+
+  }
+
   public function generate($id)
   {
 
@@ -26,11 +39,11 @@ class AutoLoginGenerator extends Controller
   public function index()
   {
 
-    User::each(function($item) {
-        $id = $item;
-        $link = Autologin::to($id, '/timeslots');
-        echo $item->name . '<br />' . $link . '<br/><hr />';
-    });
+    $users = User::all();
+
+    $autologins = $this->autoLogins($users);
+
+    return view('autologin.index', ['autologins' => $autologins]);
 
   }
 
