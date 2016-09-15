@@ -6,6 +6,11 @@ use App\Events\TimeslotGetsBooked;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+use App\User;
+use App\Timeslot;
+use App\Project;
+use Mail;
+
 class EmailBooked
 {
     /**
