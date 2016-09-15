@@ -37,6 +37,10 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/usage', function(){
+  return view('pages.privacy_terms');
+});
+
 Route::group(['middleware' => ['auth', 'hasrole:Admin']], function() {
 
   Route::get('autologin/{token}', [
