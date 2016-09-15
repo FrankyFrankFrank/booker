@@ -155,6 +155,7 @@ hr {
 
 .logo {
   padding: 3px 4px 3px 0;
+  max-width: 67px;
 }
 
 .sidebar {
@@ -163,21 +164,15 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  background-color: #222222;
   .top {
+    color: #ffffff;
     padding-top:20px;
-
-    .logo {
-      max-width: 160px;
-    }
-
   }
-
   .bottom {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-
 }
 
 .sidebar-inner {

@@ -5,7 +5,7 @@
         <a href="{{ url('/') }}">
           <img class="logo center-block" src="{{ asset($project->logo) }}" alt="{{ $project->name }}">
         </a>
-        <h2 class="text-center">{{ $project->name }}</h2>
+        <h1 class="text-center">{{ $project->name }}</h1>
       </div>
     </div>
 

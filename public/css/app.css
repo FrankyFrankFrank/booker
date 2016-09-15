@@ -5855,7 +5855,8 @@ hr {
   margin-top: 40px; }
 
 .logo {
-  padding: 3px 4px 3px 0; }
+  padding: 3px 4px 3px 0;
+  max-width: 67px; }
 
 .sidebar {
   height: 95vh;
@@ -5865,11 +5866,11 @@ hr {
   -ms-flex-direction: column;
   flex-direction: column;
   -ms-flex-pack: start;
-  justify-content: flex-start; }
+  justify-content: flex-start;
+  background-color: #222222; }
   .sidebar .top {
+    color: #ffffff;
     padding-top: 20px; }
-    .sidebar .top .logo {
-      max-width: 160px; }
   .sidebar .bottom {
     padding-top: 20px;
     padding-bottom: 20px; }
