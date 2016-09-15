@@ -8,6 +8,11 @@
   <dl class="list-group">
 
     <div class="list-group-item">
+      <h4>Address:</h4>
+      {{ env('APP_PRIMARY_ADDRESS') }}
+    </div>
+
+    <div class="list-group-item">
       <h4>Date &amp; Time:</h4>
       {{ date("l, F d", strtotime($timeslot->date)) }} <br />
       {{ date("g:i a", strtotime($timeslot->time)) }}
