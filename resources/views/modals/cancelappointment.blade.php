@@ -6,6 +6,11 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h3 class="model-title">Are you sure you want to cancel your appointment?</h3>
         </div>
+        <div class="modal-body">
+          <p>
+            <strong>Cancelling your appointment will make it available to everybody</strong>. You will be allowed to book another time slot if it is available. An appointment which was previously available may be booked by another user by this time.
+          </p>
+        </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Go Back</button>
             <button type="submit" class="btn btn-primary">Cancel Appointment</button>
