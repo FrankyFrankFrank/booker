@@ -1,13 +1,13 @@
-<h1>You Have Cancelled Your Model Home Appointment</h1>
+<h1>An appointment on {{ date("D, M j", strtotime($timeslot->date)) }} was cancelled</h1>
 <h4>Cancellation Details</h4>
 <ul>
   <li>
-    Agent: {{ $timeslot->agent->name }}
-  </li>
-  <li>
-    Time: {{ date("g:i a", strtotime($timeslot->time)) }}
+    Visitor: {{ $user->name }} | {{ $user->email }}
   </li>
   <li>
     Date: {{ date("D, M j", strtotime($timeslot->date)) }}
+  </li>
+  <li>
+    Time: {{ date("g:i a", strtotime($timeslot->time)) }}
   </li>
 </ul>

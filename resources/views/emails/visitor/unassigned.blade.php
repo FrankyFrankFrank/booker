@@ -12,5 +12,8 @@
   </li>
 </ul>
 <p>
+  If you would like to reschedule, please do so now by clicking on the original link sent to your in your invitation email.
+</p>
+<p>
   itsbooked.online
 </p>

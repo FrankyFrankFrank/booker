@@ -58,7 +58,7 @@ class EmailCancelled
            $user->email,
            $user->name
          )
-         ->subject('Sales Centre Timeslot Cancelled');
+         ->subject('Sales Centre Appointment Cancelled');
        });
      }
 }
