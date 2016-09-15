@@ -5,6 +5,8 @@ namespace App\Events;
 use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use App\Timeslot;
+use App\User;
 
 class TimeslotGetsCancelled extends Event
 {
@@ -15,9 +17,10 @@ class TimeslotGetsCancelled extends Event
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Timeslot $timeslot, User $user)
     {
-        //
+        $this->timeslot = $timeslot;
+        $this->user = $user;
     }
 
     /**

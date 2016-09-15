@@ -17,12 +17,10 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\EventListener',
         ],
         'App\Events\TimeslotGetsBooked' => [
-            'App\Listeners\EmailAgent',
-            'App\Listeners\EmailVisitor',
+            'App\Listeners\EmailBooked',
         ],
         'App\Events\TimeslotGetsCancelled' => [
-            'App\Listeners\EmailAgentCancelled',
-            'App\Listeners\EmailVisitorCancelled',
+            'App\Listeners\EmailCancelled',
         ]
     ];
 
