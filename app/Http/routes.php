@@ -15,7 +15,7 @@ Route::get('foo', function () { $bar->baz(); });
 Route::get('/', function () {
       $project = App\Project::first();
       return view('pages.welcome', ['project' => $project]);
-});
+})->name('welcome');
 
 Route::group(['middleware' => 'auth'], function() {
 

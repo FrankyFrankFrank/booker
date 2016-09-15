@@ -2,8 +2,7 @@
 
 @section('content')
 
-<div class="welcome-buttons">
-  <img class="center-block welcome-message" src=" {{ $project->logo }} " />
+<div class="welcome-message">
   <h2 class="text-center">Book your {{ $project->name }} Model Home Appointment</h2>
   <p class="text-center">
   @if (auth()->user() && auth()->user()->visiting()->first() != NULL)

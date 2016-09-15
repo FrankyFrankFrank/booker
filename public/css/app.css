@@ -5865,10 +5865,15 @@ footer {
   right: 0; }
 
 .welcome-message, .cancelled-message {
-  margin-top: 130px; }
-
-.welcome-buttons {
-  margin-top: 40px; }
+  height: 80vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .welcome-message .logo, .cancelled-message .logo {
+    max-width: 80px; }
 
 .logo {
   padding: 3px 4px 3px 0; }
@@ -5917,6 +5922,8 @@ footer {
   footer {
     opacity: 0.2; }
     footer:hover {
-      opacity: 1; } }
+      opacity: 1; }
+  .welcome-message, .cancelled-message {
+    height: auto; } }
 
 /*# sourceMappingURL=app.css.map */

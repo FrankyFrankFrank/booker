@@ -164,12 +164,15 @@ footer {
   right: 0;
 }
 
-.welcome-message, .cancelled-message {
-  margin-top:130px;
-}
 
-.welcome-buttons {
-  margin-top:40px;
+.welcome-message, .cancelled-message {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .logo {
+    max-width: 80px;
+  }
 }
 
 .logo {
@@ -236,6 +239,10 @@ footer {
     &:hover {
       opacity: 1;
     }
+  }
+
+  .welcome-message, .cancelled-message {
+    height: auto;
   }
 
 }

@@ -5,7 +5,7 @@
 <h1>Success!</h1>
 
 <div class="alert alert-warning">
-  <p>Your <strong>Priority Preview Event Appointment</strong> has been booked.<br>
+  <p>Your <strong>Priority Preview Event Appointment</strong> has been booked. 
     <strong>Please note this information below.</strong>
   </p>
 </div>
@@ -14,7 +14,7 @@
 
 @include('timeslots.timeslotdetails')
 
-<a href="{{ url('/') }}" class="btn btn-primary pull-right">Finish</a>
+<a style="margin-bottom: 60px" href="{{ url('/') }}" class="btn btn-primary pull-right">Finish</a>
 
 
 @endsection
