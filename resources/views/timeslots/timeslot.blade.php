@@ -15,14 +15,13 @@
 
       <button class="btn btn-primary" data-toggle="modal" data-target="#confirm-book{{$timeslot->id}}">Book This Time Slot Now</button>
 
-      @if(Request::path() != 'timeslots/'.$timeslot->id)
+      {{-- @if(Request::path() != 'timeslots/'.$timeslot->id)
 
       <a class="btn btn-primary" href="{{ url('/timeslots', [$timeslot->id] )}}">More Details</a>
 
-    @endif
+      @endif --}}
 
 
-    @include('modals.confirmbook')
 
     @elseif (isset($timeslot->visitor_id) && auth()->user()->hasRole('Agent'))
 
@@ -45,4 +44,5 @@
     @endif
 
   </div>
+  @include('modals.confirmbook')
 </div>

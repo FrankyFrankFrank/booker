@@ -4,10 +4,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="confirmBookLabel">Confirm Book This appointment</h4>
+        <h4 class="modal-title" id="confirmBookLabel">Appointment Terms and Conditions</h4>
       </div>
       <div class="modal-body">
-        <p>Once confirmed, you will recieve an email with your appointment details.</p>
         @if (count($errors) > 0)
             <div class="alert alert-danger">
               @foreach ($errors->all() as $error)
@@ -15,13 +14,28 @@
               @endforeach
             </div>
         @endif
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="readterms" value="true"> I have read and agree.
-          </label>
-        </div>
+        <h4>Limitations</h4>
+        <p>
+          Booking an appointment does not guarantee the opportunity to purchase; lots will be sold on a first-come, first-served basis and may be sold before your appointment date. Appointments are limited, therefore <strong>one buyer is allowed per appointment and one appointment is allowed per email address</strong>. No customizations will be available on floor plans.
+        </p>
+        <h4>What to bring to your appointment</h4>
+        <p>
+          In order to purchase, you will be required to bring a deposit cheque of $5000 and government ID for all homebuyers on the Title. If you will be represented by an agent, they must be present at the time of purchase and are required to bring a “Confirmation of Cooperation and Representation” form to your appointment.
+        </p>
+        <p>
+          Once confirmed, you will recieve an email with your appointment details.
+        </p>
+        <p class="alert alert-info">
+          <span class="glyphicon glyphicon-hand-right"></span> You will not be able to cancel or reschedule your appointment later than 24 hours prior to your booking.
+        </p>
+
       </div>
       <div class="modal-footer">
+        <div class="alert alert-warning checkbox">
+          <label>
+            <input type="checkbox" name="readterms" value="true"> I have read and agree to these terms and conditions.
+          </label>
+        </div>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Confirm</button>
       </div>
