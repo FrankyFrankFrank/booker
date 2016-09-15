@@ -3,6 +3,9 @@
 <p>
   This is a confirmation of your appointment with {{ $timeslot->agent->name }} on {{ date("D, M j", strtotime($timeslot->date)) }} at {{ date("g:i a", strtotime($timeslot->time)) }}.
 </p>
+<p>
+  <strong>Address:</strong> {{ $project->address }}
+</p>
 <h4>You are required to bring:</h4>
 <ul>
   <li>
