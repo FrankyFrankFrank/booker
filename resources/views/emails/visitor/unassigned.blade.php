@@ -1,5 +1,5 @@
-<h1>Thank You For Booking Your Timeslot</h1>
-<h4>Confirmation Details</h4>
+<h1>You Have Cancelled Your Sales Centre Appointment</h1>
+<h4>Cancellation Details</h4>
 <ul>
   <li>
     Agent: {{ $timeslot->agent->name }}
@@ -11,3 +11,6 @@
     Date: {{ date("D, M j", strtotime($timeslot->date)) }}
   </li>
 </ul>
+<p>
+  itsbooked.online
+</p>

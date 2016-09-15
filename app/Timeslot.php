@@ -71,24 +71,24 @@ class Timeslot extends Model
     }
 
     // Assign a timeslot
-    public function assign($visitor, $timeslot)
+    public function assign($visitor)
     {
-      $timeslot->visitor_id = $visitor->id;
+      $this->visitor_id = $visitor->id;
 
-      $timeslot->save();
+      $this->save();
 
-      event(new TimeslotGetsBooked($timeslot, $visitor));
+      event(new TimeslotGetsBooked($this, $visitor));
 
     }
 
     // Cancel a timeslot
-    public function cancel($visitor, $timeslot)
+    public function cancel($visitor)
     {
-      $timeslot->visitor_id = null;
+      $this->visitor_id = null;
 
-      $timeslot->save();
+      $timeslot = $this->save();
 
-      event(new TimeslotGetsCancelled($user, $timeslot));
+      event(new TimeslotGetsCancelled($this, $visitor));
 
     }
 

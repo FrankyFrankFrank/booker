@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\TimeslotGetsBooked;
+use App\Events\TimeslotGetsCancelled;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -11,7 +11,7 @@ use App\Timeslot;
 use App\Project;
 use Mail;
 
-class EmailAgent
+class EmailVisitorCancelled
 {
     /**
      * Create the event listener.
@@ -26,28 +26,26 @@ class EmailAgent
     /**
      * Handle the event.
      *
-     * @param  TimeslotGetsBooked  $event
+     * @param  TimeslotGetsCancelled  $event
      * @return void
      */
-    public function handle(TimeslotGetsBooked $event)
+    public function handle(TimeslotGetsCancelled $event)
     {
       $user = $event->user;
       $timeslot = $event->timeslot;
       $agent = User::find($timeslot->agent_id);
       $project = Project::first();
 
-      Mail::send('emails.agent.assigned', ['user' => $user, 'timeslot' => $timeslot, 'agent' => $agent, 'project' => $project], function ($m) use ($user, $agent, $project, $timeslot) {
+      Mail::send('emails.visitor.unassigned', ['user' => $user, 'timeslot' => $timeslot], function ($m) use ($user, $agent, $project, $timeslot) {
         $m->from(
           'grasslands@itsbooked.com',
           'itsBooked ' . $project->name
         );
         $m->to(
-          $agent->email,
-          $agent->name
+          $user->email,
+          $user->name
         )
-        ->subject(
-          'Sales Centre Timeslot Booked'
-        );
+        ->subject('Model Home Timeslot Cancelled');
       });
     }
 }

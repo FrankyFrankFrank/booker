@@ -11,7 +11,7 @@ use App\Timeslot;
 use App\Project;
 use Mail;
 
-class EmailAgent
+class EmailVisitor
 {
     /**
      * Create the event listener.
@@ -36,14 +36,14 @@ class EmailAgent
       $agent = User::find($timeslot->agent_id);
       $project = Project::first();
 
-      Mail::send('emails.agent.assigned', ['user' => $user, 'timeslot' => $timeslot, 'agent' => $agent, 'project' => $project], function ($m) use ($user, $agent, $project, $timeslot) {
+      Mail::send('emails.visitor.assigned', ['user' => $user, 'timeslot' => $timeslot, 'agent' => $agent, 'project' => $project], function ($m) use ($user, $agent, $project, $timeslot) {
         $m->from(
           'grasslands@itsbooked.com',
           'itsBooked ' . $project->name
         );
         $m->to(
-          $agent->email,
-          $agent->name
+          $user->email,
+          $user->name
         )
         ->subject(
           'Sales Centre Timeslot Booked'

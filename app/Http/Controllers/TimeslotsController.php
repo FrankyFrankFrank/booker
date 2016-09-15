@@ -160,9 +160,9 @@ class TimeslotsController extends Controller
 
     $timeslot = Timeslot::find($id);
 
-    $user = auth()->user();
+    $visitor = auth()->user();
 
-    $timeslot->assign($user, $timeslot);
+    $timeslot->assign($visitor);
 
     return view('timeslots.success')->with('timeslot', $timeslot);
 
@@ -175,16 +175,9 @@ class TimeslotsController extends Controller
 
     $timeslot = Timeslot::find($id);
 
-    $user = auth()->user();
+    $visitor = auth()->user();
 
-    $timeslot->visitor_id = null;
-
-    $timeslot->save();
-
-    Mail::send('emails.unassigned', ['user' => $user, 'timeslot' => $timeslot], function ($m) use ($user) {
-      $m->from('afrank@hawskviewhomes.com', 'Eby Estates');
-      $m->to($user->email, $user->name)->subject('Model Home Timeslot Cancelled');
-    });
+    $timeslot->cancel($visitor);
 
     return view('timeslots.cancelled')->with('timeslot', $timeslot);
 
