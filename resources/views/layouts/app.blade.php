@@ -30,7 +30,13 @@
     </div>
   </div>
 
+<footer>
+  <a href="url{{ '/privacy' }}" title="Privacy Policy">Privacy Policy</a>
+  <a href="url{{ '/terms' }}" title="Terms and Conditions">Terms and Conditions</a>
+</footer>
+
 </body>
+
 
 @yield('extra-scripts')
 

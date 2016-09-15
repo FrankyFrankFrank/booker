@@ -97,6 +97,25 @@ hr {
   margin-right: 0;
 }
 
+footer {
+  background-color: #0f0f0f;
+  font-size: 13px;
+  padding: 2px;
+  position: fixed;
+    bottom: 0;
+  text-align: right;
+  width: 100%;
+  z-index: 100;
+  a {
+    color: #dddddd;
+    margin-right: 22px;
+    &:hover {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+}
+
 .timeslot {
   background-color: #e6e7e8;
   border-top: 10px solid #59C9A5;
@@ -210,6 +229,13 @@ hr {
   .scroll-content {
     height: auto;
     overflow: visible;
+  }
+
+  footer {
+    opacity: 0.2;
+    &:hover {
+      opacity: 1;
+    }
   }
 
 }
