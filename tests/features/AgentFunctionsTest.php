@@ -23,7 +23,7 @@ class AgentFunctionsTest extends TestCase
       ->press('Submit');
 
     $this->seePageIs('/timeslots')
-    ->see('Sep 15')
+    ->see('September 15')
     ->see('1:30 pm');
   }
 
