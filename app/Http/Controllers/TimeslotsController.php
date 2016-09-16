@@ -146,7 +146,12 @@ class TimeslotsController extends Controller
     {
       $timeslot = Timeslot::findorFail($id);
 
-      $timeslot->delete();
+      if ($timeslot->visitor_id != null)
+      {
+        $timeslot->cancel(User::find($timeslot->visitor_id));
+      } else {
+        $timeslot->delete();
+      }
     }
 
     return redirect('timeslots');
@@ -161,6 +166,10 @@ class TimeslotsController extends Controller
     $timeslot = Timeslot::find($id);
 
     $visitor = auth()->user();
+
+    $visitor->phone = $request->phone;
+
+    $visitor->save();
 
     $timeslot->assign($visitor);
 
