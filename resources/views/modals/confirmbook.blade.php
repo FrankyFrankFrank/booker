@@ -31,6 +31,11 @@
 
       </div>
       <div class="modal-footer">
+        <div class="form-group">
+          <label for="phone">Please Enter Your Phone Number</label>
+          <input name="phone" class="form-control" type="tel" />
+          <p class="help-block">We will only use this number to contact you regarding your appointment.</p>
+        </div>
         <div class="alert alert-warning checkbox">
           <label>
             <input type="checkbox" name="readterms" value="true"> I have read and agree to these terms and conditions.

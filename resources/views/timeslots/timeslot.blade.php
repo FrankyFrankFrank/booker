@@ -13,22 +13,15 @@
     @if (empty($timeslot->visitor_id) && auth()->user()->hasRole('Visitor'))
     </p>
 
-      <button class="btn btn-primary" data-toggle="modal" data-target="#confirm-book{{$timeslot->id}}">Book This Time Slot Now</button>
-
-      {{-- @if(Request::path() != 'timeslots/'.$timeslot->id)
-
-      <a class="btn btn-primary" href="{{ url('/timeslots', [$timeslot->id] )}}">More Details</a>
-
-      @endif --}}
-
-
+      <a id="book-{{$timeslot->id}}" class="btn btn-primary" data-toggle="modal" data-target="#confirm-book{{$timeslot->id}}">Book This Time Slot Now</a>
 
     @elseif (isset($timeslot->visitor_id) && auth()->user()->hasRole('Agent'))
 
       with:
       <br>
       <strong>
-        {{ $timeslot->visitor->name }}
+        {{ $timeslot->visitor->name }}<br />
+         Phone Number: {{ $timeslot->visitor->phone }}
       </strong>
       <br>
       {{ $timeslot->visitor->email }}

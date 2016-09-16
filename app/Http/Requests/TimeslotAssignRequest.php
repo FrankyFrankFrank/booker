@@ -28,6 +28,7 @@ class TimeslotAssignRequest extends Request
     public function rules()
     {
         return [
+            'phone' => 'required|alpha_dash',
             'readterms' => 'required',
         ];
     }
@@ -36,6 +37,8 @@ class TimeslotAssignRequest extends Request
     {
         return [
             'readterms.required' => 'You must read and agree to the terms before booking.',
+            'phone.required' => 'You must enter a valid phone number.',
+            'phone.alpha_dash' => 'You may only use numbers and dashes in your phone number.'
         ];
     }
 
