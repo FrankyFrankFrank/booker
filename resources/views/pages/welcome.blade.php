@@ -14,8 +14,6 @@
     </p>
     <p class="text-center">
       <a class="btn btn-primary" href="/login">Log In and Book</a>
-      OR
-      <a class="btn btn-primary" href="/register">Register</a>
   @endif
   </p>
 </div>
