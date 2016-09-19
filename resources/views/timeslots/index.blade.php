@@ -17,7 +17,7 @@
 
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4 heading-available">
           <h2>Available Time Slots</h2>
         </div>
       </div>
@@ -66,7 +66,7 @@
       @if (auth()->user()->hasRole('Agent'))
 
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-4 heading-unavailable">
             <h2>Booked Timeslots</h2>
           </div>
         </div>

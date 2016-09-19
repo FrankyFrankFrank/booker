@@ -5771,6 +5771,8 @@ hr {
   .navbar-inverse .navbar-brand {
     background-color: #d25627;
     padding: 11px 15px; }
+    .navbar-inverse .navbar-brand:hover {
+      background-color: #d25627; }
 
 .navbar-inverse .navbar-toggle {
   border: none; }
@@ -5830,9 +5832,23 @@ footer {
       color: #ffffff;
       text-decoration: none; }
 
+.heading-available, .heading-unavailable {
+  text-align: center;
+  color: #ffffff;
+  background-clip: content-box; }
+  .heading-available h2, .heading-unavailable h2 {
+    margin: 0;
+    padding: 15px; }
+
+.heading-available {
+  background-color: #27ae60; }
+
+.heading-unavailable {
+  background-color: #d25627; }
+
 .timeslot {
   background-color: #e6e7e8;
-  border-top: 10px solid #59C9A5;
+  border-top: 10px solid #27ae60;
   padding: 20px;
   padding-top: 0;
   text-align: center; }
@@ -5841,23 +5857,18 @@ footer {
   .timeslot .caretdown {
     width: 80px;
     height: 20px;
-    border-top: 20px solid #59C9A5;
+    border-top: 20px solid #27ae60;
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
     margin: 0px auto 20px; }
 
 .timeslot-booked {
-  border-top: 10px solid #EF6F6C; }
+  border-top: 10px solid #d25627; }
   .timeslot-booked .caretdown {
-    border-top: 20px solid #EF6F6C; }
+    border-top: 20px solid #d25627; }
 
 .timeslot-day-row {
   margin-bottom: 3em; }
-
-.timeslot-day-row > .col-md-12 > h3 {
-  border-bottom: 1px solid #007f67;
-  padding: 7px 0;
-  margin: 0 0 20px; }
 
 .bot-right {
   position: absolute;
