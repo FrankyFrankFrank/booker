@@ -1,7 +1,8 @@
-$custom_primary: #5A345E;
+$custom_primary: #27ae60;
 $custom_warning: #DE9151;
 $custom_danger: #F34213;
 $custom_info: #BC5D2E;
+
 
 $medium_aquamarine: #56e39F;
 $eucalyptus: #59C9A5;
@@ -31,11 +32,12 @@ hr {
 
 .navbar {
   margin-bottom: 0;
-  min-height:5vh;
+  min-height:4vh;
   a {
     padding: 0;
   }
 }
+
 
 .navbar-inverse {
   border: none;
@@ -45,9 +47,10 @@ hr {
   box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.23);
   .navbar-nav > li > a, .navbar-brand {
     color: #ffffff;
-    padding-top: 13px;
-    padding-bottom:8px;
-    height:auto;
+  }
+  .navbar-brand {
+    background-color: #d25627;
+    padding: 11px 15px;
   }
 }
 
