@@ -13,10 +13,10 @@ class CreateInitialProject extends Migration
     public function up()
     {
       DB::table('projects')->insert([
-        'name' => 'Eby Estates',
+        'name' => 'Grasslands of Stauffer Woods',
         'logo' => 'img/project-logo-default.png',
-        'main_color' => '#007f67',
-        'alt_color' => '#59C9A5',
+        'main_color' => '#2c3e50',
+        'alt_color' => '#d25627',
       ]);
     }
 

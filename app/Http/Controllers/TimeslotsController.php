@@ -67,11 +67,10 @@ class TimeslotsController extends Controller
     if (auth()->user()->hasRole('Agent'))
     {
 
-      $allAgentNames = User::whereHas('roles', function ($q) {
-        $q->where('name', '=', 'Agent');
-      })->pluck('name','name');
+      $allAgents = User::agents();
 
-      return view('timeslots.create', ['agents' => $allAgentNames ]);
+      return view('timeslots.create', ['agents' => $allAgents ]);
+
     }
     else
     {
@@ -85,7 +84,6 @@ class TimeslotsController extends Controller
 
   public function store(TimeslotRequest $request)
   {
-
     $timeslot = new Timeslot($request->all());
 
     $agent = User::find($request->agent_id);
@@ -93,7 +91,14 @@ class TimeslotsController extends Controller
 
     if ($request->input('save_and_create'))
     {
-      return view('timeslots.create', ['timeslot' => $timeslot]);
+      if(auth()->user()->hasRole('Admin'))
+      {
+        $allAgents = User::agents();
+        return view('timeslots.create', ['timeslot' => $timeslot,
+      'agents' => $allAgents]);
+      } else {
+        return view('timeslots.create', ['timeslot' => $timeslot]);
+      }
     }
     else {
       return redirect('timeslots');

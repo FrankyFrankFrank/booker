@@ -3,8 +3,11 @@
 @if(auth()->user()->hasRole('Admin'))
 <div class="form-group">
   {!! Form::label('agent_id', 'Agent:') !!}
-  {!! Form::select('agent_id',
-    $agents, null, ['placeholder' => 'Choose an agent', 'class' => 'form-control']) !!}
+  <select name="agent_id" placeholder="Choose an agent" class="form-control">
+  @foreach($agents as $key => $agent)
+    <option value="{{ $key }}">{{ $agent->name }}</option>
+  @endforeach
+  </select>
 </div>
 @else
 {!! Form::hidden('agent_id', Auth::user()->id) !!}

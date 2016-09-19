@@ -35,6 +35,13 @@ class User extends Authenticatable
       return $this->belongsToMany('App\Role')->withTimestamps();
     }
 
+    public function scopeAgents($query)
+    {
+      return $query->whereHas('roles', function ($query) {
+        $query->where('name', 'Agent');
+      })->get();
+    }
+
     public function role()
     {
       return $this->roles()->first()->name;
