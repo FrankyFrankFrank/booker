@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="welcome-message">
-  <h2 class="text-center">Book your {{ $project->name }} Model Home Appointment</h2>
+  <h2 class="text-center">Book your {{ $project->name }} Purchasing Appointment</h2>
   <p class="text-center">
   @if (auth()->user() && auth()->user()->visiting()->first() != NULL)
     <a class="btn btn-primary" href="/timeslots">View Your Appointment</a>
