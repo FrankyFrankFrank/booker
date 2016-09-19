@@ -95,13 +95,13 @@ class Timeslot extends Model
     // Timeslot belongs to agents
     public function agent()
     {
-      return $this->belongsTo('App\User');
+      return $this->belongsTo('App\User', 'agent_id');
     }
 
     // Timeslot belongs to visitor
     public function visitor()
     {
-      return $this->belongsTo('App\User');
+      return $this->belongsTo('App\User', 'visitor_id');
     }
 
     // Timeslot belongs to project
