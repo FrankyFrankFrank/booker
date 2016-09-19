@@ -5935,6 +5935,8 @@ footer {
     footer:hover {
       opacity: 1; }
   .welcome-message, .cancelled-message {
-    height: auto; } }
+    height: auto; }
+    .welcome-message h2, .cancelled-message h2 {
+      font-size: 1.4em; } }
 
 /*# sourceMappingURL=app.css.map */
