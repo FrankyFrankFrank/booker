@@ -38,7 +38,7 @@ class EmailBooked
 
        Mail::send('emails.agent.assigned', ['user' => $user, 'timeslot' => $timeslot, 'agent' => $agent, 'project' => $project], function ($m) use ($user, $agent, $project, $timeslot) {
          $m->from(
-           'grasslands@itsbooked.com',
+           'grasslands@itsbooked.online',
            'itsBooked ' . $project->name
          );
          $m->to(
@@ -52,7 +52,7 @@ class EmailBooked
 
        Mail::send('emails.visitor.assigned', ['user' => $user, 'timeslot' => $timeslot, 'agent' => $agent, 'project' => $project], function ($m) use ($user, $agent, $project, $timeslot) {
          $m->from(
-           'grasslands@itsbooked.com',
+           'grasslands@itsbooked.online',
            'itsBooked ' . $project->name
          );
          $m->to(

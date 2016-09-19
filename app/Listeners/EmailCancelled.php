@@ -39,7 +39,7 @@ class EmailCancelled
 
        Mail::send('emails.agent.unassigned', ['user' => $user, 'timeslot' => $timeslot], function ($m) use ($user, $agent, $project, $timeslot) {
          $m->from(
-           'grasslands@itsbooked.com',
+           'grasslands@itsbooked.online',
            'itsBooked ' . $project->name
          );
          $m->to(
@@ -51,7 +51,7 @@ class EmailCancelled
 
        Mail::send('emails.visitor.unassigned', ['user' => $user, 'timeslot' => $timeslot], function ($m) use ($user, $agent, $project, $timeslot) {
          $m->from(
-           'grasslands@itsbooked.com',
+           'grasslands@itsbooked.online',
            'itsBooked ' . $project->name
          );
          $m->to(
