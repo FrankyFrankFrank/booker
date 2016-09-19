@@ -33,7 +33,7 @@
       @if(!$timeslot->visitor_id == null)
 
 
-        <a id="cancel-{{$timeslot->id}}" class="btn btn-primary" data-toggle="modal" data-target="#confirm-cancel-{{$timeslot->id}}"><span class="glyphicon glyphicon-remove"></span> Cancel Appointment</a>
+        <a id="cancel-{{$timeslot->id}}" class="btn btn-danger" data-toggle="modal" data-target="#confirm-cancel-{{$timeslot->id}}"><span class="glyphicon glyphicon-remove"></span> Cancel Appointment</a>
 
         @include('modals.agent-confirm-cancel')
 
