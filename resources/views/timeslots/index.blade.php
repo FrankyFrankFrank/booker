@@ -48,7 +48,7 @@
 
       {{-- If no timeslots or if all timeslots are booked --}}
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4">
           <div class="alert alert-info">
             @if(auth()->user()->hasRole('Agent'))All @else We're sorry. All @endif timeslots are currently booked.
           </div>
