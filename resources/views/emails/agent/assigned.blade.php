@@ -9,6 +9,9 @@
     Visitor: {{ $user->name }} - {{ $user->email }}
   </li>
   <li>
+    Visitor Phone: {{ $user->phone }}
+  </li>
+  <li>
     Date: {{ date("D, M j", strtotime($timeslot->date)) }}
   </li>
   <li>
