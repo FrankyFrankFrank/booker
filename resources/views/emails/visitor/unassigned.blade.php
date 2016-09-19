@@ -1,4 +1,4 @@
-<h1>You Have Cancelled Your Sales Centre Appointment</h1>
+<h1>Your Sales Centre Appointment Has Been Cancelled</h1>
 <h4>Cancellation Details</h4>
 <ul>
   <li>

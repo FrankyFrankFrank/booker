@@ -1,12 +1,10 @@
 <div class="col-md-4">
   <div class="timeslot @if (!empty($timeslot->visitor_id)) timeslot-booked @endif">
     <div class="caretdown"></div>
-    <a href="{{ url('/timeslots', [$timeslot->id] )}}">
     <h3>
       {{ date("l, F j", strtotime($timeslot->date)) }}</br>
       {{ date("g:i a", strtotime($timeslot->time)) }},  1 Hour
     </h3>
-  </a>
     <p>
       {{ $timeslot->agent->name }}
 
@@ -30,10 +28,23 @@
     @endif
 
     @if( $timeslot->agent_id == auth()->user()->id )
+    </p>
 
-      {{ Form::open(['action' => ['TimeslotsController@destroy', $timeslot->id], 'method' => 'delete']) }}
-        <button type="submit" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete Timeslot</button>
-      {{ Form::close() }}
+      @if(!$timeslot->visitor_id == null)
+
+
+        <a id="cancel-{{$timeslot->id}}" class="btn btn-primary" data-toggle="modal" data-target="#confirm-cancel-{{$timeslot->id}}"><span class="glyphicon glyphicon-remove"></span> Cancel Appointment</a>
+
+        @include('modals.agent-confirm-cancel')
+
+      @else
+
+        <a id="delete-{{$timeslot->id}}" class="btn btn-primary" data-toggle="modal" data-target="#confirm-delete-{{$timeslot->id}}"><span class="glyphicon glyphicon-remove"></span> Delete Timeslot</a>
+
+        @include('modals.agent-confirm-delete')
+
+      @endif
+
     @endif
 
   </div>
