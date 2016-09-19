@@ -17,16 +17,17 @@
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
+
+      </ul>
+
+      <!-- Right Side Of Navbar -->
+      <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('/timeslots') }}">Time Slots</a></li>
         @if(auth()->user())
           @if(auth()->user()->hasRole('Agent'))
             <li><a href="{{ url('/schedule') }}">View Scheduled Appointments</a></li>
           @endif
         @endif
-      </ul>
-
-      <!-- Right Side Of Navbar -->
-      <ul class="nav navbar-nav navbar-right">
         <!-- Authentication Links -->
         @if (Auth::guest())
           <li><a href="{{ url('/login') }}">Login</a></li>
