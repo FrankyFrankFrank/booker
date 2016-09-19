@@ -64,7 +64,7 @@ class TimeslotsController extends Controller
   public function create()
   {
 
-    if (auth()->user()->hasRole('Agent'))
+    if (auth()->user()->hasRole('Agent') || auth()->user()->hasRole('Admin'))
     {
 
       $allAgents = User::agents();
