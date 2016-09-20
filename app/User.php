@@ -56,7 +56,7 @@ class User extends Authenticatable
     public function addRole($name)
     {
       $role = Role::where('name', $name)->first();
-      return $this->roles()->save($role);
+      return $this->roles()->attach($role->id);
     }
 
     // Has many timeslots
