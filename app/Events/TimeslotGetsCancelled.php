@@ -12,6 +12,10 @@ class TimeslotGetsCancelled extends Event
 {
     use SerializesModels;
 
+    public $timeslot;
+
+    public $user;
+
     /**
      * Create a new event instance.
      *

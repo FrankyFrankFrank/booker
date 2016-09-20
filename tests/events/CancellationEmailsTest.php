@@ -12,7 +12,8 @@ class CancellationEmailsTest extends TestCase
   {
     $timeslot = factory(App\Timeslot::class)->create();
     $user = factory(App\User::class)->create();
-    $timeslot->assign($user, $timeslot);
+    $user->roles()->attach(3);
+    $timeslot->assign($user);
     $this->expectsEvents(App\Events\TimeslotGetsCancelled::class);
     $timeslot->cancel($user, $timeslot);
   }

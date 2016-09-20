@@ -22,10 +22,6 @@ class AppServiceProvider extends ServiceProvider
           $view->with('project', $project);
         });
 
-        $emptyUsers = User::doesntHave('roles');
-        $emptyUsers->each( function($user) {
-          $user->addRole('Visitor');
-        });
     }
 
     /**

@@ -3,6 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Project;
+
 class CreateInitialProject extends Migration
 {
     /**
@@ -12,7 +14,7 @@ class CreateInitialProject extends Migration
      */
     public function up()
     {
-      DB::table('projects')->insert([
+      Project::create([
         'name' => 'Grasslands of Stauffer Woods',
         'logo' => 'img/project-logo-default.png',
         'main_color' => '#2c3e50',

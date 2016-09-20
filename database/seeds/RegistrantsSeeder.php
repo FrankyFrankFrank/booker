@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\User;
+
 class RegistrantsSeeder extends Seeder
 {
     /**
@@ -17,11 +19,11 @@ class RegistrantsSeeder extends Seeder
 
       $registrants->each( function($reg) {
         try{
-          DB::table('users')->insert([
+          User::create([
             'name' => $reg['name'],
             'email' => $reg['email'],
             'password' => bcrypt($reg['password']),
-          ]);
+          ])->roles()->attach(3);
         } catch (Exception $e) {
           echo $reg['name'] . " error \r\n" ;
         }

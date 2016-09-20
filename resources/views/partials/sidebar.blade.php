@@ -5,9 +5,6 @@
         <a href="{{ url('/') }}">
           <img class="logo center-block" src="{{ asset($project->logo) }}" alt="{{ $project->name }}">
         </a>
-        @if(Route::current()->getName() != 'welcome')
-        <h4 class="text-center">{{ $project->name }}</h4>
-        @endif
       </div>
     </div>
 

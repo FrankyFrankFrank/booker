@@ -3,6 +3,9 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\User;
+use App\Role;
+
 class InsertUberUser extends Migration
 {
     /**
@@ -12,41 +15,21 @@ class InsertUberUser extends Migration
      */
     public function up()
     {
-      DB::table('roles')->insert([[
+      Role::create([
         'name' => 'Admin'
-      ],[
+      ]);
+      Role::create([
         'name' => 'Agent'
-      ],[
+      ]);
+      Role::create([
         'name' => 'Visitor'
-      ]]);
+      ]);
 
-      DB::table('users')->insert([[
-        'name' => 'Adam Frank',
-        'email' => 'afrank@hawksviewhomes.com',
-        'password' => bcrypt(env('APP_OVERLORD')),
-      ],[
-        'name' => 'Test Visitor',
-        'email' => 'visitor@example.com',
-        'password' => Hash::make('password'),
-      ],[
-        'name' => 'Test Agent',
-        'email' => 'agent@example.com',
-        'password' => Hash::make('password'),
-      ]]);
-
-      DB::table('role_user')->insert([[
-        'role_id' => '1',
-        'user_id' => '1',
-      ],[
-        'role_id' => '2',
-        'user_id' => '1',
-      ],[
-        'role_id' => '3',
-        'user_id' => '2',
-      ],[
-        'role_id' => '2',
-        'user_id' => '3',
-      ]]);
+      User::create([
+        'name' => env('APP_OVERLORD_NAME'),
+        'email' => env('APP_OVERLORD_EMAIL'),
+        'password' => bcrypt(env('APP_OVERLORD_PASSWORD')),
+      ])->roles()->sync([1,2]);
     }
 
     /**

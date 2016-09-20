@@ -86,7 +86,7 @@ class Timeslot extends Model
     {
       $this->visitor_id = null;
 
-      $timeslot = $this->save();
+      $this->save();
 
       event(new TimeslotGetsCancelled($this, $visitor));
 

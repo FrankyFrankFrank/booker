@@ -12,6 +12,7 @@ class AppointmentBookingTest extends TestCase
   public function testUserIsAskedForPhoneNumberBeforeBooking()
   {
     $user = factory(App\User::class)->create();
+    $user->roles()->attach(3);
     $timeslot = factory(App\Timeslot::class)->create();
 
     $this->be($user);
