@@ -18,6 +18,9 @@
         <p>
           Booking an appointment does not guarantee the opportunity to purchase; lots will be sold on a first-come, first-served basis and may be sold before your appointment date. Appointments are limited, therefore <strong>one buyer is allowed per appointment and one appointment is allowed per email address</strong>. No customizations will be available on floor plans.
         </p>
+        <p>
+          <strong>Only one purchase per buyer will be permitted.</strong>
+        </p>
         <h4>What to bring to your appointment</h4>
         <p>
           In order to purchase, you will be required to bring a deposit cheque of $5000 and government ID for all homebuyers on the Title. If you will be represented by an agent, they must be present at the time of purchase and are required to bring a “Confirmation of Cooperation and Representation” form to your appointment.
