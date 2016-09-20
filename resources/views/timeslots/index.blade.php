@@ -14,7 +14,11 @@
   <div class="row">
     <div class="col-md-12">
 
-
+    @if(count($errors) > 0)
+    <div class="alert alert-danger">
+      <strong><span class="glyphicon glyphicon-warning-sign"></span> Error:</strong> {{ $errors }}
+    </div>
+    @endif
 
       <div class="row">
         <div class="col-md-4 heading-available">

@@ -172,13 +172,22 @@ class TimeslotsController extends Controller
 
     $visitor = auth()->user();
 
-    $visitor->phone = $request->phone;
+    if(!$timeslot->visitor_id == null)
+    {
+      $errors = "Another visitor has booked this timeslot already. Please try another timeslot.";
+      return redirect('/timeslots')->with('errors', $errors);
+    }
 
-    $visitor->save();
+    else
+    {
+      $visitor->phone = $request->phone;
 
-    $timeslot->assign($visitor);
+      $visitor->save();
 
-    return view('timeslots.success')->with('timeslot', $timeslot);
+      $timeslot->assign($visitor);
+
+      return view('timeslots.success')->with('timeslot', $timeslot);
+    }
 
   }
 
