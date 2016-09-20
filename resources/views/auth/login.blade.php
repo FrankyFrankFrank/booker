@@ -2,6 +2,12 @@
 
 @section('content')
 
+<div class="alert alert-info">
+  <p>
+    If you've received an autologin link, please use that link to log in.
+  </p>
+</div>
+
 <div class="panel panel-default">
     <div class="panel-heading">Login Required</div>
     <div class="panel-body">
@@ -52,7 +58,7 @@
                         <i class="fa fa-btn fa-sign-in"></i> Login
                     </button>
 
-                    <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                    {{-- <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a> --}}
                 </div>
             </div>
 

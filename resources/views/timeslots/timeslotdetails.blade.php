@@ -39,12 +39,7 @@
 
     <div class="list-group-item">
       <dt class="text-info">Arrive 10 Minutes Prior</dt>
-      <dd>Please arrive ten minutes before your appointment.</dd>
-    </div>
-
-    <div class="list-group-item">
-      <dt class="text-info">Appointments are One Hour</dt>
-      <dd>We want to ensure that we accomodate everyone who has booked an appointment. Appointments are one hour long and we will do our best to keep to this schedule.</dd>
+      <dd>Please arrive ten minutes before your appointment. <strong>Late arrival may result in the cancellation of your appointment</strong>. If you cannot make your appointment, please use the login link to cancel 24 hours prior to your scheduled time. Late cancellations will not be able to reschedule.</dd>
     </div>
 
     <div class="list-group-item">
