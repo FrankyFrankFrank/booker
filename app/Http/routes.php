@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth', 'hasrole:Admin']], function() {
 
   Route::get('autologin/{token}', [
     'as' => 'autologin',
-    'uses' => '\Watson\Autologin\AutologinController@autologin'
+    'uses' => '\Watson\Autologin\AutoLoginController@autologin'
   ]);
 
   Route::get('generate_auto_login/user/{id}', 'AutoLoginGenerator@generate')
