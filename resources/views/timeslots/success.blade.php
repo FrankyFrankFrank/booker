@@ -5,7 +5,7 @@
 <h1>its' BOOKED!</h1>
 
 <div class="alert alert-warning">
-  <p>Your <strong>Priority Preview Event Appointment</strong> has been booked.
+  <p>Your <strong>Purchasing Appointment</strong> has been booked.
     <strong>Please note this information below.</strong>
   </p>
 </div>

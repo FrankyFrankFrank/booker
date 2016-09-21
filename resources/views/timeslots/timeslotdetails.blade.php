@@ -29,7 +29,7 @@
       <ol>
         <li>A $5000 deposit cheque</li>
         <li>
-          Government ID for all homebuyers on the title
+          Government photo ID for all homebuyers on the title
         </li>
         <li>
           A “Confirmation of Cooperation and Representation” form, if represented by an agent
