@@ -43,12 +43,12 @@ Route::get('/usage', function(){
   return view('pages.privacy_terms');
 });
 
-Route::group(['middleware' => ['auth', 'hasrole:Admin']], function() {
+Route::get('autologin/{token}', [
+  'as' => 'autologin',
+  'uses' => '\Watson\Autologin\AutologinController@autologin'
+]);
 
-  Route::get('autologin/{token}', [
-    'as' => 'autologin',
-    'uses' => '\Watson\Autologin\AutoLoginController@autologin'
-  ]);
+Route::group(['middleware' => ['auth', 'hasrole:Admin']], function() {
 
   Route::get('generate_auto_login/user/{id}', 'AutoLoginGenerator@generate')
   ->name('generatelogin');
