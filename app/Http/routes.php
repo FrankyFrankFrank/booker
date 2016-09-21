@@ -50,10 +50,10 @@ Route::group(['middleware' => ['auth', 'hasrole:Admin']], function() {
     'uses' => '\Watson\Autologin\AutologinController@autologin'
   ]);
 
-  Route::get('generate_auto_login/user/{id}', 'AutologinGenerator@generate')
+  Route::get('generate_auto_login/user/{id}', 'AutoLoginGenerator@generate')
   ->name('generatelogin');
 
-  Route::get('generate_auto_login/index', 'AutologinGenerator@index')
+  Route::get('generate_auto_login/index', 'AutoLoginGenerator@index')
   ->name('indexgeneratedlogins');
 
   Route::get('/design', function() {
