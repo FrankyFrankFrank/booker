@@ -24,8 +24,9 @@ class RegistrantsSeeder extends Seeder
             'email' => $reg['email'],
             'password' => bcrypt($reg['password']),
           ])->roles()->attach(3);
+          echo $reg['name'] . " SUCCESS \r\n";
         } catch (Exception $e) {
-          echo $reg['name'] . " error \r\n" ;
+          echo $reg['name'] . " error \r\n" . $e->getCode() . "\r\n";
         }
       });
 
