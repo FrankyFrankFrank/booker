@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body">
           <p>
-            <strong>Cancelling your appointment will make it available to everybody</strong>. You will be allowed to book another time slot if it is available. An appointment which was previously available may be booked by another user by this time.
+            <strong>Cancelling your appointment will make it available to all other visitors</strong>. You will be able to book another time slot if it is available. An appointment which was previously available may be booked by another user by this time.
           </p>
         </div>
         <div class="modal-footer">

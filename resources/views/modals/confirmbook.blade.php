@@ -16,7 +16,7 @@
         @endif
         <h4>Limitations</h4>
         <p>
-          Booking an appointment does not guarantee the opportunity to purchase; lots will be sold on a first-come, first-serve basis and may be sold before your appointment date. Appointments are limited, therefore one buyer is allowed per appointment and one appointment is allowed per email address. No customizations will be available on floor plans.
+          Booking an appointment does not guarantee the opportunity to purchase; homes will be sold on a first-come, first-serve basis and may be sold before your appointment date. Appointments are limited, therefore one buyer is allowed per appointment and one appointment is allowed per email address. No customizations will be available on floor plans.
         </p>
         <p>
           Only one purchase per buyer will be permitted.
