@@ -9,6 +9,10 @@
     <strong>Please note this information below.</strong>
   </p>
 </div>
+<div class="alert alert-info">
+  <p>Please <strong>check your inbox SPAM folder</strong> for your confirmation. If marked as spam, please unmark it.
+  </p>
+</div>
 
 <hr>
 
