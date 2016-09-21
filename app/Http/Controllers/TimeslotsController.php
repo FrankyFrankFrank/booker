@@ -174,8 +174,8 @@ class TimeslotsController extends Controller
 
     if(!$timeslot->visitor_id == null)
     {
-      $errors = "Another visitor has booked this timeslot already. Please try another timeslot.";
-      return redirect('/timeslots')->with('errors', $errors);
+      $bookederror = "Another visitor has booked this timeslot already. Please try another timeslot.";
+      return redirect('/timeslots')->with('bookederror', $bookederror);
     }
 
     else
