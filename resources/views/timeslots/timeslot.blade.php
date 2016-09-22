@@ -27,7 +27,7 @@
 
     @endif
 
-    @if( $timeslot->agent_id == auth()->user()->id )
+    @if( $timeslot->agent_id == auth()->user()->id || auth()->user()->hasRole('Admin') )
     </p>
 
       @if(!$timeslot->visitor_id == null)
