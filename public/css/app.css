@@ -5769,10 +5769,7 @@ hr {
   .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
     color: #ffffff; }
   .navbar-inverse .navbar-brand {
-    background-color: #d25627;
     padding: 11px 15px; }
-    .navbar-inverse .navbar-brand:hover {
-      background-color: #d25627; }
 
 .navbar-inverse .navbar-toggle {
   border: none; }
