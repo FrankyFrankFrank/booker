@@ -14,9 +14,9 @@
   <div class="row">
     <div class="col-md-12">
 
-    @if(isset($bookederror))
+    @if(session('bookederror'))
     <div class="alert alert-danger">
-      <strong><span class="glyphicon glyphicon-warning-sign"></span> Error:</strong> {{ $bookederror }}
+      <strong><span class="glyphicon glyphicon-warning-sign"></span> Error:</strong> {{ session('bookederror') }}
     </div>
     @endif
 
