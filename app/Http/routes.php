@@ -60,4 +60,6 @@ Route::group(['middleware' => ['auth', 'hasrole:Admin']], function() {
     return view('design.swatch1');
   });
 
+  Route::get('/admin/schedule', 'AdminController@index');
+
 });
