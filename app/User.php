@@ -59,6 +59,11 @@ class User extends Authenticatable
       return $this->roles()->attach($role->id);
     }
 
+    public function canCreateTimeslots()
+    {
+      return ( $this->hasRole('Admin') || $this->hasRole('Agent') );
+    }
+
     // Has many timeslots
     public function timeslots()
     {

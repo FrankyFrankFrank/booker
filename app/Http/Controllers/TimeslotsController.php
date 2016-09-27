@@ -53,17 +53,14 @@ class TimeslotsController extends Controller
   public function create()
   {
 
-    if (auth()->user()->hasRole('Agent') || auth()->user()->hasRole('Admin'))
+    if (!auth()->user()->canCreateTimeslots())
     {
-
-      $allAgents = User::agents();
-
-      return view('timeslots.create', ['agents' => $allAgents ]);
-
+      return redirect('timeslots');
     }
     else
     {
-      return redirect('timeslots');
+      $allAgents = User::agents();
+      return view('timeslots.create', ['agents' => $allAgents ]);
     }
 
   }
