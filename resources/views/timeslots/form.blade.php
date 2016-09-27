@@ -4,9 +4,9 @@
 <div class="form-group">
   {!! Form::label('agent_id', 'Agent:') !!}
   <select name="agent_id" placeholder="Choose an agent" class="form-control">
-  @foreach($agents as $agent)
+    @foreach($agents as $agent)
     <option value="{{ $agent->id }}">{{ $agent->name }}</option>
-  @endforeach
+    @endforeach
   </select>
 </div>
 @else
