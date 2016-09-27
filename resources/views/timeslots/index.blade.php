@@ -3,7 +3,7 @@
 @section('content')
 
   {{-- If User is an agent show create new timeslot --}}
-  @if (auth()->user()->hasRole('Agent'))
+  @if (auth()->user()->canCreateTimeslots())
   <div class="toolbar row">
     <div class="col-md-12">
           <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>

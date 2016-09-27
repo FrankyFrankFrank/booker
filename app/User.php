@@ -61,7 +61,7 @@ class User extends Authenticatable
 
     public function canCreateTimeslots()
     {
-      return ( $this->hasRole('Admin') || $this->hasRole('Agent') );
+      return ( $this->hasRole('Admin') or $this->hasRole('Agent') );
     }
 
     // Has many timeslots
