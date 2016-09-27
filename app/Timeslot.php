@@ -92,7 +92,13 @@ class Timeslot extends Model
 
     }
 
-    // Timeslot belongs to agents
+    // Timeslot Creator
+    public function creator()
+    {
+      return $this->belongsTo('App\User', 'user_id');
+    }
+
+    // Timeslot belongs to agent
     public function agent()
     {
       return $this->belongsTo('App\User', 'agent_id');

@@ -64,6 +64,12 @@ class User extends Authenticatable
       return ( $this->hasRole('Admin') or $this->hasRole('Agent') );
     }
 
+    // Get timeslots which this user created
+    public function createdTimeslots()
+    {
+      return $this->hasMany('App\Timeslot', 'user_id');
+    }
+
     // Has many timeslots
     public function timeslots()
     {
