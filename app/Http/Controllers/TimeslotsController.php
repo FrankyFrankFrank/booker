@@ -60,7 +60,7 @@ class TimeslotsController extends Controller
     else
     {
       $allAgents = User::agents();
-      return view('timeslots.create', ['agents' => $allAgents ]);
+      return view('timeslots.create', ['agents' => $allAgents]);
     }
 
   }
@@ -70,8 +70,8 @@ class TimeslotsController extends Controller
 
   public function store(TimeslotRequest $request)
   {
-    $timeslot = new Timeslot($request->all());
-    $timeslot->save();
+
+    $timeslot = auth()->user()->createdTimeslots()->create($request->only('agent_id', 'date', 'time'));
 
     if ($request->input('save_and_create'))
     {
