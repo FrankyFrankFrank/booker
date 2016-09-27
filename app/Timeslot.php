@@ -110,4 +110,24 @@ class Timeslot extends Model
       return $this->belongsTo('App\Project');
     }
 
+    public function availableByDay()
+    {
+      return $this->orderBy('date', 'asc')
+        ->orderBy('time', 'asc')
+        ->unassigned()
+        ->future()
+        ->get()
+        ->groupBy('date');
+    }
+
+    public function unavailableByDay()
+    {
+      return $this->orderBy('date', 'asc')
+        ->orderBy('time', 'asc')
+        ->assigned()
+        ->future()
+        ->get()
+        ->groupBy('date');
+    }
+
 }

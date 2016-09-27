@@ -36,20 +36,9 @@ class TimeslotsController extends Controller
       return redirect('/your_timeslot');
     }
 
-    $availableTimeslotsByDay =
-    Timeslot::orderBy('date', 'asc')
-    ->orderBy('time', 'asc')
-    ->unassigned()
-    ->future()
-    ->get()
-    ->groupBy('date');
+    $availableTimeslotsByDay = Timeslot::availableByDay();
 
-    $unavailableTimeslotsByDay =
-    Timeslot::orderBy('date', 'asc')
-    ->orderBy('time', 'asc')
-    ->assigned()
-    ->get()
-    ->groupBy('date');
+    $unavailableTimeslotsByDay = Timeslot::unavailableByDay();
 
     return view('timeslots.index', [
       'availableTimeslotsByDay' => $availableTimeslotsByDay,
