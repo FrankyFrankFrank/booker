@@ -110,9 +110,9 @@ class Timeslot extends Model
       return $this->belongsTo('App\Project');
     }
 
-    public function availableByDay()
+    public static function availableByDay()
     {
-      return $this->orderBy('date', 'asc')
+      return self::orderBy('date', 'asc')
         ->orderBy('time', 'asc')
         ->unassigned()
         ->future()
@@ -120,9 +120,9 @@ class Timeslot extends Model
         ->groupBy('date');
     }
 
-    public function unavailableByDay()
+    public static function unavailableByDay()
     {
-      return $this->orderBy('date', 'asc')
+      return self::orderBy('date', 'asc')
         ->orderBy('time', 'asc')
         ->assigned()
         ->future()
