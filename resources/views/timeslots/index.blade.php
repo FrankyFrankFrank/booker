@@ -20,14 +20,28 @@
     </div>
     @endif
 
+    <div class="day-selector">
+    <h2>Available Dates</h2>
+    @forelse ($availableTimeslotsByDay as $day => $timeslots)
+      <div class="day">
+        <div class="weekday">{{ date("l", strtotime($day)) }}</div>
+        <div class="month">{{ date("F", strtotime($day)) }}</div>
+        <div class="date">{{ date("j", strtotime($day)) }}</div>
+      </div>
+    @empty
+    @endforelse
+    </div>
+
       <div class="row">
         <div class="col-md-4 heading-available">
           <h2>Available Time Slots</h2>
         </div>
       </div>
 
+
       {{-- List all available timeslots by day if exists --}}
       @forelse ($availableTimeslotsByDay as $day => $timeslots)
+
 
       <div class="timeslot-day-row row">
 

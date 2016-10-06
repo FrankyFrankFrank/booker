@@ -56,12 +56,8 @@ class Timeslot extends Model
       // Last Cancellation Date
       $x = Carbon::parse($this->date . " " . $this->time)->subHours(24);
       // Run Check
-      if (Carbon::now() > $x)
-      {
-        return false;
-      } else {
-        return true;
-      }
+      return Carbon::now() > $x;
+
     }
 
     // Scope where the timeslot belongs to the logged in agent
