@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ url('css/app.css') }}">
   @include('projects.style')
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="{{ asset('/js/app.js') }}"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
   <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 
 </head>
@@ -35,9 +35,11 @@
   <a href="{{ url('/usage') }}#terms" title="Terms and Conditions">Terms and Conditions</a>
 </footer>
 
+<script src="{{ asset('/js/app.js') }}"></script>
+@yield('extra-scripts')
+
 </body>
 
 
-@yield('extra-scripts')
 
 </html>

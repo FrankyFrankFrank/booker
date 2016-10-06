@@ -21,7 +21,7 @@
     @endif
 
     <div class="day-selector">
-    <h2>Available Dates</h2>
+    <h2 v-if="foo">Available Dates</h2>
     @forelse ($availableTimeslotsByDay as $day => $timeslots)
       <div class="day">
         <div class="weekday">{{ date("l", strtotime($day)) }}</div>
@@ -30,6 +30,7 @@
       </div>
     @empty
     @endforelse
+
     </div>
 
       <div class="row">
