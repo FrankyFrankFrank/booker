@@ -21,15 +21,22 @@
     @endif
 
     <div class="day-selector">
-    <h2 v-if="foo">Available Dates</h2>
-    @forelse ($availableTimeslotsByDay as $day => $timeslots)
-      <div class="day">
-        <div class="weekday">{{ date("l", strtotime($day)) }}</div>
-        <div class="month">{{ date("F", strtotime($day)) }}</div>
-        <div class="date">{{ date("j", strtotime($day)) }}</div>
-      </div>
-    @empty
-    @endforelse
+
+      @if($availableTimeslotsByDay)
+
+        <h2>Available Timeslots</h2>
+        @foreach($availableTimeslotsByDay as $day => $timeslot)
+          <div class="day">
+            <div class="weekday">{{ date("l", strtotime($day)) }}</div>
+            <div class="month">{{ date("F", strtotime($day)) }}</div>
+            <div class="date">{{ date("j", strtotime($day)) }}</div>
+          </div>
+        @endforeach
+
+      @endif
+
+      <!--End Day List-->
+
 
     </div>
 

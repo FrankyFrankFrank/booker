@@ -4,8 +4,13 @@
 var vm = new Vue({
   el: '.day-selector',
   data: {
-    foo: true
+    days: []
+  },
+
+  ready: function ready() {
+    this.days = window.availableDays;
   }
+
 });
 
 },{}]},{},[1]);
