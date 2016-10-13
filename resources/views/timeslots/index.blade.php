@@ -5,7 +5,7 @@
   {{-- If User is an agent show create new timeslot --}}
   @if (auth()->user()->canCreateTimeslots())
   <div class="toolbar row">
-    <div class="col-md-12">
+    <div class="col-md-12 text-right">
           <a href="/timeslots/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Create New Timeslot</a>
     </div>
   </div>
@@ -22,105 +22,105 @@
 
     <div class="day-selector">
 
-      @if($availableTimeslotsByDay)
+    @if($availableTimeslotsByDay)
+    <div class="row">
+      @foreach($availableTimeslotsByDay as $day => $timeslot)
+      <div class="day" v-bind:class="{active: selected == '{{ $day }}' }" @click="selectDay('{{ $day }}')">
+        <div class="weekday">{{ date("l", strtotime($day)) }}</div>
+        <div class="month">{{ date("F", strtotime($day)) }}</div>
+        <div class="date">{{ date("j", strtotime($day)) }}</div>
+      </div>
+      @endforeach
+    </div>
 
-        <h2>Available Timeslots</h2>
-        @foreach($availableTimeslotsByDay as $day => $timeslot)
-          <div class="day">
-            <div class="weekday">{{ date("l", strtotime($day)) }}</div>
-            <div class="month">{{ date("F", strtotime($day)) }}</div>
-            <div class="date">{{ date("j", strtotime($day)) }}</div>
-          </div>
+    @endif
+
+
+    <div class="row">
+      <div class="col-md-4 heading-available">
+        <h2>Available Time Slots <span v-if="selected">For: <br />@{{ selectedInWords }}</span></h2>
+        <button class="btn btn-warning" v-if="selected" @click="selectDay(false)">Show All Dates</button>
+      </div>
+    </div>
+
+
+    {{-- List all available timeslots by day if exists --}}
+    @forelse ($availableTimeslotsByDay as $day => $timeslots)
+
+
+    <div v-if="selected == '{{ $day }}'  || selected == false" class="timeslot-day-row row">
+
+      {{-- Include the timeslots --}}
+      @foreach($timeslots->chunk(3) as $timeslotChunk)
+
+        @foreach($timeslotChunk as $timeslot)
+          @include('timeslots.timeslot')
         @endforeach
 
-      @endif
+        <div class="clearfix"></div>
 
-      <!--End Day List-->
+      @endforeach
 
+      {{-- Delimits the Date Group --}}
+      <div class="datebreaker col-md-12">
+      </div>
 
     </div>
 
-      <div class="row">
-        <div class="col-md-4 heading-available">
-          <h2>Available Time Slots</h2>
+    @empty
+
+    {{-- If no timeslots or if all timeslots are booked --}}
+    <div class="row">
+      <div class="col-md-4">
+        <div class="alert alert-info">
+          @if(auth()->user()->hasRole('Agent'))All @else We're sorry. All @endif timeslots are currently booked.
         </div>
       </div>
+    </div>
+
+    @endforelse
+    {{-- End List all available timeslots by day if exists --}}
+
+    </div>
 
 
-      {{-- List all available timeslots by day if exists --}}
-      @forelse ($availableTimeslotsByDay as $day => $timeslots)
+    <br>
 
+    {{-- Show Booked Timeslots If User is Agent or Admin --}}
 
-      <div class="timeslot-day-row row">
+    {{-- Check User Role --}}
+    @if (auth()->user()->hasRole('Agent'))
 
-        {{-- Include the timeslots --}}
-        @foreach($timeslots->chunk(3) as $timeslotChunk)
-
-          @foreach($timeslotChunk as $timeslot)
-            @include('timeslots.timeslot')
-          @endforeach
-
-          <div class="clearfix"></div>
-
-        @endforeach
-
-        {{-- Delimits the Date Group --}}
-        <div class="datebreaker col-md-12">
-        </div>
-
+    <div class="row">
+      <div class="col-md-4 heading-unavailable">
+        <h2>Booked Timeslots</h2>
       </div>
+    </div>
 
-      @empty
+    {{-- Show unavailable timeslots and group them by day --}}
+    @forelse ($unavailableTimeslotsByDay as $day => $timeslots)
 
-      {{-- If no timeslots or if all timeslots are booked --}}
-      <div class="row">
-        <div class="col-md-4">
-          <div class="alert alert-info">
-            @if(auth()->user()->hasRole('Agent'))All @else We're sorry. All @endif timeslots are currently booked.
-          </div>
-        </div>
-      </div>
+    <div class="timeslot-day-row row">
 
-      @endforelse
-      {{-- End List all available timeslots by day if exists --}}
+      @foreach($timeslots->chunk(3) as $timeslotChunk)
 
-      <br>
+      {{-- Include the timeslots --}}
+      @foreach($timeslotChunk as $timeslot)
+        @include('timeslots.timeslot')
+      @endforeach
 
-      {{-- Show Booked Timeslots If User is Agent or Admin --}}
+      <div class="clearfix"></div>
 
-      {{-- Check User Role --}}
-      @if (auth()->user()->hasRole('Agent'))
+      @endforeach
 
-        <div class="row">
-          <div class="col-md-4 heading-unavailable">
-            <h2>Booked Timeslots</h2>
-          </div>
-        </div>
+    </div>
 
-        {{-- Show unavailable timeslots and group them by day --}}
-        @forelse ($unavailableTimeslotsByDay as $day => $timeslots)
+    @empty
 
-        <div class="timeslot-day-row row">
+    @endforelse
 
-          @foreach($timeslots->chunk(3) as $timeslotChunk)
-
-          {{-- Include the timeslots --}}
-          @foreach($timeslotChunk as $timeslot)
-            @include('timeslots.timeslot')
-          @endforeach
-
-          <div class="clearfix"></div>
-
-          @endforeach
-
-        </div>
-
-        @empty
-
-        @endforelse
-
-      @endif
-      {{-- End Show Booked Timeslots --}}
+    @endif
+    {{-- End Show Booked Timeslots --}}
 
     </div>
   </div>
