@@ -23,7 +23,8 @@
     <div class="day-selector">
 
     @if($availableTimeslotsByDay)
-    <div class="row">
+    <div class="row available-days">
+      <h4>Filter by Day</h4>
       @foreach($availableTimeslotsByDay as $day => $timeslot)
       <div class="day" v-bind:class="{active: selected == '{{ $day }}' }" @click="selectDay('{{ $day }}')">
         <div class="weekday">{{ date("l", strtotime($day)) }}</div>
