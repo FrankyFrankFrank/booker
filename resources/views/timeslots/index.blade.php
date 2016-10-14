@@ -26,12 +26,11 @@
     <div class="row available-days">
       <h4>Filter by Day</h4>
       @foreach($availableTimeslotsByDay as $day => $timeslot)
-      <div class="day" v-bind:class="{active: selected == '{{ $day }}' }" @click="selectDay('{{ $day }}')">
-        <div class="weekday">{{ date("l", strtotime($day)) }}</div>
-        <div class="month">{{ date("F", strtotime($day)) }}</div>
-        <div class="date">{{ date("j", strtotime($day)) }}</div>
-      </div>
+      <button class="btn btn-primary" v-bind:class="{active: selected == '{{ $day }}' }" @click="selectDay('{{ $day }}')">
+        {{ date("l, F j", strtotime($day)) }}
+      </button>
       @endforeach
+      <button class="btn btn-warning" v-if="selected" @click="selectDay(false)">Show All Dates</button>
     </div>
 
     @endif
@@ -40,7 +39,6 @@
     <div class="row">
       <div class="col-md-4 heading-available">
         <h2>Available Time Slots <span v-if="selected">For: <br />@{{ selectedInWords }}</span></h2>
-        <button class="btn btn-warning" v-if="selected" @click="selectDay(false)">Show All Dates</button>
       </div>
     </div>
 
@@ -83,9 +81,6 @@
     {{-- End List all available timeslots by day if exists --}}
 
     </div>
-
-
-    <br>
 
     {{-- Show Booked Timeslots If User is Agent or Admin --}}
 

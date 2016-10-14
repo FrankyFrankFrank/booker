@@ -5747,6 +5747,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   /*font-family: 'Droid Serif', serif;*/ }
 
+h2 {
+  font-size: 26px; }
+
 a {
   color: #7e4884; }
 
@@ -5830,26 +5833,11 @@ footer {
       text-decoration: none; }
 
 .day-selector .available-days {
-  margin: 4px 0 20px; }
+  margin: 0 0 20px; }
   .day-selector .available-days h4 {
     border-bottom: 1px #d5dcd6 solid; }
-
-.day-selector .day {
-  border: 4px solid #27ae60;
-  border-radius: 50%;
-  cursor: pointer;
-  display: inline-block;
-  margin: 5px 6px;
-  padding: 17px 31px 3px;
-  text-align: center; }
-  .day-selector .day:hover, .day-selector .day:focus, .day-selector .day.active {
-    background-color: #27ae60;
-    color: #ffffff; }
-  .day-selector .day .month {
-    font-weight: 600; }
-  .day-selector .day .date {
-    font-size: 3em;
-    margin-top: -7px; }
+  .day-selector .available-days button {
+    margin: 2px 0; }
 
 .heading-available, .heading-unavailable {
   text-align: center;
@@ -5935,10 +5923,6 @@ footer {
   height: 95vh;
   overflow: scroll;
   padding-top: 22px; }
-
-.toolbar {
-  padding-top: 7px;
-  padding-bottom: 10px; }
 
 .datebreaker {
   height: 12px; }
