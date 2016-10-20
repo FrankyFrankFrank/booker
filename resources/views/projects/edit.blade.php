@@ -39,10 +39,10 @@
 
 @section ('extra-scripts')
 
-  <script>
+  {{-- <script>
   $(document).ready( function () {
     $('.colour-picker').colorpicker();
   });
-  </script>
+  </script> --}}
 
 @endsection
