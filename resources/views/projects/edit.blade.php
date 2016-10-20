@@ -36,13 +36,3 @@
   </div>
 
 @endsection
-
-@section ('extra-scripts')
-
-  {{-- <script>
-  $(document).ready( function () {
-    $('.colour-picker').colorpicker();
-  });
-  </script> --}}
-
-@endsection
