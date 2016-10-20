@@ -5907,8 +5907,6 @@ footer {
   justify-content: flex-start; }
   .sidebar .top {
     padding-top: 20px; }
-    .sidebar .top .logo {
-      max-width: 160px; }
   .sidebar .bottom {
     padding-top: 20px;
     padding-bottom: 20px; }
