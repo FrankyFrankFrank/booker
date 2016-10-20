@@ -122,3 +122,7 @@
   </div>
 
 @endsection
+
+@section('extra-scripts')
+  <script src="{{ asset('/js/app.js') }}"></script>
+@endsection
