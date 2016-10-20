@@ -5837,7 +5837,8 @@ footer {
   .day-selector .available-days h4 {
     border-bottom: 1px #d5dcd6 solid; }
   .day-selector .available-days button {
-    margin: 2px 0; }
+    margin: 2px 1px;
+    border-radius: 18px; }
 
 .heading-available, .heading-unavailable {
   text-align: center;
