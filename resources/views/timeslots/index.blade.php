@@ -27,7 +27,7 @@
       <h4>Filter by Day</h4>
       @foreach($availableTimeslotsByDay as $day => $timeslot)
       <button class="btn btn-primary" v-bind:class="{active: selected == '{{ $day }}' }" @click="selectDay('{{ $day }}')">
-        {{ date("l, F j", strtotime($day)) }}
+        {{ date("D, F j", strtotime($day)) }}
       </button>
       @endforeach
       <button class="btn btn-warning" v-if="selected" @click="selectDay(false)">Show All Dates</button>
