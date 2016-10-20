@@ -11,7 +11,7 @@
             <div class="col-md-6">
               @if(isset($timeslot))
                 <div class="alert alert-success" role="alert">
-                  You've created a new timeslot on {{$timeslot->date}} at {{ $timeslot->time }}.
+                  You've created a new timeslot on {{ date("l, F j", strtotime($timeslot->date)) }} at {{ date("g:i a", strtotime($timeslot->time)) }}.
                 </div>
               @endif
 
