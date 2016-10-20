@@ -35,6 +35,7 @@
   <a href="{{ url('/usage') }}#terms" title="Terms and Conditions">Terms and Conditions</a>
 </footer>
 
+<script src="{{ asset('/js/app.js') }}"></script>
 @yield('extra-scripts')
 
 </body>
