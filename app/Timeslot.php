@@ -53,10 +53,9 @@ class Timeslot extends Model
     // Timeslot Cancellation Eligibility
     public function canCancel()
     {
-      // Last Cancellation Date
-      $x = Carbon::parse($this->date . " " . $this->time)->subHours(24);
-      // Run Check
-      return Carbon::now() > $x;
+      $carbondate = Carbon::parse($this->date . " " . $this->time);
+      // Check difference in hours from now to appointment is greater than 24
+      return Carbon::now()->diffInHours($carbondate, false) > 24;
 
     }
 
