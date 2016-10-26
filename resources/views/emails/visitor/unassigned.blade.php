@@ -15,5 +15,8 @@
   If you would like to reschedule, please do so now by clicking on the original link sent to you in your invitation email.
 </p>
 <p>
+  This email was automatically generated, do not reply.
+</p>
+<p>
   itsbooked.online
 </p>

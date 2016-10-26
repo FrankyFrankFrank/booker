@@ -46,7 +46,7 @@ class EmailCancelled
            $agent->email,
            $agent->name
          )
-         ->subject('An appointment on ' . date("D, M j", strtotime($timeslot->date)) . ' was cancelled');
+         ->subject('Do Not Reply: An appointment on ' . date("D, M j", strtotime($timeslot->date)) . ' was cancelled');
        });
 
        Mail::send('emails.visitor.unassigned', ['user' => $user, 'timeslot' => $timeslot], function ($m) use ($user, $agent, $project, $timeslot) {
@@ -58,7 +58,7 @@ class EmailCancelled
            $user->email,
            $user->name
          )
-         ->subject('Sales Centre Appointment Cancelled');
+         ->subject('Do Not Reply: Sales Centre Appointment Cancelled');
        });
      }
 }

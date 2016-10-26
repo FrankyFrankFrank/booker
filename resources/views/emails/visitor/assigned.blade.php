@@ -23,5 +23,8 @@
   Please arrive 10 minutes prior to your appointment. Late arrival may result in the cancellation of your appointment. If you cannot make your appointment, please use your original login link to cancel 24 hours prior to your scheduled time. Late cancellations will not be able to reschedule.
 </p>
 <p>
+  This email was automatically generated, do not reply.
+</p>
+<p>
   itsbooked.online
 </p>

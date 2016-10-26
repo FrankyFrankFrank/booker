@@ -46,7 +46,7 @@ class EmailBooked
            $agent->name
          )
          ->subject(
-           'Sales Centre Appointment Booked'
+           'Do Not Reply: Sales Centre Appointment Booked'
          );
        });
 
@@ -60,7 +60,7 @@ class EmailBooked
            $user->name
          )
          ->subject(
-           'Sales Centre Appointment Booked'
+           'Do Not Reply: Sales Centre Appointment Booked'
          );
        });
      }

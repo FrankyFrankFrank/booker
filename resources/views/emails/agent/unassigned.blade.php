@@ -11,3 +11,6 @@
     Time: {{ date("g:i a", strtotime($timeslot->time)) }}
   </li>
 </ul>
+<p>
+  This email was automatically generated, do not reply.
+</p>

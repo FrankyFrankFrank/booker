@@ -22,5 +22,8 @@
   To View Your Appointment Schedule, log in <a href="{{ url('/') }}">here</a>.
 </p>
 <p>
+  This email was automatically generated, do not reply.
+</p>
+<p>
   itsbooked.online
 </p>
