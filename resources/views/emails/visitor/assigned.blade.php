@@ -9,6 +9,9 @@
 <h4>You are required to bring:</h4>
 <ul>
   <li>
+    Proof of financing from a recognized financial institution or lender. <strong>We do not accept statements from mortgage brokers.</strong>
+  </li>
+  <li>
     A $5000 deposit cheque
   </li>
   <li>

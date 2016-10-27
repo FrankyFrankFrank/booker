@@ -27,6 +27,9 @@
     <div class="list-group-item">
       <dt class="text-info"><span class="glyphicon glyphicon-alert"></span> You are Required to Bring</dt>
       <ol>
+        <li>
+          Proof of financing from a recognized financial institution or lender. <strong>We do not accept statements from mortgage brokers.</strong>
+        </li>
         <li>A $5000 deposit cheque</li>
         <li>
           Government photo ID for all homebuyers on the title
