@@ -15,10 +15,10 @@ class CreateInitialProject extends Migration
     public function up()
     {
       Project::create([
-        'name' => 'Grasslands of Stauffer Woods',
+        'name' => 'Doon South',
         'logo' => 'img/project-logo-default.png',
-        'main_color' => '#2c3e50',
-        'alt_color' => '#d25627',
+        'main_color' => '#2F2235',
+        'alt_color' => '#c39a6b',
       ]);
     }
 
