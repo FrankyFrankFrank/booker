@@ -20,13 +20,13 @@ class RegistrantsSeeder extends Seeder
       $registrants->each( function($reg) {
         try{
           User::create([
-            'name' => $reg['name'],
-            'email' => $reg['email'],
+            'name' => ucfirst(strtolower($reg['firstname'])) . " " . ucfirst(strtolower($reg['lastname'])),
+            'email' => strtolower($reg['email']),
             'password' => bcrypt($reg['password']),
           ])->roles()->attach(3);
-          echo $reg['name'] . " SUCCESS \r\n";
+          echo $reg['firstname'] . $reg['lastname'] . " SUCCESS \r\n";
         } catch (Exception $e) {
-          echo $reg['name'] . " error \r\n" . $e->getCode() . "\r\n";
+          echo $reg['firstname'] . $reg['lastname'] . " error \r\n" . $e->getMessage() . "\r\n";
         }
       });
 
