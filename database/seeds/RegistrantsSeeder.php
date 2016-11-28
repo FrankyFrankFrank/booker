@@ -20,7 +20,7 @@ class RegistrantsSeeder extends Seeder
       $registrants->each( function($reg) {
         try{
           User::create([
-            'name' => ucfirst(strtolower($reg['firstname'])) . " " . ucfirst(strtolower($reg['lastname'])),
+            'name' => ucwords(strtolower($reg['firstname'])) . " " . ucwords(strtolower($reg['lastname'])),
             'email' => strtolower($reg['email']),
             'password' => bcrypt($reg['password']),
           ])->roles()->attach(3);
