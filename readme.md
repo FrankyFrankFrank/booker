@@ -8,12 +8,12 @@ Email notifications for confirmation and cancellation!
 #Registrants Seeder
 
 To seed a JSON list of appointment registrants use artisan command:
-'php artisan db:seed --class="RegistrantsSeeder"'
+`php artisan db:seed --class="RegistrantsSeeder"`
 
-This will seed the database from a JSON file located in your project directory you should name 'registrants.json'
+This will seed the database from a JSON file located in your project directory you should name `registrants.json`
 
 Format the JSON as below
-'''
+```
 {
 "users": [
   {
@@ -23,5 +23,5 @@ Format the JSON as below
     "password":"5Y>3mkQ?"
  }
 }
-'''
+```
 The seeder will create a hash from the password provided.
